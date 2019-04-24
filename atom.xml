@@ -37,29 +37,4 @@
     
   </entry>
   
-  <entry>
-    <title>AnyConnect问题的解决</title>
-    <link href="https://albert-5.github.io/albert-5/2019/02/18/2019-02-18-AnyConnect/"/>
-    <id>https://albert-5.github.io/albert-5/2019/02/18/2019-02-18-AnyConnect/</id>
-    <published>2019-02-17T16:00:00.000Z</published>
-    <updated>2019-04-24T13:04:36.145Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="最近发现使用Cisco-AnyConnect在Win10上系统上连接VPN时，会出现anyconnect-was-not-able-to-establish-a-connection-to-the-specified-secure-gateway问题导致无法成功连接VPN，错误提示如下所示"><a href="#最近发现使用Cisco-AnyConnect在Win10上系统上连接VPN时，会出现anyconnect-was-not-able-to-establish-a-connection-to-the-specified-secure-gateway问题导致无法成功连接VPN，错误提示如下所示" class="headerlink" title="最近发现使用Cisco AnyConnect在Win10上系统上连接VPN时，会出现anyconnect was not able to establish a connection to the specified secure gateway问题导致无法成功连接VPN，错误提示如下所示"></a>最近发现使用Cisco AnyConnect在Win10上系统上连接VPN时，会出现anyconnect was not able to establish a connection to the specified secure gateway问题导致无法成功连接VPN，错误提示如下所示</h4><blockquote><p><strong>problem:</strong></p><p><strong>AnyConnect was not able to establish a connection to the specified secure gateway. Please try connecting again.</strong></p></blockquote><p>其实解决方法也是很简单的，只需要：</p><blockquote><p><strong>此电脑</strong>鼠标右击 -&gt;<strong>管理</strong> -&gt;<strong>服务于应用程序</strong> -&gt; <strong>服务</strong></p><p><strong>-&gt; 禁用图中的 Internet Connection Sharing即可</strong></p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="/images/posts/markdown/2_18.jpg" alt="2_18.jpg" title>                </div>                <div class="image-caption">2_18.jpg</div>            </figure></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;最近发现使用Cisco-AnyConnect在Win10上系统上连接VPN时，会出现anyconnect-was-not-able-to-establish-a-connection-to-the-specified-secure-gateway问题导致无法成功连
-      
-    
-    </summary>
-    
-      <category term="Questions" scheme="https://albert-5.github.io/albert-5/categories/Questions/"/>
-    
-    
-      <category term="疑难杂症" scheme="https://albert-5.github.io/albert-5/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/"/>
-    
-  </entry>
-  
 </feed>
