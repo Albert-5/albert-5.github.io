@@ -304,6 +304,36 @@
 
 
 	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+   
+   
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+        console.log("Valine done!")
+         
+    </script>
+     </section>
+    <!-- Valine Comments end -->
+
 
 	
 
