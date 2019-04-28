@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://albert-5.github.io/albert-5/"/>
+  <link href="https://albert-5.github.io/"/>
   <updated>2019-04-28T03:51:48.745Z</updated>
-  <id>https://albert-5.github.io/albert-5/</id>
+  <id>https://albert-5.github.io/</id>
   
   <author>
     <name>albert</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>toefl &amp; ielts</title>
-    <link href="https://albert-5.github.io/albert-5/2019/04/28/toefl-ielts/"/>
-    <id>https://albert-5.github.io/albert-5/2019/04/28/toefl-ielts/</id>
+    <link href="https://albert-5.github.io/2019/04/28/toefl-ielts/"/>
+    <id>https://albert-5.github.io/2019/04/28/toefl-ielts/</id>
     <published>2019-04-28T03:50:51.000Z</published>
     <updated>2019-04-28T03:51:48.745Z</updated>
     
@@ -34,19 +34,19 @@
     
     </summary>
     
-      <category term="English" scheme="https://albert-5.github.io/albert-5/categories/English/"/>
+      <category term="English" scheme="https://albert-5.github.io/categories/English/"/>
     
     
-      <category term="toefl" scheme="https://albert-5.github.io/albert-5/tags/toefl/"/>
+      <category term="toefl" scheme="https://albert-5.github.io/tags/toefl/"/>
     
-      <category term="ielts" scheme="https://albert-5.github.io/albert-5/tags/ielts/"/>
+      <category term="ielts" scheme="https://albert-5.github.io/tags/ielts/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://albert-5.github.io/albert-5/2019/04/22/hello-world/"/>
-    <id>https://albert-5.github.io/albert-5/2019/04/22/hello-world/</id>
+    <link href="https://albert-5.github.io/2019/04/22/hello-world/"/>
+    <id>https://albert-5.github.io/2019/04/22/hello-world/</id>
     <published>2019-04-22T15:42:22.451Z</published>
     <updated>2019-04-28T03:44:33.514Z</updated>
     
@@ -61,10 +61,10 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://albert-5.github.io/albert-5/categories/hexo/"/>
+      <category term="hexo" scheme="https://albert-5.github.io/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="https://albert-5.github.io/albert-5/tags/hexo/"/>
+      <category term="hexo" scheme="https://albert-5.github.io/tags/hexo/"/>
     
   </entry>
   
