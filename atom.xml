@@ -34,12 +34,12 @@
     
     </summary>
     
-      <category term="English" scheme="https://albert-5.github.io/albert-5/categories/categories-English/"/>
+      <category term="English" scheme="https://albert-5.github.io/albert-5/categories/English/"/>
     
     
-      <category term="toefl" scheme="https://albert-5.github.io/albert-5/tags/tags-toefl/"/>
+      <category term="toefl" scheme="https://albert-5.github.io/albert-5/tags/toefl/"/>
     
-      <category term="ielts" scheme="https://albert-5.github.io/albert-5/tags/tags-ielts/"/>
+      <category term="ielts" scheme="https://albert-5.github.io/albert-5/tags/ielts/"/>
     
   </entry>
   
@@ -61,10 +61,10 @@
     
     </summary>
     
-      <category term="hexo" scheme="https://albert-5.github.io/albert-5/categories/categories-hexo/"/>
+      <category term="hexo" scheme="https://albert-5.github.io/albert-5/categories/hexo/"/>
     
     
-      <category term="hexo" scheme="https://albert-5.github.io/albert-5/tags/tags-hexo/"/>
+      <category term="hexo" scheme="https://albert-5.github.io/albert-5/tags/hexo/"/>
     
   </entry>
   
