@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://albert-5.github.io/about/index.html</loc>
+    
+    <lastmod>2019-04-29T15:45:16.817Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://albert-5.github.io/2019/03/20/%E6%9F%A5%E6%89%BE%E7%AE%97%E6%B3%95/</loc>
     
     <lastmod>2019-04-29T09:58:07.060Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>https://albert-5.github.io/books/index.html</loc>
     
     <lastmod>2019-04-29T07:25:03.379Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://albert-5.github.io/about/index.html</loc>
-    
-    <lastmod>2019-04-28T09:58:30.681Z</lastmod>
     
   </url>
   
