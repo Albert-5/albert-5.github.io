@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://albert-5.github.io/picture/index.html</loc>
+    
+    <lastmod>2019-04-29T16:37:18.898Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://albert-5.github.io/about/index.html</loc>
     
     <lastmod>2019-04-29T16:29:10.308Z</lastmod>
@@ -96,13 +103,6 @@
     <loc>https://albert-5.github.io/desktop/index.html</loc>
     
     <lastmod>2019-04-27T12:38:41.756Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://albert-5.github.io/picture/index.html</loc>
-    
-    <lastmod>2019-04-27T12:38:19.381Z</lastmod>
     
   </url>
   
