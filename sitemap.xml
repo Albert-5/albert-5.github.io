@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://albert-5.github.io/game/index.html</loc>
+    <loc>https://albert-5.github.io/games/index.html</loc>
     
-    <lastmod>2019-04-29T05:48:01.657Z</lastmod>
+    <lastmod>2019-04-29T06:28:43.617Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://albert-5.github.io/movies/index.html</loc>
+    
+    <lastmod>2019-04-29T06:28:29.837Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://albert-5.github.io/books/index.html</loc>
+    
+    <lastmod>2019-04-29T06:28:15.663Z</lastmod>
     
   </url>
   
@@ -44,23 +58,9 @@
   </url>
   
   <url>
-    <loc>https://albert-5.github.io/book/index.html</loc>
-    
-    <lastmod>2019-04-27T12:38:52.649Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://albert-5.github.io/desktop/index.html</loc>
     
     <lastmod>2019-04-27T12:38:41.756Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://albert-5.github.io/film/index.html</loc>
-    
-    <lastmod>2019-04-27T12:38:30.520Z</lastmod>
     
   </url>
   
