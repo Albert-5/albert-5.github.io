@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://albert-5.github.io/"/>
-  <updated>2019-05-03T03:02:19.811Z</updated>
+  <updated>2019-05-06T07:44:38.866Z</updated>
   <id>https://albert-5.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>sublime配置有关问题</title>
+    <link href="https://albert-5.github.io/2019/05/06/sublime%E9%85%8D%E7%BD%AE%E6%9C%89%E5%85%B3%E9%97%AE%E9%A2%98/"/>
+    <id>https://albert-5.github.io/2019/05/06/sublime配置有关问题/</id>
+    <published>2019-05-06T07:42:54.000Z</published>
+    <updated>2019-05-06T07:44:38.866Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="Answer-amp-amp-Question"><a href="#Answer-amp-amp-Question" class="headerlink" title="Answer &amp;&amp; Question"></a>Answer &amp;&amp; Question</h2><h3 id="安装Package-Control"><a href="#安装Package-Control" class="headerlink" title="安装Package Control"></a>安装Package Control</h3><p><strong>安装Package Control有两种方式，第一种方式为：在控制台中输入安装命令。调出控制的方式为：Ctrl+`。Sublime Text2和Sublime Text 3的命令如下：</strong></p><p><strong>sublime text 2</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2,os,hashlib; h = <span class="string">'df21e130d211cfc94d9b0905775a7c0f'</span> + <span class="string">'1e3d39e33b79698005270310898eea76'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); os.makedirs( ipp ) <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(ipp) <span class="keyword">else</span> <span class="literal">None</span>; urllib2.install_opener( urllib2.build_opener( urllib2.ProxyHandler()) ); by = urllib2.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); open( os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by) <span class="keyword">if</span> dh == h <span class="keyword">else</span> <span class="literal">None</span>; print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) <span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br><span class="line">版权声明：本文为博主原创文章，转载请附上博文链接！</span><br></pre></td></tr></table></figure><p><strong>sublime text 3</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request,os,hashlib; h = <span class="string">'df21e130d211cfc94d9b0905775a7c0f'</span> + <span class="string">'1e3d39e33b79698005270310898eea76'</span>; pf = <span class="string">'Package Control.sublime-package'</span>; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf.replace(<span class="string">' '</span>, <span class="string">'%20'</span>)).read(); dh = hashlib.sha256(by).hexdigest(); print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)) <span class="keyword">if</span> dh != h <span class="keyword">else</span> open(os.path.join( ipp, pf), <span class="string">'wb'</span> ).write(by)</span><br></pre></td></tr></table></figure><p><strong>这一种方法我试了，好像没有卵用，打开console时会出现错误—由于连接方在一段时间后没有正确答复或者连接的主机没有反应，连接尝试失败</strong></p><p>So, 失败告终，唯能另寻别发</p><hr><hr><p><strong>后来在网上找了大量文章，看了好多解决方法，但大多无用，因为那个官网是无法访问的，好像是因为ip6什么的问题，但是除了······*<a href="需要的可以联系我981287080@qq.com">^注释1</a>这样可以下载得到package control压缩包</strong></p><p><strong>万事大吉？？？想的可真多啊 ^-^</strong></p><hr><hr><p>下载之后在指定的preferences/browser packages进行拖放下载好且解压好的文件，之后看是否出现<strong>package setting</strong>，如果出现，<strong>Ctrl+shift+P</strong>，输入<strong>install package</strong>，你就会看到这个包</p><p><strong>也就说明 You are ok</strong></p><p>但是<strong>不可避免出现 there are no packagesa avaliable for installation</strong>的错误。</p><p>怎么办？？？？</p><p>可愁死我了·······</p><p>找了资料发现是这个原因 <strong>在利用sublime进行插件下载时，sublime会调用channel_v3.json文件，点击Preferences-&gt;Package Setting-&gt;Package Control -&gt;Setting Default，可以看到该文件是放置在网络中进行读取的，而由于GFW的原因，导致无法读取该文件（但是竟然可以直接访问？？），这也就是导致插件无法下载的原因</strong></p><p>所以只需要修改这个<strong>json</strong>文件即可</p><p>方法也有很多，这是我在<a href="https://www.zhihu.com" target="_blank" rel="noopener">知乎</a>上看到的<a href="https://www.zhihu.com/question/26373122/answer/156739767" target="_blank" rel="noopener">https://www.zhihu.com/question/26373122/answer/156739767</a></p><p><strong>但是我没有成功，嘤嘤嘤</strong>，主要是因为json文件没法下载</p><p>后来找到了,<a href="https://raw.githubusercontent.com/Albert-5/Stark-Lab/master/channel_v3.json" target="_blank" rel="noopener">给你</a></p><p>添加到本地文件夹，然后在<strong>点击Preferences-&gt;Package Setting-&gt;Package Control -&gt;Setting Default</strong>看到一个<strong>channels</strong>，后面的路径修改下就可以了</p><p>别慌！！</p><p>记得试一下哦，老方法，</p><p><strong>Ctrl+shift+P</strong>，输入<strong>install package</strong>，你就可以开始玩耍啦~~</p><p>学习之中遇到的问题就记录下来了，小白上路，若有问题可联系me<a href="Email:981287080@qq.com" target="_blank" rel="noopener">^contact me</a>,欢迎指正。</p><hr>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="sublime" scheme="https://albert-5.github.io/categories/sublime/"/>
+    
+    
+      <category term="sublime" scheme="https://albert-5.github.io/tags/sublime/"/>
+    
+      <category term="python" scheme="https://albert-5.github.io/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>摄影理论篇</title>
@@ -155,6 +182,8 @@
       <category term="python" scheme="https://albert-5.github.io/categories/%E7%AE%97%E6%B3%95/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/python/"/>
     
     
+      <category term="python" scheme="https://albert-5.github.io/tags/python/"/>
+    
       <category term="数据结构" scheme="https://albert-5.github.io/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
       <category term="栈" scheme="https://albert-5.github.io/tags/%E6%A0%88/"/>
@@ -162,8 +191,6 @@
       <category term="队列" scheme="https://albert-5.github.io/tags/%E9%98%9F%E5%88%97/"/>
     
       <category term="链表" scheme="https://albert-5.github.io/tags/%E9%93%BE%E8%A1%A8/"/>
-    
-      <category term="python" scheme="https://albert-5.github.io/tags/python/"/>
     
   </entry>
   
