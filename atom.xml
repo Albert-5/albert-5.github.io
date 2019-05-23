@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://albert-5.github.io/"/>
-  <updated>2019-05-16T08:31:51.397Z</updated>
+  <updated>2019-05-23T15:54:14.402Z</updated>
   <id>https://albert-5.github.io/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>模拟退火算法</title>
+    <link href="https://albert-5.github.io/2019/05/23/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%E7%AE%97%E6%B3%95/"/>
+    <id>https://albert-5.github.io/2019/05/23/模拟退火算法/</id>
+    <published>2019-05-23T15:51:26.000Z</published>
+    <updated>2019-05-23T15:54:14.402Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p> <strong>模拟退火算法</strong></p><p>模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。</p><p>假设现在有这么一个函数：<br>$$<br>f(x) = x^3-72x^2+4x+5<br>$$<br>现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到小数后8位，则要算10000000000次，即便使用计算机依然是一个庞大的运算过程。而优化问题中很多都类似于问题，无法用穷举法解出答案，我们叫这类问题为NP难问题（可查看维基百科：<a href="https://en.wikipedia.org/wiki/NP-hardness" target="_blank" rel="noopener">NP-hard</a>），于是，有人提出了<a href="https://zh.wikipedia.org/wiki/%E7%88%AC%E5%B1%B1%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">爬山法</a></p><p>也可以参考下<a href="https://blog.csdn.net/lvhao92/article/details/50826709" target="_blank" rel="noopener">争取几句话描述一下爬山法，模拟退火，遗传算法</a>他的博客文章博客文章</p><blockquote><p>但是这个方法的缺点在于最优解的产生依赖于最初值的选取，无法解决非凸函数，即容易收敛于局部最优解；同时，也无法解决有平台的函数的问题</p></blockquote><p>于是，Kirkpatrick等提出了模拟退火算法，它是一种<strong>启发式搜索算法，即按照预定的控制策略进行搜索，在搜索过程中获取的中间信息将用来改进控制策略</strong></p><p><strong>1. 模拟退火算法的原理</strong></p><p><strong>1.1 概念</strong></p><p>模拟退火算法的思想借鉴于固体的退火原理，当固体的温度很高的时候，内能比较大，固体的内部粒子处于快速无序运动，当温度慢慢降低的过程中，固体的内能减小，粒子的慢慢趋于有序，最终，当固体处于常温时，内能达到最小，此时，粒子最为稳定。模拟退火算法便是基于这样的原理设计而成。</p><p>模拟退火算法从某一高温出发，在高温状态下计算初始解，然后以预设的邻域函数产生一个扰动量，从而得到新的状态，即模拟粒子的无序运动，比较新旧状态下的能量，即目标函数的解。如果新状态的能量小于旧状态，则状态发生转化；如果新状态的能量大于旧状态，则以一定的概率准则发生转化。当状态稳定后，便可以看作达到了当前状态的最优解，便可以开始降温，在下一个温度继续迭代，最终达到低温的稳定状态，便得到了模拟退火算法产生的结果。</p><p><strong>1.2 状态空间与邻域函数</strong></p><p>状态空间也称为搜索空间，它由经过编码的可行解的集合所组成。而邻域函数应尽可能满足产生的候选解遍布全部状态空间。其通常由产生候选解的方式和候选解产生的概率分布组成。候选解一般按照某一概率密度函数对解空间进行随机采样获得，而概率分布可以为均匀分布、正态分布、指数分布等。</p><p><strong>1.3 状态转移概率（Metropolis准则）</strong></p><p>状态转移概率是指从一个状态转换成另一个状态的概率，模拟退火算法中一般采用Metropolis准则，具体如下：<br>$$<br>P = \begin{cases}<br>1 &amp; E(x_{new})&lt;E(x_{old}) \<br>exp(-E(x_{new})&lt;E(x_{old})\over{T} &amp; E(x_{new})$\geq$E(x_{old})<br>\end{cases}<br>$$<br>其与当前温度参数T有关，随温度的下降而减小。 </p><p><strong>1.4 冷却进度表</strong></p><p>冷却进度表是指从某一高温状态T向低温状态冷却时的降温函数,设时刻的温度为T(t)，则经典模拟退火算法的降温方式为：<br>$$<br>T(t)={T_0\over{lg(t+1)}}<br>$$<br>快速模拟退火算法的降温方式为：<br>$$<br>T(t) = {T_0\over{t+1}}<br>$$<br>另外还有其他的降温函数，其实只是收敛的速度不同罢了。</p><p><strong>1.5 初始温度</strong></p><p>一般来说，初始温度越大，获得高质量解的几率越大，但是花费的时间也会随之增加，因此，初温的确定应该同时考虑计算效率与优化质量，常用的方法包括：</p><p>(1)均匀抽样一组状态，以各状态目标值的方差为初温。</p><p>(2)随机产生一组状态，确定亮亮状态间的最大目标值差，然后根据差值，利用一定的函数确定初温，如：<br>$$<br>T_0 = -{\Delta_{max}\over P_r}<br>$$<br>其中Pr为初始接受概率。</p><p>(3)根据经验公式给出</p><p><strong>1.6 循环终止准则</strong></p><p>内循环终止准则：</p><p>（1）检验目标函数的均值是否稳定</p><p>（2）连续若干步的目标值变化较小</p><p>（3）按一定的步数进行抽样</p><p>外循环终止准则</p><p>（1）设置终止温度</p><p>（2）设置外循环迭代次数</p><p>（3）算法搜索到的最优值连续若干步保持不变</p><p>（4）检验系统熵是否稳定</p><p><strong>Python实现过程：</strong></p><p>下面便通过python求解开头提到的问题，首先定义函数，然后通过pyplot看看函数在[0,100]上的大致图像：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="comment">#define aim function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">aimFunction</span><span class="params">(x)</span>:</span></span><br><span class="line">    y=x**<span class="number">3</span><span class="number">-60</span>*x**<span class="number">2</span><span class="number">-4</span>*x+<span class="number">6</span></span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line">x=[i/<span class="number">10</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">y=[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    y[i]=aimFunction(x[i])</span><br><span class="line"></span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/05/23/5ce6be9b1a85441627.png" alt="img" title>                </div>                <div class="image-caption">img</div>            </figure><p>可以看到最小值大概在48左右，通过求导计算得到最小值为48.45。</p><p>接下来便构造SA模型：</p><p>定义初温、低温阈值并通过随机得到初始x，同时定义时刻t。通过均匀分布构造邻域函数，同时设定内循环次数为50次，降温函数使用<br>$$<br>T(t) = {T_0\over{t+1}}<br>$$<br>代码实现如下：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">T=<span class="number">1000</span> <span class="comment">#initiate temperature</span></span><br><span class="line">Tmin=<span class="number">10</span> <span class="comment">#minimum value of terperature</span></span><br><span class="line">x=np.random.uniform(low=<span class="number">0</span>,high=<span class="number">100</span>)<span class="comment">#initiate x</span></span><br><span class="line">k=<span class="number">50</span> <span class="comment">#times of internal circulation </span></span><br><span class="line">y=<span class="number">0</span> <span class="comment">#initiate result</span></span><br><span class="line">t=<span class="number">0</span> <span class="comment">#time</span></span><br><span class="line"><span class="keyword">while</span> T&gt;=Tmin:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        <span class="comment">#calculate y</span></span><br><span class="line">        y=aimFunction(x)</span><br><span class="line">        <span class="comment">#generate a new x in the neighboorhood of x by transform function</span></span><br><span class="line">        xNew=x+np.random.uniform(low=<span class="number">-0.055</span>,high=<span class="number">0.055</span>)*T</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">0</span>&lt;=xNew <span class="keyword">and</span> xNew&lt;=<span class="number">100</span>):</span><br><span class="line">            yNew=aimFunction(xNew)</span><br><span class="line">            <span class="keyword">if</span> yNew-y&lt;<span class="number">0</span>:</span><br><span class="line">                x=xNew</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment">#metropolis principle</span></span><br><span class="line">                p=math.exp(-(yNew-y)/T)</span><br><span class="line">                r=np.random.uniform(low=<span class="number">0</span>,high=<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">if</span> r&lt;p:</span><br><span class="line">                    x=xNew</span><br><span class="line">    t+=<span class="number">1</span></span><br><span class="line">    print(t)</span><br><span class="line">    T=<span class="number">1000</span>/(<span class="number">1</span>+t)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">print</span> (x)</span><br><span class="line">print(aimFunction(x))</span><br></pre></td></tr></table></figure><p>经过循环输出x与y，结果如下：</p><p>​            48.45411386249023    -55082.24210065413</p><p>可以看到SA算法很好的逼近了最优解。</p><p><strong>参考文章</strong></p><p><a href="https://www.imooc.com/article/30160" target="_blank" rel="noopener">模拟退火算法与python实现</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="智能算法" scheme="https://albert-5.github.io/categories/%E6%99%BA%E8%83%BD%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="python" scheme="https://albert-5.github.io/tags/python/"/>
+    
+      <category term="模拟退火" scheme="https://albert-5.github.io/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"/>
+    
+      <category term="算法" scheme="https://albert-5.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode</title>
@@ -37,9 +66,9 @@
       <category term="算法" scheme="https://albert-5.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="LeetCode" scheme="https://albert-5.github.io/tags/LeetCode/"/>
-    
       <category term="算法" scheme="https://albert-5.github.io/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="LeetCode" scheme="https://albert-5.github.io/tags/LeetCode/"/>
     
       <category term="两数之和" scheme="https://albert-5.github.io/tags/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C/"/>
     
