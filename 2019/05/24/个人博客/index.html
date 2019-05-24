@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="sHO_73a3zHA-ndhyNC1D2d7DNrGbbCjApnFHsV56H8o">
+    
+    
+    
+    
+    <title>个人博客 | Albert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="hexo,github,学习记录">
+    <meta name="description" content="一、什么是hexoHexo是一个快速，简单和强大的博客框架。您使用Markdown（或其他语言）撰写帖子，Hexo会在几秒钟内生成具有漂亮主题的静态文件。 也就是说，通过Hexo创建的博客是一个仅提供在线浏览功能的静态博客，不存在后台编辑功能，添加新博客时需要在自己开发机上编写新博客文章（.md文件），再次生成一个新版本网站，上传并替换，从而实现新文章发布 二、什么是node.js度娘这样说Nod">
+<meta name="keywords" content="hexo,github,学习记录">
+<meta property="og:type" content="article">
+<meta property="og:title" content="个人博客">
+<meta property="og:url" content="https://albert-5.github.io/2019/05/24/个人博客/index.html">
+<meta property="og:site_name" content="Albert">
+<meta property="og:description" content="一、什么是hexoHexo是一个快速，简单和强大的博客框架。您使用Markdown（或其他语言）撰写帖子，Hexo会在几秒钟内生成具有漂亮主题的静态文件。 也就是说，通过Hexo创建的博客是一个仅提供在线浏览功能的静态博客，不存在后台编辑功能，添加新博客时需要在自己开发机上编写新博客文章（.md文件），再次生成一个新版本网站，上传并替换，从而实现新文章发布 二、什么是node.js度娘这样说Nod">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/2930720-dfa0a675317b9a35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/367/format/webp">
+<meta property="og:image" content="https://xuanwo.io/imgs/opinion/npm-install-hexo-cli.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/24/5ce785d33f64949057.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/24/5ce7860fc6ead66191.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/24/5ce786378d87266920.png">
+<meta property="og:image" content="https://i.loli.net/2019/05/24/5ce7850b7fc8a18631.png">
+<meta property="og:updated_time" content="2019-05-24T05:53:07.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="个人博客">
+<meta name="twitter:description" content="一、什么是hexoHexo是一个快速，简单和强大的博客框架。您使用Markdown（或其他语言）撰写帖子，Hexo会在几秒钟内生成具有漂亮主题的静态文件。 也就是说，通过Hexo创建的博客是一个仅提供在线浏览功能的静态博客，不存在后台编辑功能，添加新博客时需要在自己开发机上编写新博客文章（.md文件），再次生成一个新版本网站，上传并替换，从而实现新文章发布 二、什么是node.js度娘这样说Nod">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/2930720-dfa0a675317b9a35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/367/format/webp">
+    
+        <link rel="alternate" type="application/atom+xml" title="Albert" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<!-- 导入音乐插件js -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">albert</h5>
+          <a href="mailto:981287080@qq.com" title="981287080@qq.com" class="mail">981287080@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Albert-5" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.weibo.com/5973922558/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Music" target="_blank">
+                <i class="icon icon-lg icon-music"></i>
+                Music
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/desktop">
+                <i class="icon icon-lg icon-desktop"></i>
+                Desktop
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/picture">
+                <i class="icon icon-lg icon-camera"></i>
+                Camera
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/Starky35793281" target="_blank">
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                About me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">个人博客</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">个人博客</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-24T05:42:28.000Z" itemprop="datePublished" class="page-time">
+  2019-05-24
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+	
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#一、什么是hexo"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、什么是hexo</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#二、什么是node-js"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、什么是node.js</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#三、什么是githubpages"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、什么是githubpages</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#四、下面开始安装操作"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、下面开始安装操作</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#五、选择主题"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、选择主题</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#六、发布博客"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、发布博客</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#七、修改博客配置文件-config-yml"><span class="post-toc-number">7.</span> <span class="post-toc-text">七、修改博客配置文件_config.yml</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#八、修改"><span class="post-toc-number">8.</span> <span class="post-toc-text">八、修改</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#九、增加代码"><span class="post-toc-number">9.</span> <span class="post-toc-text">九、增加代码</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-个人博客" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">个人博客</h1>
+        <div class="post-meta">
+			
+            <time class="post-time" title="2019-05-24 13:42:28" datetime="2019-05-24T05:42:28.000Z" itemprop="datePublished">2019-05-24</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/学习笔记/">学习笔记</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h5 id="一、什么是hexo"><a href="#一、什么是hexo" class="headerlink" title="一、什么是hexo"></a>一、什么是hexo</h5><p>Hexo是一个快速，简单和强大的博客框架。您使用<a href="http://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">Markdown</a>（或其他语言）撰写帖子，Hexo会在几秒钟内生成具有漂亮主题的静态文件。</p>
+<p>也就是说，通过Hexo创建的博客是一个仅提供在线浏览功能的静态博客，不存在后台编辑功能，添加新博客时需要在自己开发机上编写新博客文章（.md文件），再次生成一个新版本网站，上传并替换，从而实现新文章发布</p>
+<h5 id="二、什么是node-js"><a href="#二、什么是node-js" class="headerlink" title="二、什么是node.js"></a>二、什么是node.js</h5><p>度娘这样说Node 是一个让 JavaScript 运行在<a href="https://baike.baidu.com/item/%E6%9C%8D%E5%8A%A1%E7%AB%AF/6492316" target="_blank" rel="noopener">服务端</a>的开发平台，它让 JavaScript 成为与<a href="https://baike.baidu.com/item/PHP/9337" target="_blank" rel="noopener">PHP</a>、<a href="https://baike.baidu.com/item/Python/407313" target="_blank" rel="noopener">Python</a>、<a href="https://baike.baidu.com/item/Perl/851577" target="_blank" rel="noopener">Perl</a>、<a href="https://baike.baidu.com/item/Ruby/11419" target="_blank" rel="noopener">Ruby</a> 等服务端语言平起平坐的<a href="https://baike.baidu.com/item/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/1379708" target="_blank" rel="noopener">脚本语言</a>。Node是一个基于Chrome JavaScript运行时建立的平台， 用于方便地搭建响应速度快、易于扩展的网络应用。Node 使用<a href="https://baike.baidu.com/item/%E4%BA%8B%E4%BB%B6%E9%A9%B1%E5%8A%A8/9597519" target="_blank" rel="noopener">事件驱动</a>， 非阻塞<a href="https://baike.baidu.com/item/I%2FO/84718" target="_blank" rel="noopener">I/O</a> 模型而得以轻量和高效，非常适合在分布式设备上运行数据密集型的实时应用。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://upload-images.jianshu.io/upload_images/2930720-dfa0a675317b9a35.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/367/format/webp" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+<h5 id="三、什么是githubpages"><a href="#三、什么是githubpages" class="headerlink" title="三、什么是githubpages"></a>三、什么是githubpages</h5><p>GitHub Pages 是GitHub提供的个人静态主页网站托管服务，原目的是用于提供你在GitHub上托管的所有开源项目介绍，后来也推荐作为个人博客之类的用途</p>
+<p>优势是使用简单方便，免费高效实时，可用空间高达1G，可绑定自定义域名，原生自带GitHub级别防护</p>
+<hr>
+<h5 id="四、下面开始安装操作"><a href="#四、下面开始安装操作" class="headerlink" title="四、下面开始安装操作"></a>四、下面开始安装操作</h5><p>首先安装[Git][ [<a href="https://git-scm.com/download]" target="_blank" rel="noopener">https://git-scm.com/download]</a></p>
+<p>具体教程可参见 [教程][<a href="https://www.jianshu.com/p/414ccd423efc]" target="_blank" rel="noopener">https://www.jianshu.com/p/414ccd423efc]</a></p>
+<p>安装[node.js][<a href="https://nodejs.org/en/]" target="_blank" rel="noopener">https://nodejs.org/en/]</a></p>
+<p>在官网上可下载Windows以及Mac的安装包，安装完成后将自带npm工具（Node Package Manage，node包管理器）</p>
+<p>安装hexo</p>
+<p>Windows  ctrl+r 打开命令行，键入cmd进入界面</p>
+<p>然后进入某个文件夹（就是要下载的文件位置）输入以下命令 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>等待下载 loading</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://xuanwo.io/imgs/opinion/npm-install-hexo-cli.png" alt="安装hexo-cli" title>
+                </div>
+                <div class="image-caption">安装hexo-cli</div>
+            </figure>
+<p>下载完成后键入下列命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/05/24/5ce785d33f64949057.png" alt="下载hexo效果图" title>
+                </div>
+                <div class="image-caption">下载hexo效果图</div>
+            </figure>
+<p>为了便于发布到GitHub上，建议同时安装<code>hexo-deployer-git</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+<p><a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">Hexo安装文档</a></p>
+<p>初始化，建立博客项目</p>
+<p>选定网站项目程序文件的存放位置，比如~/develop/hexo/github/，bash中cd进入该目录中，执行下列命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
+<p>完毕后该命令将在当前目录下生成一套标准的hexo博客项目模板</p>
+<p>网站生成</p>
+<p>虽然有了生成一套网站构成的“源代码”，实际发布的时候需要根据这些“源代码”当中的配置文件、博客文档（后缀为.md）、主题模板等进行配置，生成服务器可以识别的标准HTML网站目录，此时可以使用一下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br></pre></td></tr></table></figure>
+<p>执行完毕后，在<code>public</code>目录下可看到我们自己书写的博客文档（.md文件）与所选的博客主题模板链接组合，生成的最终静态网站文件，该目录也差不多就是之后发布到GitHub上的实际文件（实际发布到GitHub的是.deploy_git目录），外部的网站“源代码”不会上传到<code>github.io</code>库</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/05/24/5ce7860fc6ead66191.png" alt="hexo g" title>
+                </div>
+                <div class="image-caption">hexo g</div>
+            </figure>
+<blockquote>
+<p>刚开始一直显示有个错误</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; ERROR Local hexo not found in G:\NewBlog\github</span><br><span class="line">&gt; ERROR Try running: &apos;npm install hexo --save&apos;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>哎呦，hmp，可急死我了，度娘，谷哥都不行，无奈之下，急中生智，刚开始下载的node.js太jier老了，我急忙连上手机热点（本想着网速更快一点，实者然并卵），一直在那慢慢悠悠的下载。。。。。</p>
+<p>这才解决了上面的那个问题，perfect！！！</p>
+</blockquote>
+<p>之后启动本地服务器查看网站运行效果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
+<p>默认地址是[localhost:4000][]</p>
+<h5 id="五、选择主题"><a href="#五、选择主题" class="headerlink" title="五、选择主题"></a>五、选择主题</h5><p>hexo可以随时使用更换博客主题</p>
+<p>Hexo可随时使用、更换博客主题</p>
+<p>主题文件可在<a href="https://hexo.io/themes/" target="_blank" rel="noopener">Hexo官方主题网页</a>中下载，以Conci为例，点击主题预览图下方的主题名称链接即可进入该主题的源码发布页面<a href="https://github.com/viosey/hexo-theme-material" target="_blank" rel="noopener"><a href="https://github.com/cspp01/concise" target="_blank" rel="noopener">https://github.com/cspp01/concise</a></a></p>
+<p>随后根据主题安装指导，下载项目至博客项目下的<code>themes</code>目录中，文件夹命名为<code>material</code>，并在博客配置文件<code>_config.yml</code>中指定使用该主题：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme：你的主题名</span><br></pre></td></tr></table></figure>
+<p>然后将主题名目录下的<code>_config.template.yaml</code>重命名为<code>_config.yaml</code>，如果已经自动更改，则就不用更改了。</p>
+<p>参考<a href>你的主题文档</a>进行必要配置</p>
+<p>再次执行<code>hexo g</code>将会重新根据主题构建整个博客。</p>
+<h5 id="六、发布博客"><a href="#六、发布博客" class="headerlink" title="六、发布博客"></a>六、发布博客</h5><p>创建github.io仓库</p>
+<p>在自己的GitHub中，创建新仓库，标准命名为<code>GitHub用户名.github.io</code></p>
+<h5 id="七、修改博客配置文件-config-yml"><a href="#七、修改博客配置文件-config-yml" class="headerlink" title="七、修改博客配置文件_config.yml"></a>七、修改博客配置文件<code>_config.yml</code></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: GitHub上传仓库的完整路径</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+<p>发布到GitHub</p>
+<p>在<code>hexo g</code>生成完毕后，可执行该命令发布博客到GitHub上：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>或在生成网站的同时进行发布：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<p>查看效果</p>
+<p>点击仓库页面中的GH Pages按钮，应该可以看到真正发布在互联网上的效果</p>
+<p><code>但是有时候并不是你想象的那种顺利啊</code> :cry:</p>
+<p>总有<code>刁民想害朕</code>，比如这位</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/05/24/5ce786378d87266920.png" alt="hexo d 错误" title>
+                </div>
+                <div class="image-caption">hexo d 错误</div>
+            </figure>
+<blockquote>
+<p>显示出本地无法找到Hexo之类的，这种情况下按照提示做一下就可以的。</p>
+</blockquote>
+<p>还有就是搭建Github托管的时候的错误</p>
+<p>教程可以点击这里查看官方文档：[教程][<a href="https://hexo.io/zh-cn/docs/deployment.html]" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/deployment.html]</a></p>
+<blockquote>
+<p>1、生成ssh key(下载了Windows版的Git就可以使用的)</p>
+<p>首先检查本机是否安装了ssh:</p>
+<p>在git中，使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; $ ssh</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>2、输入命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; $ ssh-keygen -t rsa</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>这表示我们指定RSA算法生成密钥，然后敲三次回车，期间不需要输入密码，当然也可以输入的，之后会生成两个文件，<code>id_rsa</code>和<code>id_rsa.pub</code>,也就是对应着密钥和公钥。这两个文件在C盘下的<code>.ssh</code>文件夹中</p>
+<p>密钥和公钥生成之后，我们要做的事情就是把公钥<code>id_rsa.pub</code>的内容添加到 GitHub，这样我们本地的密钥<code>id_rsa</code>和 GitHub 上的公钥<code>id_rsa.pub</code>才可以进行匹配，授权成功后，就可以向 GitHub 提交代码啦！</p>
+<p>&lt;点击个人github主页–倒三角–settings–SSH keys&gt;，将<code>id_rsa.pub</code>用记事本打开后并复制里面的字符粘贴到<code>ssh keys</code>下即可。</p>
+<p>3、添加玩公钥之后，运行一下命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; $ ssh -T git@github.com </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>当出现<code>Hi！You’ve successfully authenticated,but github does not provide shell access.</code>的时候表示成功啦~~</p>
+</blockquote>
+<p>当然也会有很多问题出现的</p>
+<p><em>Could not open a connection to your authentication agent</em></p>
+<p><code>其实是未启动ssh agent</code></p>
+<blockquote>
+<p>Git for Windows 中输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; eval &apos;ssh-agent -s&apos;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>如果出现 Agent pid 数字，说明已经启动。</p>
+</blockquote>
+<p>另外也有<a href="mailto:*git@github.com" target="_blank" rel="noopener">*git@github.com</a> permission denied(pubkuckey)权限被拒绝的问题*</p>
+<blockquote>
+<p>解决方案：</p>
+<p>[点击][<a href="https://www.cnblogs.com/lxwphp/p/7884700.html]" target="_blank" rel="noopener">https://www.cnblogs.com/lxwphp/p/7884700.html]</a></p>
+</blockquote>
+<p>然后还要配置身份信息</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">""</span></span><br><span class="line">git config --global user.email <span class="string">""</span></span><br></pre></td></tr></table></figure>
+<p>之后打开<code>_config.yml</code>文件做如下设置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  <span class="built_in">type</span>: git   //非git请参考官方文档中的设置</span><br><span class="line">  repo: &lt;repository 参考 ：url&gt;git@github.com:yourname/yourname.github.io.git</span><br><span class="line">  branch: [branch] master</span><br><span class="line">  message: [message]</span><br></pre></td></tr></table></figure>
+<p><strong>特别注意：一定要用诸如<code>sunlime text</code>的编辑器打开修改，格式是冒号后有空格，冒号后有一个空格，冒号后有一个空格~~</strong></p>
+<p>经历了种种困难，终于迎来了<strong>胜利</strong>的时刻</p>
+<p>在项目文件夹下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo g</span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/05/24/5ce7850b7fc8a18631.png" alt="登录页面" title>
+                </div>
+                <div class="image-caption">登录页面</div>
+            </figure>
+<p>:happy: 舒服的一批！！！</p>
+<p>这其中也遇到了一些问题</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo d</span><br></pre></td></tr></table></figure>
+<p>之后无反应，无反应，无反应！！！</p>
+<p>就是上述提到的空格问题，注意下就行了。。。</p>
+<blockquote>
+<p>hexo d之后遇到fatal: unable to access ‘<a href="http://github.com/ab/ab.github.io.git" target="_blank" rel="noopener">http://github.com/ab/ab.github.io.git</a> 的问题</p>
+</blockquote>
+<p>这是配置github的问题，在<code>.yml</code>文件下找到repo和url,前者的github仓库格式是 <a href="https://github.com/username/username.github.io.git，后者的就是你的https://username.github.io/···" target="_blank" rel="noopener">https://github.com/username/username.github.io.git，后者的就是你的https://username.github.io/···</a></p>
+<p><strong>还有一个捷径</strong></p>
+<p>关于下载npm过慢的问题，借用淘宝npm镜像的方法</p>
+<p>临时使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm --resgistry https://registry.npm.taobao.org install express</span><br></pre></td></tr></table></figure>
+<p>持久使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>下载后可以通过以下方式检验是否成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm config get registry</span><br><span class="line">或者 </span><br><span class="line">npm info express</span><br></pre></td></tr></table></figure>
+<hr>
+<hr>
+<p>功能添加：</p>
+<p>添加点击特效</p>
+<p>在主题下的source/indigo/source/js目录下新建文件click.js，并复制下列代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!function(e,t,a)&#123;function n()&#123;c(&quot;.heart&#123;width: 10px;height: 10px;position: fixed;background: #f00;transform: rotate(45deg);-webkit-transform: rotate(45deg);-moz-transform: rotate(45deg);&#125;.heart:after,.heart:before&#123;content: &apos;&apos;;width: inherit;height: inherit;background: inherit;border-radius: 50%;-webkit-border-radius: 50%;-moz-border-radius: 50%;position: fixed;&#125;.heart:after&#123;top: -5px;&#125;.heart:before&#123;left: -5px;&#125;&quot;),o(),r()&#125;function r()&#123;for(var e=0;e&lt;d.length;e++)d[e].alpha&lt;=0?(t.body.removeChild(d[e].el),d.splice(e,1)):(d[e].y--,d[e].scale+=.004,d[e].alpha-=.013,d[e].el.style.cssText=&quot;left:&quot;+d[e].x+&quot;px;top:&quot;+d[e].y+&quot;px;opacity:&quot;+d[e].alpha+&quot;;transform:scale(&quot;+d[e].scale+&quot;,&quot;+d[e].scale+&quot;) rotate(45deg);background:&quot;+d[e].color+&quot;;z-index:99999&quot;);requestAnimationFrame(r)&#125;function o()&#123;var t=&quot;function&quot;==typeof e.onclick&amp;&amp;e.onclick;e.onclick=function(e)&#123;t&amp;&amp;t(),i(e)&#125;&#125;function i(e)&#123;var a=t.createElement(&quot;div&quot;);a.className=&quot;heart&quot;,d.push(&#123;el:a,x:e.clientX-5,y:e.clientY-5,scale:1,alpha:1,color:s()&#125;),t.body.appendChild(a)&#125;function c(e)&#123;var a=t.createElement(&quot;style&quot;);a.type=&quot;text/css&quot;;try&#123;a.appendChild(t.createTextNode(e))&#125;catch(t)&#123;a.styleSheet.cssText=e&#125;t.getElementsByTagName(&quot;head&quot;)[0].appendChild(a)&#125;function s()&#123;return&quot;rgb(&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;,&quot;+~~(255*Math.random())+&quot;)&quot;&#125;var d=[];e.requestAnimationFrame=function()&#123;return e.requestAnimationFrame||e.webkitRequestAnimationFrame||e.mozRequestAnimationFrame||e.oRequestAnimationFrame||e.msRequestAnimationFrame||function(e)&#123;setTimeout(e,1e3/60)&#125;&#125;(),n()&#125;(window,document);</span><br></pre></td></tr></table></figure>
+<p>在文件夹themes/indigo/layout/layout.ejs中添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot; src=&quot;/js/clicklove.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<center>OK</center>
+
+<p>关于社会主义核心价值观的特效更为简单</p>
+<p>只需要在layout.ejs中加入下列代码，可以紧跟着爱心特效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        /* 鼠标点击特效 - 7Core.CN */</span><br><span class="line">        var a_idx = 0;jQuery(document).ready(function($) &#123;$(&quot;body&quot;).click(function(e) &#123;var a = new Array(&quot;富强&quot;, &quot;民主&quot;, &quot;文明&quot;, &quot;和谐&quot;, &quot;自由&quot;, &quot;平等&quot;, &quot;公正&quot; ,&quot;法治&quot;, &quot;爱国&quot;, &quot;敬业&quot;, &quot;诚信&quot;, &quot;友善&quot;);var $i = $(&quot;&lt;span/&gt;&quot;).text(a[a_idx]);</span><br><span class="line">        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css(&#123;&quot;z-index&quot;: 100000000,&quot;top&quot;: y - 20,&quot;left&quot;: x,&quot;position&quot;: &quot;absolute&quot;,&quot;font-weight&quot;: &quot;bold&quot;,&quot;color&quot;: &quot;#ff6651&quot;&#125;);$(&quot;body&quot;).append($i);$i.animate(&#123;&quot;top&quot;: y - 180,&quot;opacity&quot;: 0&#125;,1500,function() &#123;$i.remove();&#125;);&#125;);&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<center>perfect</center>
+
+<p>接下来添加博客姐姐</p>
+<p>git中输入下列代码</p>
+<p>npm install –save hexo-helper-live2d下载</p>
+<p>当出现下列显示时表明已经下载完成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thank you for using hexo-helper-live2d!</span><br></pre></td></tr></table></figure>
+<p>然后点击[此处][<a href="https://blog.csdn.net/wang_123_zy/article/details/87181892#live2dwidgetmodelchitose_12]选择自己喜欢的镇站之宝" target="_blank" rel="noopener">https://blog.csdn.net/wang_123_zy/article/details/87181892#live2dwidgetmodelchitose_12]选择自己喜欢的镇站之宝</a></p>
+<p>我暂时选择了这个</p>
+<p>命令行中输入 </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live2d-widget-model-shizuku</span><br></pre></td></tr></table></figure>
+<p>文件_config.yml进行配置</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  scriptFrom: <span class="built_in">local</span></span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-名称</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>关于添加博客评论的事项</p>
+<p>参见教程[here][<a href="https://www.whereareyou.site/article/2018-4-20%20%E5%9C%A8%E7%AB%99%E7%82%B9%E4%B8%AD%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E5%B9%B6%E4%BF%AE%E6%94%B9%E8%AF%84%E8%AE%BA%E6%A0%B7%E5%BC%8F.html]" target="_blank" rel="noopener">https://www.whereareyou.site/article/2018-4-20%20%E5%9C%A8%E7%AB%99%E7%82%B9%E4%B8%AD%E6%B7%BB%E5%8A%A0Valine%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F%E5%B9%B6%E4%BF%AE%E6%94%B9%E8%AF%84%E8%AE%BA%E6%A0%B7%E5%BC%8F.html]</a></p>
+<p>关于添加网站logo图标问题</p>
+<p>不同的浏览器有不同的要求</p>
+<blockquote>
+<p>对于IE，<a href="http://msdn.microsoft.com/en-us/library/ie/gg491740%28v=vs.85%29.aspx" target="_blank" rel="noopener">Microsoft建议在favicon.ico文件中打包16x16,32x32和48x48</a>。</p>
+<p>对于iOS，<a href="https://developer.apple.com/library/ios/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html" target="_blank" rel="noopener">Apple建议使用特定的文件名和分辨率</a>，对于运行iOS 8的最新设备，最多为180x180。</p>
+<p><a href="https://developer.chrome.com/multidevice/android/installtohomescreen#supporting" target="_blank" rel="noopener">Android Chrome主要使用清单，也依赖于Apple touch图标。</a></p>
+<p><a href="http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx" target="_blank" rel="noopener">Windows 8.0上的IE 10需要PNG图片和背景颜色</a>，<a href="https://msdn.microsoft.com/library/dn455106(v=vs.85" target="_blank" rel="noopener">Windows 8.1和10上的IE 11接受在称为专用XML文件中声明的几张PNG图片<code>browserconfig.xml</code></a>.aspx)。</p>
+<p><a href="https://web.archive.org/web/20150609014521/https://developer.apple.com/library/prerelease/mac/releasenotes/General/WhatsNewInSafari/Articles/Safari_9.html" target="_blank" rel="noopener">用于Mac OS X的Safari El Capitan为固定标签引入了SVG图标</a>。</p>
+<p>其他一些平台寻找具有各种分辨率的PNG文件，例如<a href="https://developers.google.com/tv/web/docs/design_for_tv#favicons" target="_blank" rel="noopener">Google TV</a>的<a href="https://developers.google.com/tv/web/docs/design_for_tv#favicons" target="_blank" rel="noopener">96x96图片</a>或<a href="https://dev.opera.com/articles/opera-coast/#multiple-icon-references" target="_blank" rel="noopener">Opera Coast</a>的<a href="https://dev.opera.com/articles/opera-coast/#multiple-icon-references" target="_blank" rel="noopener">228x228图片</a>。</p>
+</blockquote>
+<blockquote>
+<p>16 x 16 - 浏览器的标准尺寸<br>24 x 24 - 用户界面的IE9固定网站尺寸<br>32 x 32 - IE新页面选项卡，Windows 7+任务栏按钮，Safari阅读列表侧栏<br>48 x 48 - Windows站点<br>57 x 57 - iPod touch ，iPhone高达3G<br>60 x 60 - iPhone触控至iOS7<br>64 x 64 - Windows网站，Safari阅读器列表侧边栏，HiDPI / Retina<br>70 x 70 - Win 8.1 Metro tile<br>72 x 72 - iPad触控至iOS6<br>76 x 76 - iOS7<br>96 x 96 - GoogleTV<br>114 x 114 - iPhone视网膜触控至iOS6<br>120 x 120 - iPhone视网膜触控iOS7<br>128 x 128 - Chrome网上应用店应用程序，Android<br>144 x 144 - IE10 Metro图块适用于固定网站，iPad视网膜可达iOS6<br>150 x 150 - 赢得8.1 Metro地铁<br>152 x 152 - iPad视网膜触摸iOS7<br>196 x 196 - Android Chrome<br>310 x 150 - Win 8.1宽地铁瓷砖<br>310 x 310 - Win 8.1 Metro瓷砖</p>
+</blockquote>
+<p>[这里][<a href="https://www.flaticon.com]有很多图标的，选择自己喜欢的，然后下载，添加到指定文件夹，最后在配置文件中配置一下就行的" target="_blank" rel="noopener">https://www.flaticon.com]有很多图标的，选择自己喜欢的，然后下载，添加到指定文件夹，最后在配置文件中配置一下就行的</a></p>
+<p>文章 配置信息</p>
+<p>在<code>scaffolds/post.md</code>文件下，让它生成默认的<code>categories</code>和<code>tags</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories: default tech</span><br><span class="line">tags: [hexo1,hexo2]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<h5 id="八、修改"><a href="#八、修改" class="headerlink" title="八、修改"></a>八、修改</h5><p>修改站点文件夹下<code>node_modules/hexo-generator-index/lib/generator.js</code>，在生成文章之前进行文章top值排序。</p>
+<h5 id="九、增加代码"><a href="#九、增加代码" class="headerlink" title="九、增加代码"></a>九、增加代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">posts.data = posts.data.sort(function(a, b) &#123;</span><br><span class="line">    if(a.top &amp;&amp; b.top) &#123; // 两篇文章top都有定义</span><br><span class="line">        if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排</span><br><span class="line">        else return b.top - a.top; // 否则按照top值降序排</span><br><span class="line">    &#125;</span><br><span class="line">    else if(a.top &amp;&amp; !b.top) &#123; // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span><br><span class="line">        return -1;</span><br><span class="line">    &#125;</span><br><span class="line">    else if(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">        return 1;</span><br><span class="line">    &#125;</span><br><span class="line">    else return b.date - a.date; // 都没定义按照文章日期降序排</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>完整文件代码</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&apos;use strict&apos;;</span><br><span class="line">var pagination = require(&apos;hexo-pagination&apos;);</span><br><span class="line">module.exports = function(locals)&#123;</span><br><span class="line">  var config = this.config;</span><br><span class="line">  var posts = locals.posts;</span><br><span class="line">    posts.data = posts.data.sort(function(a, b) &#123;</span><br><span class="line">        if(a.top &amp;&amp; b.top) &#123; // 两篇文章top都有定义</span><br><span class="line">            if(a.top == b.top) return b.date - a.date; // 若top值一样则按照文章日期降序排</span><br><span class="line">            else return b.top - a.top; // 否则按照top值降序排</span><br><span class="line">        &#125;</span><br><span class="line">        else if(a.top &amp;&amp; !b.top) &#123; // 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span><br><span class="line">            return -1;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">            return 1;</span><br><span class="line">        &#125;</span><br><span class="line">        else return b.date - a.date; // 都没定义按照文章日期降序排</span><br><span class="line">    &#125;);</span><br><span class="line">  var paginationDir = config.pagination_dir || &apos;page&apos;;</span><br><span class="line">  return pagination(&apos;&apos;, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [&apos;index&apos;, &apos;archive&apos;],</span><br><span class="line">    format: paginationDir + &apos;/%d/&apos;,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&apos;use strict&apos;;</span><br><span class="line"></span><br><span class="line">var pagination = require(&apos;hexo-pagination&apos;);</span><br><span class="line"></span><br><span class="line">module.exports = function(locals) &#123;</span><br><span class="line">  var config = this.config;</span><br><span class="line">  var posts = locals.posts.sort(config.index_generator.order_by);</span><br><span class="line">  var paginationDir = config.pagination_dir || &apos;page&apos;;</span><br><span class="line"></span><br><span class="line">  return pagination(&apos;&apos;, posts, &#123;</span><br><span class="line">    perPage: config.index_generator.per_page,</span><br><span class="line">    layout: [&apos;index&apos;, &apos;archive&apos;],</span><br><span class="line">    format: paginationDir + &apos;/%d/&apos;,</span><br><span class="line">    data: &#123;</span><br><span class="line">      __index: true</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<hr>
+<center>以上便是有关配置方面的问题</center>
+
+<hr>
+<p><strong>小功能添加</strong></p>
+<p>1、置顶排序</p>
+<p>在文章中，增加top值定义，值越大，文章排序越靠前。top值默认为0，若不设置top，则不参与排序。示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">title: 为Hexo添加文章置顶功能（三）</span><br><span class="line">categories: Tech</span><br><span class="line">tags: [Hexo,文章置顶]</span><br><span class="line">top: 1</span><br><span class="line">date: 2016-07-20 11:44:40</span><br><span class="line"></span><br><span class="line">## 标题</span><br><span class="line"></span><br><span class="line">正文</span><br></pre></td></tr></table></figure>
+<hr>
+<p>2、添加谷歌site</p>
+<p>怎么让百度和google搜到你的文章呢<br>参照这两篇文章可以解决google搜到文章的问题，但我向百度引擎入口提交了很多次还是没有搜到，也不明缘由，其中第二篇参考文献的作者也遇到了同样的问题，这个就代跟进把。</p>
+<p>文章如下： </p>
+<ol>
+<li>“｜Hexo优化｜如何向google提交sitemap（详细）” </li>
+<li>“博客推广——提交搜索引擎”</li>
+</ol>
+<hr>
+<p>3、为主题安装 MetingJS和插入音乐</p>
+<blockquote>
+<p>注：以下部分根据 <a href="https://github.com/metowolf/MetingJS" target="_blank" rel="noopener">MetingJS</a> 中 README.md 配置，可同理应用于其他主题。</p>
+</blockquote>
+<p> 修改文件</p>
+<ul>
+<li>在<code>themes\indigo\layout\_partial\head.ejs</code>中插入在<code>&lt;/head&gt;</code>前：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">  &lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css"</span>&gt;</span><br><span class="line">  &lt;script src=<span class="string">"https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在<code>themes\indigo\layout\_partial\script.ejs</code>中结尾插入：</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>然后就可以在任何地方随时插入音乐了，例如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文章内容1</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aplayer"</span> <span class="attr">data-id</span>=<span class="string">"60198"</span> <span class="attr">data-server</span>=<span class="string">"netease"</span> <span class="attr">data-type</span>=<span class="string">"playlist"</span> <span class="attr">data-mode</span>=<span class="string">"random"</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">文章内容2</span><br></pre></td></tr></table></figure>
+<p>具体参见[此处][<a href="https://easyhexo.com/2-Theme-use-and-config/2-10-hexo-theme-indigo/]" target="_blank" rel="noopener">https://easyhexo.com/2-Theme-use-and-config/2-10-hexo-theme-indigo/]</a></p>
+<p>特别感谢 [博主][<a href="http://i-tech.tech/]" target="_blank" rel="noopener">http://i-tech.tech/]</a></p>
+<blockquote>
+<p>一些问题</p>
+<p>能够生成md文件但是无法渲染成网页页面</p>
+<p>解决分析][<a href="https://blog.csdn.net/huihut/article/details/73196343]" target="_blank" rel="noopener">https://blog.csdn.net/huihut/article/details/73196343]</a></p>
+<p>[<strong>异常</strong>]npm ERR! peer dep missing: acorn@^6.0.0, required by <a href="mailto:acorn-dynamic-import@4.0.0" target="_blank" rel="noopener">acorn-dynamic-import@4.0.0</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install acorn</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>npm ERR! peer dep missing: webpack@^4.4.0, required by <a href="mailto:mini-css-extract-plugin@0.4.0" target="_blank" rel="noopener">mini-css-extract-plugin@0.4.0</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install --save-dev webpack</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+</blockquote>
+<p>4、加入站点地图</p>
+<p>安装：hexo下载sitemap插件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+<p>选项，在配置此插件_config.yml</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">		path: sitemap.xml</span><br><span class="line">		template: ./sitemap_template.xml</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>path</strong> - 站点地图路径。（默认：sitemap.xml）</li>
+<li><strong>模板</strong> - 自定义模板路径。此文件将用于生成sitemap.xml（请参阅<a href="https://github.com/hexojs/hexo-generator-sitemap/blob/master/sitemap.xml" target="_blank" rel="noopener">默认模板</a>）</li>
+</ul>
+<p>Excluding Posts</p>
+<p>Add <code>sitemap: false</code> to the post’s front matter.</p>
+<p>Sitemap即网站地图，它的作用在于便于搜索引擎更加智能地抓取网站。最简单和常见的sitemap形式，是XML文件，在其中列出网站中的网址以及关于每个网址的其他元数据</p>
+<p>[参见文章][<a href="https://phantomt.github.io/2018/08/09/Hexo-sitemap/]" target="_blank" rel="noopener">https://phantomt.github.io/2018/08/09/Hexo-sitemap/]</a></p>
+<p>5、标签、分类追加</p>
+<p>[点击][<a href="http://ijiaober.github.io/2014/08/05/hexo/hexo-04/?spm=5176.7935156.0.0.5a3c3a09B5NXeC]" target="_blank" rel="noopener">http://ijiaober.github.io/2014/08/05/hexo/hexo-04/?spm=5176.7935156.0.0.5a3c3a09B5NXeC]</a></p>
+<p><a href="https://jaydenz.github.io/2018/04/06/1.Hexo%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_blank">标签分类参考</a></p>
+<p><a href="https://github.com/yscoder/hexo-theme-indigo/wiki/%E5%AE%89%E8%A3%85#%E5%BC%80%E5%90%AF%E5%88%86%E7%B1%BB%E9%A1%B5" target="_blank">官方分类</a></p>
+<p>更改页面宽度<a href="https://tianwenyu.github.io/hexo-indigo/" target="_blank" rel="noopener">https://tianwenyu.github.io/hexo-indigo/</a></p>
+<p>6、增加文章图片显示标题和大图预览模式。</p>
+<p>1.26版本加入图片显示标题，需要使用插件语法格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% image http://img.bizhi.sogou.com/images/2015/06/26/1214911.jpg 测试图片 %&#125;</span><br></pre></td></tr></table></figure>
+<p>这样就产生一个问题：旧文章中的图片需要手动修改格式以支持显示标题。</p>
+<p>1.3版本在集成大图预览功能的前提下，对图片标题显示的实现作了变动，现在你只需要按 Markdown 格式插入图片就可生成具有标题和大图预览功能的图片;</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-05-24T05:53:07.366Z" itemprop="dateUpdated">2019-05-24 13:53:07</time>
+</span><br>
+
+
+        
+        <br><b>版权声明</b>：本文首发于 <a href="https://albert-5.github.io/"><b>Albert<b></b></b></a> <br> <strong>本文地址</strong>：<a href="/2019/05/24/个人博客/" target="_blank" rel="external">https://albert-5.github.io/2019/05/24/个人博客/</a>，转载请务必注明<font color="indigo"><strong>作者</strong>和<strong>来源</strong></font>
+        
+    </div>
+    
+    <footer>
+        <a href="https://albert-5.github.io">
+            <img src="/img/avatar.jpg" alt="albert">
+            albert
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/github/">github</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习记录/">学习记录</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.github.io/2019/05/24/个人博客/&title=《个人博客》 — Albert&pic=https://albert-5.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.github.io/2019/05/24/个人博客/&title=《个人博客》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.github.io/2019/05/24/个人博客/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《个人博客》 — Albert&url=https://albert-5.github.io/2019/05/24/个人博客/&via=https://albert-5.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.github.io/2019/05/24/个人博客/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/23/模拟退火算法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">模拟退火算法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+	
+
+
+	
+
+
+	
+
+
+	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+    </section>
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+		console.log("Valine done!")
+		 
+    </script>
+    <!-- Valine Comments end -->
+
+
+	
+
+
+	
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>albert &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.github.io/2019/05/24/个人博客/&title=《个人博客》 — Albert&pic=https://albert-5.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.github.io/2019/05/24/个人博客/&title=《个人博客》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.github.io/2019/05/24/个人博客/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《个人博客》 — Albert&url=https://albert-5.github.io/2019/05/24/个人博客/&via=https://albert-5.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.github.io/2019/05/24/个人博客/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIUlEQVR42u3aMW7DMAwF0N7/0u6aDnY+SbuApacpiA1JLwMjkvr5icfxMc6+/3x6nIzeKrcNDAyM1zKOy5Ewzt6ZzJPvDQMDYx/GWQRLtns2zxGMfN0ve8bAwMC4fOeJMI2BgYFxV8DtUXskDAwMjCR09ipdvdkezMUxMDBeyMir7v//+ZH+BgYGxqsYR3EkxbW8PDcp0v2ZEwMDY2lGHuDyQ141Wc3BX1bBwMDYgJEs02Pn70xWxMDAWJsxSWsnhbMqqReaMTAw3s6oHvUmh8hqWzRJfTEwMHZgVFuYveRzMnPhZ8LAwFiUcW+oTc6hvfDd7K9iYGAswbh+NS97VcNl75LHl6cYGBiLMibBMS/oT2p7hXIbBgbGoow8sOYlsLtaC+U9YGBgLMroXfN6jt28bIGBgbENo1f6r36TX2MtFPIwMDCWZuQL5yE1b1LenPpiYGAsyqimo9VAnG901FrAwMBYmnEdEJMktnrl9Prz5A8AAwNjB0Ze3D+KoxdSE/ZpEouBgbEoo5p85gtUGwnVUI6BgbEPo1rqmpThylvMr1xgYGAsx5gc8qr1rupBMA/uGBgYazOqbc5JglqF5Rc1MDAwdmDMg+x8u3n783QGDAyMDRh54EvCXzV97SWx5ZsjGBgY2zB6lyqq6W4e9DEwMDDy4Hu9oWpTIb/egYGBsQ/jroJaNR2dXObAwMDYh5Gnjr3jXb6J3jwYGBhLM34BeGVqmJ1mrmYAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+ <!-- 添加百度统计js -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4099fc41b7fab35703d6ee8152506fa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)哦吼!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<!-- 插入音乐插件js文件 -->
+<script src="//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+    <!-- 爱心点击特效 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+    
+    <!-- 社会主义核心价值观点击特效 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#ff6651"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
+    </script>
+    
