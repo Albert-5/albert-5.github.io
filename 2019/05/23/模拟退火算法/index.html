@@ -41,7 +41,7 @@ ga('send', 'pageview');
 <meta property="og:description" content="模拟退火算法 模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。 假设现在有这么一个函数：$$f(x) = x^3-72x^2+4x+5$$现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/05/23/5ce6be9b1a85441627.png">
-<meta property="og:updated_time" content="2019-05-23T15:54:14.402Z">
+<meta property="og:updated_time" content="2019-05-24T11:56:46.207Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模拟退火算法">
 <meta name="twitter:description" content="模拟退火算法 模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。 假设现在有这么一个函数：$$f(x) = x^3-72x^2+4x+5$$现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到">
@@ -253,7 +253,7 @@ ga('send', 'pageview');
 <p><strong>1.2 状态空间与邻域函数</strong></p>
 <p>状态空间也称为搜索空间，它由经过编码的可行解的集合所组成。而邻域函数应尽可能满足产生的候选解遍布全部状态空间。其通常由产生候选解的方式和候选解产生的概率分布组成。候选解一般按照某一概率密度函数对解空间进行随机采样获得，而概率分布可以为均匀分布、正态分布、指数分布等。</p>
 <p><strong>1.3 状态转移概率（Metropolis准则）</strong></p>
-<p>状态转移概率是指从一个状态转换成另一个状态的概率，模拟退火算法中一般采用Metropolis准则，具体如下：<br>$$<br>P = \begin{cases}<br>1 &amp; E(x_{new})&lt;E(x_{old}) \<br>exp(-E(x_{new})&lt;E(x_{old})\over{T} &amp; E(x_{new})$\geq$E(x_{old})<br>\end{cases}<br>$$<br>其与当前温度参数T有关，随温度的下降而减小。 </p>
+<p>状态转移概率是指从一个状态转换成另一个状态的概率，模拟退火算法中一般采用Metropolis准则，具体如下：<br>$$<br>P = \begin{cases}<br>1 &amp; E(x_{new})&lt;E(x_{old}) \<br>exp(-E(x_{new})&lt;E(x_{old})\over{T} &amp; E(x_{new})\geq E(x_{old})<br>\end{cases}<br>$$<br>其与当前温度参数T有关，随温度的下降而减小。 </p>
 <p><strong>1.4 冷却进度表</strong></p>
 <p>冷却进度表是指从某一高温状态T向低温状态冷却时的降温函数,设时刻的温度为T(t)，则经典模拟退火算法的降温方式为：<br>$$<br>T(t)={T_0\over{lg(t+1)}}<br>$$<br>快速模拟退火算法的降温方式为：<br>$$<br>T(t) = {T_0\over{t+1}}<br>$$<br>另外还有其他的降温函数，其实只是收敛的速度不同罢了。</p>
 <p><strong>1.5 初始温度</strong></p>
@@ -298,7 +298,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-05-23T15:54:14.402Z" itemprop="dateUpdated">2019-05-23 23:54:14</time>
+    Last updated: <time datetime="2019-05-24T11:56:46.207Z" itemprop="dateUpdated">2019-05-24 19:56:46</time>
 </span><br>
 
 
