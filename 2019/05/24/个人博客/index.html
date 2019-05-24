@@ -46,7 +46,7 @@ ga('send', 'pageview');
 <meta property="og:image" content="https://i.loli.net/2019/05/24/5ce7860fc6ead66191.png">
 <meta property="og:image" content="https://i.loli.net/2019/05/24/5ce786378d87266920.png">
 <meta property="og:image" content="https://i.loli.net/2019/05/24/5ce7850b7fc8a18631.png">
-<meta property="og:updated_time" content="2019-05-24T05:53:07.366Z">
+<meta property="og:updated_time" content="2019-05-24T06:12:12.653Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="个人博客">
 <meta name="twitter:description" content="一、什么是hexoHexo是一个快速，简单和强大的博客框架。您使用Markdown（或其他语言）撰写帖子，Hexo会在几秒钟内生成具有漂亮主题的静态文件。 也就是说，通过Hexo创建的博客是一个仅提供在线浏览功能的静态博客，不存在后台编辑功能，添加新博客时需要在自己开发机上编写新博客文章（.md文件），再次生成一个新版本网站，上传并替换，从而实现新文章发布 二、什么是node.js度娘这样说Nod">
@@ -263,9 +263,9 @@ ga('send', 'pageview');
 <h5 id="三、什么是githubpages"><a href="#三、什么是githubpages" class="headerlink" title="三、什么是githubpages"></a>三、什么是githubpages</h5><p>GitHub Pages 是GitHub提供的个人静态主页网站托管服务，原目的是用于提供你在GitHub上托管的所有开源项目介绍，后来也推荐作为个人博客之类的用途</p>
 <p>优势是使用简单方便，免费高效实时，可用空间高达1G，可绑定自定义域名，原生自带GitHub级别防护</p>
 <hr>
-<h5 id="四、下面开始安装操作"><a href="#四、下面开始安装操作" class="headerlink" title="四、下面开始安装操作"></a>四、下面开始安装操作</h5><p>首先安装[Git][ [<a href="https://git-scm.com/download]" target="_blank" rel="noopener">https://git-scm.com/download]</a></p>
-<p>具体教程可参见 [教程][<a href="https://www.jianshu.com/p/414ccd423efc]" target="_blank" rel="noopener">https://www.jianshu.com/p/414ccd423efc]</a></p>
-<p>安装[node.js][<a href="https://nodejs.org/en/]" target="_blank" rel="noopener">https://nodejs.org/en/]</a></p>
+<h5 id="四、下面开始安装操作"><a href="#四、下面开始安装操作" class="headerlink" title="四、下面开始安装操作"></a>四、下面开始安装操作</h5><p>首先安装<a href="https://git-scm.com/download" target="_blank">Git</a></p>
+<p>具体教程可参见 <a href="https://www.jianshu.com/p/414ccd423efc" target="_blank">教程</a></p>
+<p>安装<a href="https://nodejs.org/en/" target="_blank">node.js</a></p>
 <p>在官网上可下载Windows以及Mac的安装包，安装完成后将自带npm工具（Node Package Manage，node包管理器）</p>
 <p>安装hexo</p>
 <p>Windows  ctrl+r 打开命令行，键入cmd进入界面</p>
@@ -382,7 +382,7 @@ ga('send', 'pageview');
 <p>另外也有<a href="mailto:*git@github.com" target="_blank" rel="noopener">*git@github.com</a> permission denied(pubkuckey)权限被拒绝的问题*</p>
 <blockquote>
 <p>解决方案：</p>
-<p>[点击][<a href="https://www.cnblogs.com/lxwphp/p/7884700.html]" target="_blank" rel="noopener">https://www.cnblogs.com/lxwphp/p/7884700.html]</a></p>
+<p><a href="https://www.cnblogs.com/lxwphp/p/7884700.html" target="_blank">here!!!</a></p>
 </blockquote>
 <p>然后还要配置身份信息</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">""</span></span><br><span class="line">git config --global user.email <span class="string">""</span></span><br></pre></td></tr></table></figure>
@@ -429,17 +429,17 @@ ga('send', 'pageview');
 <p>关于社会主义核心价值观的特效更为简单</p>
 <p>只需要在layout.ejs中加入下列代码，可以紧跟着爱心特效</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        /* 鼠标点击特效 - 7Core.CN */</span><br><span class="line">        var a_idx = 0;jQuery(document).ready(function($) &#123;$(&quot;body&quot;).click(function(e) &#123;var a = new Array(&quot;富强&quot;, &quot;民主&quot;, &quot;文明&quot;, &quot;和谐&quot;, &quot;自由&quot;, &quot;平等&quot;, &quot;公正&quot; ,&quot;法治&quot;, &quot;爱国&quot;, &quot;敬业&quot;, &quot;诚信&quot;, &quot;友善&quot;);var $i = $(&quot;&lt;span/&gt;&quot;).text(a[a_idx]);</span><br><span class="line">        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css(&#123;&quot;z-index&quot;: 100000000,&quot;top&quot;: y - 20,&quot;left&quot;: x,&quot;position&quot;: &quot;absolute&quot;,&quot;font-weight&quot;: &quot;bold&quot;,&quot;color&quot;: &quot;#ff6651&quot;&#125;);$(&quot;body&quot;).append($i);$i.animate(&#123;&quot;top&quot;: y - 180,&quot;opacity&quot;: 0&#125;,1500,function() &#123;$i.remove();&#125;);&#125;);&#125;);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<center>perfect</center>
+<center>Perfect</center>
 
 <p>接下来添加博客姐姐</p>
 <p>git中输入下列代码</p>
 <p>npm install –save hexo-helper-live2d下载</p>
 <p>当出现下列显示时表明已经下载完成</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Thank you for using hexo-helper-live2d!</span><br></pre></td></tr></table></figure>
-<p>然后点击[此处][<a href="https://blog.csdn.net/wang_123_zy/article/details/87181892#live2dwidgetmodelchitose_12]选择自己喜欢的镇站之宝" target="_blank" rel="noopener">https://blog.csdn.net/wang_123_zy/article/details/87181892#live2dwidgetmodelchitose_12]选择自己喜欢的镇站之宝</a></p>
+<p>然后<a href="https://blog.csdn.net/wang_123_zy/article/details/87181892#live2dwidgetmodelchitose_12" target="_blank" rel="noopener">点击此处</a>选择自己喜欢的镇站之宝</p>
 <p>我暂时选择了这个</p>
 <p>命令行中输入 </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live2d-widget-model-shizuku</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live2d-widget-model-***（模型名称）</span><br></pre></td></tr></table></figure>
 <p>文件_config.yml进行配置</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  <span class="built_in">enable</span>: <span class="literal">true</span></span><br><span class="line">  scriptFrom: <span class="built_in">local</span></span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-名称</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 <p>关于添加博客评论的事项</p>
@@ -457,7 +457,7 @@ ga('send', 'pageview');
 <blockquote>
 <p>16 x 16 - 浏览器的标准尺寸<br>24 x 24 - 用户界面的IE9固定网站尺寸<br>32 x 32 - IE新页面选项卡，Windows 7+任务栏按钮，Safari阅读列表侧栏<br>48 x 48 - Windows站点<br>57 x 57 - iPod touch ，iPhone高达3G<br>60 x 60 - iPhone触控至iOS7<br>64 x 64 - Windows网站，Safari阅读器列表侧边栏，HiDPI / Retina<br>70 x 70 - Win 8.1 Metro tile<br>72 x 72 - iPad触控至iOS6<br>76 x 76 - iOS7<br>96 x 96 - GoogleTV<br>114 x 114 - iPhone视网膜触控至iOS6<br>120 x 120 - iPhone视网膜触控iOS7<br>128 x 128 - Chrome网上应用店应用程序，Android<br>144 x 144 - IE10 Metro图块适用于固定网站，iPad视网膜可达iOS6<br>150 x 150 - 赢得8.1 Metro地铁<br>152 x 152 - iPad视网膜触摸iOS7<br>196 x 196 - Android Chrome<br>310 x 150 - Win 8.1宽地铁瓷砖<br>310 x 310 - Win 8.1 Metro瓷砖</p>
 </blockquote>
-<p>[这里][<a href="https://www.flaticon.com]有很多图标的，选择自己喜欢的，然后下载，添加到指定文件夹，最后在配置文件中配置一下就行的" target="_blank" rel="noopener">https://www.flaticon.com]有很多图标的，选择自己喜欢的，然后下载，添加到指定文件夹，最后在配置文件中配置一下就行的</a></p>
+<p><a href="https://www.flaticon.com" target="_blank" rel="noopener">这里</a>有很多图标的，选择自己喜欢的，然后下载，添加到指定文件夹，最后在配置文件中配置一下就行的</p>
 <p>文章 配置信息</p>
 <p>在<code>scaffolds/post.md</code>文件下，让它生成默认的<code>categories</code>和<code>tags</code>：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories: default tech</span><br><span class="line">tags: [hexo1,hexo2]</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
@@ -497,12 +497,12 @@ ga('send', 'pageview');
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=<span class="string">"//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p>然后就可以在任何地方随时插入音乐了，例如：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">文章内容1</span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"aplayer"</span> <span class="attr">data-id</span>=<span class="string">"60198"</span> <span class="attr">data-server</span>=<span class="string">"netease"</span> <span class="attr">data-type</span>=<span class="string">"playlist"</span> <span class="attr">data-mode</span>=<span class="string">"random"</span>&gt;</span></span><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">文章内容2</span><br></pre></td></tr></table></figure>
-<p>具体参见[此处][<a href="https://easyhexo.com/2-Theme-use-and-config/2-10-hexo-theme-indigo/]" target="_blank" rel="noopener">https://easyhexo.com/2-Theme-use-and-config/2-10-hexo-theme-indigo/]</a></p>
-<p>特别感谢 [博主][<a href="http://i-tech.tech/]" target="_blank" rel="noopener">http://i-tech.tech/]</a></p>
+<p>具体见<a href="https://easyhexo.com/2-Theme-use-and-config/2-10-hexo-theme-indigo/" target="_blank" rel="noopener">参考</a></p>
+<p>特别感谢 <a href="http://i-tech.tech/" target="_blank" rel="noopener">博主文章</a></p>
 <blockquote>
 <p>一些问题</p>
 <p>能够生成md文件但是无法渲染成网页页面</p>
-<p>解决分析][<a href="https://blog.csdn.net/huihut/article/details/73196343]" target="_blank" rel="noopener">https://blog.csdn.net/huihut/article/details/73196343]</a></p>
+<p><a href="https://blog.csdn.net/huihut/article/details/73196343" target="_blank" rel="noopener">解决分析</a></p>
 <p>[<strong>异常</strong>]npm ERR! peer dep missing: acorn@^6.0.0, required by <a href="mailto:acorn-dynamic-import@4.0.0" target="_blank" rel="noopener">acorn-dynamic-import@4.0.0</a></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; npm install acorn</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
@@ -519,13 +519,14 @@ ga('send', 'pageview');
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sitemap:</span><br><span class="line">		path: sitemap.xml</span><br><span class="line">		template: ./sitemap_template.xml</span><br></pre></td></tr></table></figure>
 <ul>
 <li><strong>path</strong> - 站点地图路径。（默认：sitemap.xml）</li>
-<li><strong>模板</strong> - 自定义模板路径。此文件将用于生成sitemap.xml（请参阅<a href="https://github.com/hexojs/hexo-generator-sitemap/blob/master/sitemap.xml" target="_blank" rel="noopener">默认模板</a>）</li>
+<li><strong>模板</strong> - 自定义模板路径。此文件将用于生成sitemap.xml（请参阅默认模板<a href="https://github.com/hexojs/hexo-generator-sitemap/blob/master/sitemap.xml" target="_blank" rel="noopener">默认模板</a>）</li>
 </ul>
 <p>Excluding Posts</p>
 <p>Add <code>sitemap: false</code> to the post’s front matter.</p>
 <p>Sitemap即网站地图，它的作用在于便于搜索引擎更加智能地抓取网站。最简单和常见的sitemap形式，是XML文件，在其中列出网站中的网址以及关于每个网址的其他元数据</p>
-<p>[参见文章][<a href="https://phantomt.github.io/2018/08/09/Hexo-sitemap/]" target="_blank" rel="noopener">https://phantomt.github.io/2018/08/09/Hexo-sitemap/]</a></p>
+<p><a href="https://phantomt.github.io/2018/08/09/Hexo-sitemap/" target="_blank">参考文章</a></p>
 <p>5、标签、分类追加</p>
+<p>资料：</p>
 <p>[点击][<a href="http://ijiaober.github.io/2014/08/05/hexo/hexo-04/?spm=5176.7935156.0.0.5a3c3a09B5NXeC]" target="_blank" rel="noopener">http://ijiaober.github.io/2014/08/05/hexo/hexo-04/?spm=5176.7935156.0.0.5a3c3a09B5NXeC]</a></p>
 <p><a href="https://jaydenz.github.io/2018/04/06/1.Hexo%E4%BD%BF%E7%94%A8%E8%AF%B4%E6%98%8E/#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98" target="_blank">标签分类参考</a></p>
 <p><a href="https://github.com/yscoder/hexo-theme-indigo/wiki/%E5%AE%89%E8%A3%85#%E5%BC%80%E5%90%AF%E5%88%86%E7%B1%BB%E9%A1%B5" target="_blank">官方分类</a></p>
@@ -535,6 +536,9 @@ ga('send', 'pageview');
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% image http://img.bizhi.sogou.com/images/2015/06/26/1214911.jpg 测试图片 %&#125;</span><br></pre></td></tr></table></figure>
 <p>这样就产生一个问题：旧文章中的图片需要手动修改格式以支持显示标题。</p>
 <p>1.3版本在集成大图预览功能的前提下，对图片标题显示的实现作了变动，现在你只需要按 Markdown 格式插入图片就可生成具有标题和大图预览功能的图片;</p>
+<hr>
+<center><strong>如果文章对您有那么一丢丢用，还请<font color="indigo" font_size="5">赏</font>一下喽</strong></center>
+
 
         </div>
 
@@ -543,7 +547,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-05-24T05:53:07.366Z" itemprop="dateUpdated">2019-05-24 13:53:07</time>
+    Last updated: <time datetime="2019-05-24T06:12:12.653Z" itemprop="dateUpdated">2019-05-24 14:12:12</time>
 </span><br>
 
 
