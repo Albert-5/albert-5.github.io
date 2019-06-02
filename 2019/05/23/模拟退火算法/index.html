@@ -238,7 +238,7 @@ ga('send', 'pageview');
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><p> <strong>模拟退火算法</strong></p>
+            <p> <strong>模拟退火算法</strong></p>
 <p>模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。</p>
 <p>假设现在有这么一个函数：<br>$$<br>f(x) = x^3-72x^2+4x+5<br>$$<br>现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到小数后8位，则要算10000000000次，即便使用计算机依然是一个庞大的运算过程。而优化问题中很多都类似于问题，无法用穷举法解出答案，我们叫这类问题为NP难问题（可查看维基百科：<a href="https://en.wikipedia.org/wiki/NP-hardness" target="_blank" rel="noopener">NP-hard</a>），于是，有人提出了<a href="https://zh.wikipedia.org/wiki/%E7%88%AC%E5%B1%B1%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">爬山法</a></p>
 <p>也可以参考下<a href="https://blog.csdn.net/lvhao92/article/details/50826709" target="_blank" rel="noopener">争取几句话描述一下爬山法，模拟退火，遗传算法</a>他的博客文章博客文章</p>
@@ -667,4 +667,7 @@ MathJax.Hub.Queue(function() {
         var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#ff6651"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
     </script>
+    <script src="//code.tidio.co/dhfi5clsw9dl27z5yr9nyrnwtuqc4zhv.js"></script>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"position":"right","width":150,"height":300,"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"mobile":{"show":true}});</script></body>
     
+</html>
