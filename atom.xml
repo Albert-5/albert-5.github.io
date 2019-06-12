@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://albert-5.cn/"/>
-  <updated>2019-06-02T06:25:44.880Z</updated>
+  <updated>2019-06-12T13:50:58.148Z</updated>
   <id>https://albert-5.cn/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Wechat爬取好友信息</title>
+    <link href="https://albert-5.cn/2019/06/12/Wechat%E7%88%AC%E5%8F%96%E5%A5%BD%E5%8F%8B%E4%BF%A1%E6%81%AF/"/>
+    <id>https://albert-5.cn/2019/06/12/Wechat爬取好友信息/</id>
+    <published>2019-06-12T13:49:31.000Z</published>
+    <updated>2019-06-12T13:50:58.148Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1 id="微信好友-一览无余"><a href="#微信好友-一览无余" class="headerlink" title="微信好友 一览无余"></a><strong>微信好友 一览无余</strong></h1><p>【itchat】一个微信的开源<strong>API</strong>，微信是一种常用的社交网络应用程序。</p><p>通过python中的聊天访问个人微信账户，然后通过微信机器人进行处理个人所有基本信息。</p><h3 id="安装itchat模块"><a href="#安装itchat模块" class="headerlink" title="安装itchat模块"></a>安装itchat模块</h3><figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install itchat</span><br></pre></td></tr></table></figure><h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itchat</span><br><span class="line">itchat.auto_login()</span><br><span class="line">itchat.send(<span class="string">'Hello, filehelper'</span>, toUserName=<span class="string">'filehelper'</span>)</span><br></pre></td></tr></table></figure><p>详情见<a href="https://pypi.org/project/itchat/" target="_blank">itchat官方网站</a></p><p><strong>主要用到的方法有：</strong></p><ul><li><code>itchat.login()</code>微信扫码登录</li><li><code>itchat.get_friends()</code>返回完整的列表好友，每个好友为一个字典，其中第一项为自己的账号基本信息，带入参数<code>update=True</code>，将更新好友列表并返回，具体使用<code>itchat.get_friends(update=True)</code></li></ul><blockquote><p>技巧：使用<code>itchat.login()</code>进行登录微信会有一个问题，就是每运行一次就会生成一个二维码，叮··· 扫描登录，是不是过于麻烦了？ 直接采用<code>itchat.auto_login()</code>，在一定时间内，可以不用扫码登录，只需要在手机移动端确定登录就行了，毕竟是在模拟网页登录</p></blockquote><h3 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入所需要的库</span></span><br><span class="line"><span class="keyword">import</span> itchat</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 启用热键扫码登录微信</span></span><br><span class="line">itchat.auto_login(hotReload=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 抓取好友信息</span></span><br><span class="line">friends = itchat.get_friends(update=<span class="literal">True</span>)[<span class="number">0</span>:]</span><br></pre></td></tr></table></figure><p>这时，好友信息已经在存储在<strong>friends</strong>里面了。</p><p><strong>定义函数抓取个字段信息get_var(var)</strong></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_var</span><span class="params">(var)</span>:</span></span><br><span class="line">    variable = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> friends:</span><br><span class="line">        value = i[var]</span><br><span class="line">        variable.append(value)</span><br><span class="line">    <span class="keyword">return</span> variable</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数得到各个变量,存在csv文件中</span></span><br><span class="line">NickName = get_var(<span class="string">'NickName'</span>)</span><br><span class="line">Sex = get_var(<span class="string">'Sex'</span>)</span><br><span class="line">Province = get_var(<span class="string">'Province'</span>)</span><br><span class="line">City = get_var(<span class="string">'City'</span>)</span><br><span class="line">Signature = get_var(<span class="string">'Signature'</span>)</span><br><span class="line">Username = get_var(<span class="string">'UserName'</span>)</span><br><span class="line">ContactFlag = get_var(<span class="string">'ContactFlag'</span>)</span><br><span class="line">SnsFlag = get_var(<span class="string">'SnsFlag'</span>)</span><br></pre></td></tr></table></figure><p><strong>定义函数parse_friends()</strong>，将得到的好友数据存储在txt文本中</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 收集并保存好友信息数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_friends</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 设置需要爬取的信息字段,使用字典形式,参考官网以及个人需求设置字段信息</span></span><br><span class="line">    result = &#123;<span class="string">'NickName'</span>: NickName, <span class="string">'Sex'</span>: Sex, <span class="string">'Province'</span>: Province, <span class="string">'City'</span>: City, <span class="string">'UserName'</span>: Username,</span><br><span class="line">            <span class="string">'ContactFlag'</span>: ContactFlag, <span class="string">'SnsFlag'</span>: SnsFlag, <span class="string">'Signature'</span>: Signature, &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> friends:</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'myfriends.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> fh:</span><br><span class="line">            fh.write(<span class="string">'-------------------------\n'</span>)</span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> result:</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">'myfriends.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> fh:</span><br><span class="line">                fh.write(str(r) + <span class="string">":"</span> + str(user.get(r))+<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"分析完毕！"</span>)</span><br></pre></td></tr></table></figure><center>设置最后打印标识，提醒已完成信息存储；<br><br><center>同时当前文件夹中出现一个文件<code>myfriends.txt</code></center><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/06/12/5d010091e02f920002.png" alt="信息文件" title>                </div>                <div class="image-caption">信息文件</div>            </figure><p><strong>定义函数male_female()</strong>统计男女以及其他人数和比例</p><figure class="image-bubble">                <div class="img-lightbox">                    <div class="overlay"></div>                    <img src="https://i.loli.net/2019/06/12/5d00ff1a51a3891536.png" alt="统计" title>                </div>                <div class="image-caption">统计</div>            </figure><p><strong>然后利用pandas</strong>模块将文件信息保存在<a href="https://baike.baidu.com/item/CSV/10739" target="_blank" rel="noopener">csv文件</a>中</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">'NickName'</span>: NickName, <span class="string">'Sex'</span>: Sex, <span class="string">'Province'</span>: Province, <span class="string">'City'</span>: City, <span class="string">'UserName'</span>: Username, <span class="string">'ContactFlag'</span>: ContactFlag, <span class="string">'SnsFlag'</span>:SnsFlag, <span class="string">'Signature'</span>:Signature, &#125;</span><br><span class="line">frame = DataFrame(data)</span><br><span class="line">frame.to_csv(<span class="string">'data2.csv'</span>, index=<span class="literal">True</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'data2.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> myfile:</span><br><span class="line">    reader = csv.reader(myfile)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">         print(row)</span><br></pre></td></tr></table></figure><center>便于后续采用pandas中的 <strong>value_counts</strong> 进行计数可视化处理<br></center><p><strong>下一步可视化操作</strong></p></center>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;\assets\css\APlayer.min.css&quot;&gt;&lt;script src=&quot;\assets\js\APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+      <category term="Wechat爬虫" scheme="https://albert-5.cn/categories/Wechat%E7%88%AC%E8%99%AB/"/>
+    
+    
+      <category term="爬虫" scheme="https://albert-5.cn/tags/%E7%88%AC%E8%99%AB/"/>
+    
+      <category term="微信" scheme="https://albert-5.cn/tags/%E5%BE%AE%E4%BF%A1/"/>
+    
+  </entry>
   
   <entry>
     <title>算法导论复习</title>
@@ -153,9 +180,9 @@
     
       <category term="算法" scheme="https://albert-5.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="python" scheme="https://albert-5.cn/tags/python/"/>
-    
       <category term="模拟退火" scheme="https://albert-5.cn/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"/>
+    
+      <category term="python" scheme="https://albert-5.cn/tags/python/"/>
     
   </entry>
   
@@ -211,9 +238,9 @@
       <category term="sublime" scheme="https://albert-5.cn/categories/sublime/"/>
     
     
-      <category term="sublime" scheme="https://albert-5.cn/tags/sublime/"/>
-    
       <category term="python" scheme="https://albert-5.cn/tags/python/"/>
+    
+      <category term="sublime" scheme="https://albert-5.cn/tags/sublime/"/>
     
   </entry>
   
