@@ -42,7 +42,8 @@ ga('send', 'pageview');
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/06/12/5d010091e02f920002.png">
 <meta property="og:image" content="https://i.loli.net/2019/06/12/5d00ff1a51a3891536.png">
-<meta property="og:updated_time" content="2019-06-12T13:54:22.661Z">
+<meta property="og:image" content="https://i.loli.net/2019/06/14/5d028204f24df25475.png">
+<meta property="og:updated_time" content="2019-06-13T17:05:35.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Wechat爬取好友信息">
 <meta name="twitter:description" content="微信好友 一览无余【itchat】一个微信的开源API，微信是一种常用的社交网络应用程序。 通过python中的聊天访问个人微信账户，然后通过微信机器人进行处理个人所有基本信息。 安装itchat模块1pip install itchat 简单使用123import itchatitchat.auto_login()itchat.send(&apos;Hello, filehelper&apos;, toUserNa">
@@ -180,7 +181,7 @@ ga('send', 'pageview');
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -285,10 +286,28 @@ ga('send', 'pageview');
             </figure>
 <p><strong>然后利用pandas</strong>模块将文件信息保存在<a href="https://baike.baidu.com/item/CSV/10739" target="_blank" rel="noopener">csv文件</a>中</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">'NickName'</span>: NickName, <span class="string">'Sex'</span>: Sex, <span class="string">'Province'</span>: Province, <span class="string">'City'</span>: City, <span class="string">'UserName'</span>: Username, <span class="string">'ContactFlag'</span>: ContactFlag, <span class="string">'SnsFlag'</span>:SnsFlag, <span class="string">'Signature'</span>:Signature, &#125;</span><br><span class="line">frame = DataFrame(data)</span><br><span class="line">frame.to_csv(<span class="string">'data2.csv'</span>, index=<span class="literal">True</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'data2.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> myfile:</span><br><span class="line">    reader = csv.reader(myfile)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">         print(row)</span><br></pre></td></tr></table></figure>
-<center>便于后续采用pandas中的 <strong>value_counts</strong> 进行计数可视化处理<br></center>
+<center>便于后续采用pandas中的 <strong>value_counts</strong> 进行计数可视化处理</center>
 
 
-<p><strong>下一步可视化操作</strong></p>
+
+<p><strong>简单可视化操作</strong></p>
+<p><strong>采用pyecharts中的Pie绘制饼图</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Pie</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">configure(output_image=<span class="literal">True</span>)</span><br><span class="line">pie = Pie(<span class="string">"性别比例"</span>, background_color=<span class="string">'white'</span>, title_text_size=<span class="number">25</span>)</span><br><span class="line">attr = [<span class="string">'male'</span>, <span class="string">'female'</span>, <span class="string">'other'</span>]</span><br><span class="line">v1 = [<span class="number">57.14</span>, <span class="number">27.04</span>, <span class="number">15.82</span>]  <span class="comment"># 好友男女百分比</span></span><br><span class="line">pie.add(<span class="string">''</span>, attr, v1, is_label_show=<span class="literal">True</span>)</span><br><span class="line">pie.render() <span class="comment"># render渲染，默认在当前文件夹中的render.html</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>再使用pyecharts时，可能会出现一些错误，比如不存在Pie或者无法导入Pie等</p>
+<p>看了一些博客之后，我采用的方法是降级，即降低库的版本，可能是与python版本有冲突</p>
+</blockquote>
+<p><strong>效果</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/14/5d028204f24df25475.png" alt="比例.png" title>
+                </div>
+                <div class="image-caption">比例.png</div>
+            </figure>
+<center>或许这就是你Single的原因吧<code>苦笑</code></center>
+
 </center>
         </div>
 
@@ -297,7 +316,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-06-12T13:54:22.661Z" itemprop="dateUpdated">2019-06-12 21:54:22</time>
+    最終更新：<time datetime="2019-06-13T17:05:35.174Z" itemprop="dateUpdated">2019-06-14 01:05:35</time>
 </span><br>
 
 
@@ -489,7 +508,7 @@ ga('send', 'pageview');
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
