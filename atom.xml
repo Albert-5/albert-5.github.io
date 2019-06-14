@@ -207,9 +207,9 @@
     
       <category term="算法" scheme="https://albert-5.cn/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="python" scheme="https://albert-5.cn/tags/python/"/>
-    
       <category term="模拟退火" scheme="https://albert-5.cn/tags/%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB/"/>
+    
+      <category term="python" scheme="https://albert-5.cn/tags/python/"/>
     
   </entry>
   
@@ -265,9 +265,9 @@
       <category term="sublime" scheme="https://albert-5.cn/categories/sublime/"/>
     
     
-      <category term="sublime" scheme="https://albert-5.cn/tags/sublime/"/>
-    
       <category term="python" scheme="https://albert-5.cn/tags/python/"/>
+    
+      <category term="sublime" scheme="https://albert-5.cn/tags/sublime/"/>
     
   </entry>
   
