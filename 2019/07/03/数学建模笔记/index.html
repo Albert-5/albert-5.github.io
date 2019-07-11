@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="sHO_73a3zHA-ndhyNC1D2d7DNrGbbCjApnFHsV56H8o">
+    
+    
+    
+    
+    <title>数学建模笔记 | Albert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="数学建模,图论,回归">
+    <meta name="description" content="数学交叉建模  图论基本概念顶点集合 $V={v ~1~, V ~2~， ······ }$ 边集合 $E={e1, e2, e3,······}$ 关系函数  $F(e)={u,v}$ 图的表示就有 $ G={V, E, F}$ 欧拉图特点： 线图，连通，无奇度顶点（https://zhidao.baidu.com/question/208310107.html） 边与边之间有相邻不相邻关系：">
+<meta name="keywords" content="数学建模,图论,回归">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数学建模笔记">
+<meta property="og:url" content="https://albert-5.cn/2019/07/03/数学建模笔记/index.html">
+<meta property="og:site_name" content="Albert">
+<meta property="og:description" content="数学交叉建模  图论基本概念顶点集合 $V={v ~1~, V ~2~， ······ }$ 边集合 $E={e1, e2, e3,······}$ 关系函数  $F(e)={u,v}$ 图的表示就有 $ G={V, E, F}$ 欧拉图特点： 线图，连通，无奇度顶点（https://zhidao.baidu.com/question/208310107.html） 边与边之间有相邻不相邻关系：">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d1026df850f079658.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d107463c6aea44467.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d1074cfa603086041.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d10755ad4dc738663.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d107b9d2015311537.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d107bf42bb1926417.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/24/5d107c882f2e099187.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11e6a97caab93898.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11e76b6224160599.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11e7aecf14155871.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11e7f1b9dbf20014.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11e9aad9a6e31363.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11eb3e101d485378.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11eb6e3cf4a56835.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11edbe0e1bb31830.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11ee5bc344a91310.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11eea02b86242422.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11efc75f34797456.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11f028b820c93741.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11f0802f28c31255.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11f0aaa3be669807.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/25/5d11f14cca4bd18065.png">
+<meta property="og:updated_time" content="2019-07-11T01:49:14.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数学建模笔记">
+<meta name="twitter:description" content="数学交叉建模  图论基本概念顶点集合 $V={v ~1~, V ~2~， ······ }$ 边集合 $E={e1, e2, e3,······}$ 关系函数  $F(e)={u,v}$ 图的表示就有 $ G={V, E, F}$ 欧拉图特点： 线图，连通，无奇度顶点（https://zhidao.baidu.com/question/208310107.html） 边与边之间有相邻不相邻关系：">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/24/5d1026df850f079658.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Albert" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<!-- 导入音乐插件js -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">albert</h5>
+          <a href="mailto:981287080@qq.com" title="981287080@qq.com" class="mail">981287080@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Albert-5" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.weibo.com/5973922558/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Music" target="_blank">
+                <i class="icon icon-lg icon-music"></i>
+                Music
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/desktop">
+                <i class="icon icon-lg icon-desktop"></i>
+                Desktop
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/picture">
+                <i class="icon icon-lg icon-camera"></i>
+                Camera
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/Starky35793281" target="_blank">
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                About me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">数学建模笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">数学建模笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-03T01:47:39.000Z" itemprop="datePublished" class="page-time">
+  2019-07-03
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math/">Math</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+	
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#图论"><span class="post-toc-number">1.</span> <span class="post-toc-text">图论</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#图与网络的数据结构"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">图与网络的数据结构</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#邻接矩阵"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">邻接矩阵</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#稀疏矩阵"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">稀疏矩阵</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#最短路径"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">最短路径</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#模糊聚类分析和模式识别"><span class="post-toc-number">2.</span> <span class="post-toc-text">模糊聚类分析和模式识别</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#聚类分析"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">聚类分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#如何聚类分析"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">如何聚类分析</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#聚类"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">聚类</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#模式识别"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">模式识别</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#回归模型"><span class="post-toc-number">3.</span> <span class="post-toc-text">回归模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#相关关系基本概念"><span class="post-toc-number">3.0.1.</span> <span class="post-toc-text">相关关系基本概念</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一元线性回归分析"><span class="post-toc-number">3.0.2.</span> <span class="post-toc-text">一元线性回归分析</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一元回归模型的检验"><span class="post-toc-number">3.0.3.</span> <span class="post-toc-text">一元回归模型的检验</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#一元线性回归分析-1"><span class="post-toc-number">3.0.4.</span> <span class="post-toc-text">一元线性回归分析</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#多元线性回归分析"><span class="post-toc-number">3.0.5.</span> <span class="post-toc-text">多元线性回归分析</span></a></li></ol></li></ol><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时间序列"><span class="post-toc-number">4.</span> <span class="post-toc-text">时间序列</span></a></li>
+        </nav>
+    </aside>
+
+
+<article id="post-数学建模笔记" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">数学建模笔记</h1>
+        <div class="post-meta">
+			
+
+          
+
+            <time class="post-time" title="2019-07-03 09:47:39" datetime="2019-07-03T01:47:39.000Z" itemprop="datePublished">2019-07-03</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math/">Math</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <center> 数学交叉建模</center>
+
+<h2 id="图论"><a href="#图论" class="headerlink" title="图论"></a>图论</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><p>顶点集合 $V={v ~1~, V ~2~， ······ }$</p>
+<p>边集合 $E={e1, e2, e3,······}$</p>
+<p>关系函数  $F(e)={u,v}$</p>
+<p>图的表示就有 $ G={V, E, F}$</p>
+<p>欧拉图特点： 线图，连通，无奇度顶点（<a href="https://zhidao.baidu.com/question/208310107.html）" target="_blank" rel="noopener">https://zhidao.baidu.com/question/208310107.html）</a></p>
+<p>边与边之间有相邻不相邻关系：共顶点则为相邻关系，反之亦然；</p>
+<p><strong>求欧拉巡回的算法：fleury算法，hierholzer算法</strong></p>
+<p><strong>求最佳巡回算法：edmonds算法</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/24/5d1026df850f079658.png" alt="图" title>
+                </div>
+                <div class="image-caption">图</div>
+            </figure>
+<blockquote>
+<p>巡回是指从一点出发经过一系列移动之后又能回到初始顶点；</p>
+<p>不具有b结构的称为简单图</p>
+</blockquote>
+<p><strong>二部图</strong></p>
+<p>二部图与完全二部图：</p>
+<p>若$V(G)=X∪Y$, $X∩Y=φ$ 且$X$中任意两顶点不相邻，$Y$ 中任意两顶点不相邻，则称为二部图或偶图；若$X$中每一顶点皆与$Y$ 中一切顶点相邻,称为 完全二部图或完全偶图,记为 $(m=|X|,n=|Y|)$ </p>
+<p><img src="https://i.loli.net/2019/06/24/5d107463c6aea44467.png" alt="二部图"></p>
+<p><strong>有向图</strong>：就是有方向的图</p>
+<p><strong>加权图</strong>：图中的边上带有权重的图</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/24/5d1074cfa603086041.png" alt="加权图" title>
+                </div>
+                <div class="image-caption">加权图</div>
+            </figure>
+<p><strong>子图和生成子图</strong></p>
+<p>子图：类似子集</p>
+<p>生成子图：保留<code>原图顶点</code>，但是少了部分边</p>
+<p><strong>路径和连通</strong></p>
+<p>通路：只要可以走就行 <strong>walk</strong></p>
+<p>道路：边不能重复，但顶点可以重复 <strong>Trail</strong></p>
+<p>路径：顶点、边都不能重复</p>
+<p><strong>圈</strong></p>
+<p>定义：起点和终点重合的路径称为圈，长为K的圈称为k阶圈</p>
+<p><code>起点和终点重合的道路称为闭通路</code></p>
+<h3 id="图与网络的数据结构"><a href="#图与网络的数据结构" class="headerlink" title="图与网络的数据结构"></a>图与网络的数据结构</h3><h4 id="邻接矩阵"><a href="#邻接矩阵" class="headerlink" title="邻接矩阵"></a>邻接矩阵</h4><p>0不相邻，1相邻</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/24/5d10755ad4dc738663.png" alt="邻接矩阵" title>
+                </div>
+                <div class="image-caption">邻接矩阵</div>
+            </figure>
+<p>1234567表示顶点，1表示相通，0表示不通；</p>
+<p><strong>加权图的带权邻接矩阵 A=（W~ij~）n×n</strong></p>
+<p>$w~ij~$$=\cases{权值&amp;$当Vi 与Vj 之间有边时$\cr 0&amp;$当i=j时$\cr∞&amp;$当Vi与Vj 之间无边时$\cr}$</p>
+<p><strong>有向图的邻接矩阵 A=（W~ij~）n×n</strong></p>
+<p>$aij$=$=\cases{1&amp;$若（vi,vj）∈E$\cr 0&amp;$若（vi,vj）∉E$\cr}$</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/24/5d107b9d2015311537.png" alt="有向图" title>
+                </div>
+                <div class="image-caption">有向图</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/24/5d107bf42bb1926417.png" alt="邻接矩阵" title>
+                </div>
+                <div class="image-caption">邻接矩阵</div>
+            </figure>
+<p><strong>无向图的邻接矩阵  A=（W~ij~）n×n </strong></p>
+<p>$a~ij~ $$=\cases{1&amp;$当Vi 与Vj 相邻$\cr 0&amp;$当Vi与Vj 不相邻$\cr}$</p>
+<h4 id="稀疏矩阵"><a href="#稀疏矩阵" class="headerlink" title="稀疏矩阵"></a>稀疏矩阵</h4><p><strong>边矩阵</strong></p>
+<p>定义一个m列的矩阵第1,2行分别存放百年的起点和终点</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/24/5d107c882f2e099187.png" alt="边矩阵" title>
+                </div>
+                <div class="image-caption">边矩阵</div>
+            </figure>
+<h4 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h4><p>MATLAB命令</p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/markReaper/p/8454817.html" target="_blank" rel="noopener">https://www.cnblogs.com/markReaper/p/8454817.html</a></p>
+</blockquote>
+<p><strong>最小生成树</strong></p>
+<p>kruskal算法</p>
+<p><strong>关于图论中的匹配问题</strong></p>
+<p><a href="https://mengzelev.github.io/2018/11/28/matchings/" target="_blank" rel="noopener">https://mengzelev.github.io/2018/11/28/matchings/</a></p>
+<p><a href="https://zh.wikipedia.org/wiki/%E5%8C%B9%E9%85%8D_(%E5%9B%BE%E8%AE%BA)" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/%E5%8C%B9%E9%85%8D_(%E5%9B%BE%E8%AE%BA)</a></p>
+<p><a href="https://www.renfei.org/blog/bipartite-matching.html" target="_blank" rel="noopener">https://www.renfei.org/blog/bipartite-matching.html</a></p>
+<p>匹配：不相邻的边构成的集合</p>
+<p>&lt;最大匹配，匹配，理想匹配&gt;</p>
+<p>座位安排问题，任务分配问题（加权二部图的最大权匹配问题），旅行商问题TSP，最小费用流</p>
+<hr>
+<hr>
+<h2 id="模糊聚类分析和模式识别"><a href="#模糊聚类分析和模式识别" class="headerlink" title="模糊聚类分析和模式识别"></a>模糊聚类分析和模式识别</h2><h3 id="聚类分析"><a href="#聚类分析" class="headerlink" title="聚类分析"></a>聚类分析</h3><p>聚类定义：通俗地说，聚类就是分类问题（没有任何关于分类的先验知识，仅靠事物的相似性作为类属划分的准则属于无监督范畴）</p>
+<p>常用的模糊聚类分析方法：</p>
+<blockquote>
+<ul>
+<li>基于模糊函数的聚类分析方法：模糊传递闭包法，直接聚类法，最大树法和编网法</li>
+<li>基于目标函数的聚类分析方法：称为模糊C均值聚类算法</li>
+</ul>
+</blockquote>
+<p><strong>模糊聚类分析</strong></p>
+<p>建立在模糊相似矩阵之上对分类对象进行定量分类的方法</p>
+<p><strong>主要内容</strong>有：数据标准化，建立模糊相似矩阵，动态聚类</p>
+<h4 id="如何聚类分析"><a href="#如何聚类分析" class="headerlink" title="如何聚类分析"></a>如何聚类分析</h4><blockquote>
+<ul>
+<li>数据标准化</li>
+<li>建立数据矩阵</li>
+</ul>
+<p>设论域$U={x~1~, x2, x3,······}$为被分类对象，每个对象又有m个指标表示性状，$xi={xi1,xi2·····xim}$，则得到原始数据矩阵$X=(x_{ij})_{n\times m}$</p>
+<ul>
+<li>标准差标准化 (使数据正规化，在$[0,1]$之间)</li>
+</ul>
+<p><strong>标准化方法</strong></p>
+<p>​    极差正规化，极差标准化，最大值规格化</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11e6a97caab93898.png" alt="123.png" title>
+                </div>
+                <div class="image-caption">123.png</div>
+            </figure>
+<p><strong>用最大最小值构造模糊相似矩阵</strong></p>
+</blockquote>
+<p><strong>模糊相似矩阵</strong>    </p>
+<blockquote>
+<p><strong>定理</strong>：</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11e76b6224160599.png" alt="相似系数法" title>
+                </div>
+                <div class="image-caption">相似系数法</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11e7aecf14155871.png" alt="夹角余弦法" title>
+                </div>
+                <div class="image-caption">夹角余弦法</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11e7f1b9dbf20014.png" alt="常用方法" title>
+                </div>
+                <div class="image-caption">常用方法</div>
+            </figure>
+<h4 id="聚类"><a href="#聚类" class="headerlink" title="聚类"></a>聚类</h4><p><strong>模糊等价矩阵</strong></p>
+<p>定义：给定$U$上的一个模糊关系$R_{ij}=[r_{ij}]_{n\times n}$，若它满足：</p>
+<ul>
+<li>自反性（$r_{ij}=1$）</li>
+<li>对称性（$r_{ij}=r_{ji}$）</li>
+<li>传递性（$R\circ R \subseteq R$）</li>
+</ul>
+<p>称$R$是$U$上的一个模糊等价矩阵。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11e9aad9a6e31363.png" alt="传递性" title>
+                </div>
+                <div class="image-caption">传递性</div>
+            </figure>
+<blockquote>
+<p>相似性度量的相关、相似系数矩阵满足自反性和对称性，但不一定满足传递性。</p>
+<p>对于传递性,可先计算$R○R(记作R^2)$,然后看其是否满足传递性。若不满足,经过$R○R=R^2, R^2○R^2=R^4 …$运 算,可将$R$改造成满足传递性的模糊等价矩阵;</p>
+</blockquote>
+<p><strong>模糊等价矩阵的$\lambda $截矩阵</strong></p>
+<p> 设$R=[r_{ij}]<em>{n×n}$是模糊等价矩阵，对任意$λ∈[0,1]$，称$Rλ=[r</em>{ij}^{(λ)}]<em>{n×n}为$$R=[r</em>{ij}]_{n×n} λ$截矩阵，其中: </p>
+<p><img src="https://i.loli.net/2019/06/25/5d11eb3e101d485378.png" alt="截矩阵1"></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11eb6e3cf4a56835.png" alt="截矩阵2" title>
+                </div>
+                <div class="image-caption">截矩阵2</div>
+            </figure>
+<p><strong>分类</strong></p>
+<p>由模糊等价矩阵的$\lambda$截矩阵可知，当$r_{ij}=1$时，$i与j应为同类$，否则为异类</p>
+<font color="blue">让$\lambda$ 由小到大变化，可形成动态聚类图</font>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11edbe0e1bb31830.png" alt="分类" title>
+                </div>
+                <div class="image-caption">分类</div>
+            </figure>
+<p><strong>最佳阈值$\lambda$的确定</strong></p>
+<ul>
+<li>对于不同的$λ∈[0,1]$，可得不同的分类方案，从而 形成一种动态聚类图。这对全面了解对象的分类情 况是比较形象和直观的。但有的实际问题需要选择 某个阀值λ，确定一个具体的分类，这就是确定阀 值λ的问题。 </li>
+</ul>
+<p>&lt;动态聚类图&gt;</p>
+<p><strong>用$F-统计量$ 确定$\lambda$的最佳值</strong></p>
+<ul>
+<li><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11ee5bc344a91310.png" alt="最佳值的确定1" title>
+                </div>
+                <div class="image-caption">最佳值的确定1</div>
+            </figure></li>
+<li><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/25/5d11eea02b86242422.png" alt="最佳值的确定2" title>
+                </div>
+                <div class="image-caption">最佳值的确定2</div>
+            </figure>
+</li>
+</ul>
+<h3 id="模式识别"><a href="#模式识别" class="headerlink" title="模式识别"></a>模式识别</h3><p><strong>隶属度和贴近度</strong></p>
+<ul>
+<li><p>隶属度</p>
+<ul>
+<li><p>模糊向量和内外积</p>
+<p><strong>若</strong>0≤a<strong><em>i</em></strong>≤1(<strong>i</strong>=1,2,…,<strong><em>n</em></strong>),<strong><em>则称向量</em></strong>a=(<strong><em>a**</em></strong>1<em>,**</em>a<strong><em>2</em></strong>,…,<strong><em>a**</em></strong>n<em>)</em>为模糊向量。设<strong>a</strong>，<em>b**</em>是模糊向量，则分别称：</p>
+<p><img src="https://i.loli.net/2019/06/25/5d11efc75f34797456.png" alt="123.png">     </p>
+<p>​    为向量<em>a</em>与<em>b</em>内积和外积。符号$∧$和$∨$分别表示两个元素取小和取大。</p>
+<p><img src="https://i.loli.net/2019/06/25/5d11f028b820c93741.png" alt="取大取小"></p>
+</li>
+</ul>
+</li>
+<li><p>最大隶属度原则</p>
+<ul>
+<li><p>原则1</p>
+<p><img src="https://i.loli.net/2019/06/25/5d11f0802f28c31255.png" alt="原则1"></p>
+</li>
+<li><p>原则2</p>
+<p><img src="https://i.loli.net/2019/06/25/5d11f0aaa3be669807.png" alt="原则2"></p>
+</li>
+</ul>
+</li>
+<li><p>贴近度</p>
+<p>贴近度是描述模糊集之间彼此靠近程度的指标,是我国学者汪培庄教授提出的,由于研究的问题不同,贴近度也有不同的定义形式,它的一般定义为:</p>
+<p>设<em>A</em>，<em>B</em>是论域$U$上的两个模糊子集，则称</p>
+<p><img src="https://i.loli.net/2019/06/25/5d11f14cca4bd18065.png" alt></p>
+<p>为<strong><font color="brown">A与B的贴近度</font></strong></p>
+<ul>
+<li>择近原则</li>
+</ul>
+</li>
+</ul>
+<h2 id="回归模型"><a href="#回归模型" class="headerlink" title="回归模型"></a>回归模型</h2><h4 id="相关关系基本概念"><a href="#相关关系基本概念" class="headerlink" title="相关关系基本概念"></a>相关关系基本概念</h4><h4 id="一元线性回归分析"><a href="#一元线性回归分析" class="headerlink" title="一元线性回归分析"></a>一元线性回归分析</h4><h4 id="一元回归模型的检验"><a href="#一元回归模型的检验" class="headerlink" title="一元回归模型的检验"></a>一元回归模型的检验</h4><h4 id="一元线性回归分析-1"><a href="#一元线性回归分析-1" class="headerlink" title="一元线性回归分析"></a>一元线性回归分析</h4><h4 id="多元线性回归分析"><a href="#多元线性回归分析" class="headerlink" title="多元线性回归分析"></a>多元线性回归分析</h4><h2 id="时间序列"><a href="#时间序列" class="headerlink" title="时间序列"></a>时间序列</h2><p><strong>非平稳序列的处理</strong></p>
+<ul>
+<li><p>$X_t=X_{t-1}+\delta_t$</p>
+</li>
+<li><p>$X_t=Z_t\times\delta_t, Z_t$~N(0,1)</p>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-07-11T01:49:14.718Z" itemprop="dateUpdated">2019-07-11 09:49:14</time>
+</span><br>
+
+
+        
+        <br><br><b><center>版权声明</center></b><br><strong>作者：</strong> Albert <br> <strong>来源：</strong> <a href="https://albert-5.cn">Albert小破站</a> <br><strong>本文地址</strong>：<a href="/2019/07/03/数学建模笔记/" target="_blank" rel="external">https://albert-5.cn/2019/07/03/数学建模笔记/</a>，转载请务必注明<font color="indigo"><strong>作者</strong>和<strong>来源</strong></font>
+        
+    </div>
+    
+    <footer>
+        <a href="https://albert-5.cn">
+            <img src="/img/avatar.jpg" alt="albert">
+            albert
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/回归/">回归</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/图论/">图论</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数学建模/">数学建模</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/07/03/数学建模笔记/&title=《数学建模笔记》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/07/03/数学建模笔记/&title=《数学建模笔记》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/07/03/数学建模笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数学建模笔记》 — Albert&url=https://albert-5.cn/2019/07/03/数学建模笔记/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/07/03/数学建模笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/29/智能优化算法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">智能优化算法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+	
+
+
+	
+
+
+	
+
+
+	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+    </section>
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+		console.log("Valine done!")
+		 
+    </script>
+    <!-- Valine Comments end -->
+
+
+	
+
+
+	
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>albert &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/07/03/数学建模笔记/&title=《数学建模笔记》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/07/03/数学建模笔记/&title=《数学建模笔记》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/07/03/数学建模笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《数学建模笔记》 — Albert&url=https://albert-5.cn/2019/07/03/数学建模笔记/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/07/03/数学建模笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACIklEQVR42u3aQW7EIAwF0Ln/pVOpu6oa8m2nlQYeq1EUER4Lj415veJxfY93T65fY/3O+ivrd0YDAwPjYxnXcrz7wBWPfCOSDXpLxcDAOICxDrIJY73cp2Z7+xwDAwOjFQSTJwkYAwMDo8pICs6bNG7wXQwMjJMZeQnaO2hLtqBaKmNgYJzDqDYG/vP3H/Y3MDAwPoRxFcckCOblbnlVGBgYWzN6h/LVQJy3HPIvRhkuBgbGFox1GTkvIHsXOPIA/eN/AwMD4xhGM2YXl5W3ORM8BgbGOYxJ4MsXnV+8yEM2BgYGxqTsnFzzysM6BgbGOYwkwE1K015wjwI6BgbGMYxq23LepMwL45t5MDAwtmZMjtieaiFUU9K8SMbAwNiDkU/RK2XzOauJY3TchoGBsQUjP9jqBdZJqyBPNDEwMPZmVBO4eYFava4RbQcGBsbWjPUSe5fA8qBcDa83IR4DA2NrxvxixPxi2eR9DAyMExjVwnKy6Hxfq00FDAyMXRnVw7Knwm5+qJckrxgYGOcwJkVs4e7GmH3TGMDAwNiOMT/6nxfA+RZEW4aBgbEdY36dotpaqD6J0lMMDIytGb0ELgnBvZbnpHjGwMDYm9E78Ho2yct5GBgYJzMmjYGn0srqFkSdWAwMjMMYeYJYvZWWJ5oYGBgYeUhNkstqaE7Wg4GBcTKjV8QmpF4iWJ4HAwNja0a1MZA0IHuNh6cKYwwMjI0YX9KMhJo6m8E8AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+ <!-- 添加百度统计js -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4099fc41b7fab35703d6ee8152506fa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)哦吼!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<!-- 插入音乐插件js文件 -->
+<script src="//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    <!-- 爱心点击特效 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+    
+    <!-- 社会主义核心价值观点击特效 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#ff6651"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
+    </script>
+    
+
+    <script src="//code.tidio.co/dhfi5clsw9dl27z5yr9nyrnwtuqc4zhv.js"></script>
+    
+    <!-- weather -->
+ <!--    <script type="text/javascript">WIDGET = {FID: 'rNrYhPQIei'}</script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+ -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"position":"left","width":150,"height":300,"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"mobile":{"show":false}});</script></body>
+</html>
