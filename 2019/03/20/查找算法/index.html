@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="sHO_73a3zHA-ndhyNC1D2d7DNrGbbCjApnFHsV56H8o">
+    
+    
+    
+    
+    <title>查找算法 | Albert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#C20f0b">
+    
+    
+    <meta name="keywords" content="python,查找算法,数和森林">
+    <meta name="description" content="一、二分查找1、思想二分查找又被称为折半查找，优点就是比较次数少，查找速度快，平均性能好，但其缺点是要求待查表为有序表，假设表中的元素是按照升序排列的，将表中间位置记录的关键字与查找的关键字作比较，如果两者相等，则查找成功；否者就利用中间位置记录分为前、后两个子表，如果中间位置的关键字大于查找关键字，则进一步查找前一个子表，否者就查找后一个子表，然后重复即可 2、实现123456789101112">
+<meta name="keywords" content="python,查找算法,数和森林">
+<meta property="og:type" content="article">
+<meta property="og:title" content="查找算法">
+<meta property="og:url" content="https://albert-5.cn/2019/03/20/查找算法/index.html">
+<meta property="og:site_name" content="Albert">
+<meta property="og:description" content="一、二分查找1、思想二分查找又被称为折半查找，优点就是比较次数少，查找速度快，平均性能好，但其缺点是要求待查表为有序表，假设表中的元素是按照升序排列的，将表中间位置记录的关键字与查找的关键字作比较，如果两者相等，则查找成功；否者就利用中间位置记录分为前、后两个子表，如果中间位置的关键字大于查找关键字，则进一步查找前一个子表，否者就查找后一个子表，然后重复即可 2、实现123456789101112">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-06-14T15:37:49.227Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="查找算法">
+<meta name="twitter:description" content="一、二分查找1、思想二分查找又被称为折半查找，优点就是比较次数少，查找速度快，平均性能好，但其缺点是要求待查表为有序表，假设表中的元素是按照升序排列的，将表中间位置记录的关键字与查找的关键字作比较，如果两者相等，则查找成功；否者就利用中间位置记录分为前、后两个子表，如果中间位置的关键字大于查找关键字，则进一步查找前一个子表，否者就查找后一个子表，然后重复即可 2、实现123456789101112">
+    
+        <link rel="alternate" type="application/atom+xml" title="Albert" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<!-- 导入音乐插件js -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">albert</h5>
+          <a href="mailto:981287080@qq.com" title="981287080@qq.com" class="mail">981287080@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Albert-5" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.weibo.com/5973922558/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Music" target="_blank">
+                <i class="icon icon-lg icon-music"></i>
+                Music
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/desktop">
+                <i class="icon icon-lg icon-desktop"></i>
+                Desktop
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/picture">
+                <i class="icon icon-lg icon-camera"></i>
+                Camera
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/Starky35793281" target="_blank">
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                About me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">查找算法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">查找算法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-03-20T09:56:30.000Z" itemprop="datePublished" class="page-time">
+  2019-03-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/python/">python</a></li></ul></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+    
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一、二分查找"><span class="post-toc-number">1.</span> <span class="post-toc-text">一、二分查找</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、思想"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">1、思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、实现"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">2、实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、时间复杂度问题"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">3、时间复杂度问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#二、树"><span class="post-toc-number">2.</span> <span class="post-toc-text">二、树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、概念"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">1、概念</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、常用术语名称"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">2、常用术语名称</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、树的分类"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">3、树的分类</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#三、二叉树"><span class="post-toc-number">3.</span> <span class="post-toc-text">三、二叉树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、性质"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1、性质</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、实现-1"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2、实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#四、广度遍历"><span class="post-toc-number">4.</span> <span class="post-toc-text">四、广度遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、思想-1"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">1、思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、实现-2"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">2、实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#五、深度优先遍历"><span class="post-toc-number">5.</span> <span class="post-toc-text">五、深度优先遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、思想-2"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">1、思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、实现-3"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">2、实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#六、哈夫曼树"><span class="post-toc-number">6.</span> <span class="post-toc-text">六、哈夫曼树</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、思想-3"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">1、思想</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、实现-4"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">2、实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、树、森林、二叉树的关系"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">3、树、森林、二叉树的关系</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-查找算法" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">查找算法</h1>
+        <div class="post-meta">
+			
+
+          
+
+            <time class="post-time" title="2019-03-20 17:56:30" datetime="2019-03-20T09:56:30.000Z" itemprop="datePublished">2019-03-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a><ul class="article-category-list-child"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/python/">python</a></li></ul></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="一、二分查找"><a href="#一、二分查找" class="headerlink" title="一、二分查找"></a><strong>一、二分查找</strong></h1><h2 id="1、思想"><a href="#1、思想" class="headerlink" title="1、思想"></a>1、思想</h2><p><strong>二分查找又被称为折半查找，优点就是比较次数少，查找速度快，平均性能好，但其缺点是要求待查表为<font color="6D29AA">有序表</font></strong>，<strong>假设表中的元素是按照升序排列的，将表中间位置记录的关键字与查找的关键字作比较，如果两者相等，则查找成功；否者就利用中间位置记录分为前、后两个子表，如果中间位置的关键字大于查找关键字，则进一步查找前一个子表，否者就查找后一个子表，然后重复即可</strong></p>
+<h2 id="2、实现"><a href="#2、实现" class="headerlink" title="2、实现"></a>2、实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">binary_search</span><span class="params">(alist,item)</span>:</span></span><br><span class="line">    <span class="string">'''二分查找'''</span></span><br><span class="line">    n =  len(alist)</span><br><span class="line">    <span class="keyword">if</span> n &gt; <span class="number">0</span>:</span><br><span class="line">        mid = n/<span class="number">2</span></span><br><span class="line">        <span class="keyword">if</span> alist[mid] == item:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">elif</span> item &lt; alist[mid]:</span><br><span class="line">            binary_search(alist[:mid],item)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            binary_search(alist[mid+<span class="number">1</span>:],item)</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+<h2 id="3、时间复杂度问题"><a href="#3、时间复杂度问题" class="headerlink" title="3、时间复杂度问题"></a>3、时间复杂度问题</h2><ul>
+<li>关于时间复杂度的问题，首先讨论最坏的情况，就是进行到最后一步才找到元素item，在这种情况下因为是二分查找法，每次都是对半的，所以一共有<font color="#08298A">O(log n)</font></li>
+<li><font color="#08298A">最优时间复杂度：O(1)</font> 
+
+</li>
+</ul>
+<h1 id="二、树"><a href="#二、树" class="headerlink" title="二、树"></a><strong>二、树</strong></h1><h2 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h2><blockquote>
+<p><strong><font face="隶书">它是另外一种数据结构，但元素之间的关系并不是线性结构，而是一种更为复杂的结构；但是它有以下特征： 1、如果他的结构不为空，则其中就存在着唯一的起始节点，称之为树根root；2、每个节点有零个或多个子节点；3、没有父节点的节点成为根节点；4、每一个非根节点有且只有一个父节点；5、除了根节点之外，每个子节点可以分为多个不相交的子树······</font></strong></p>
+</blockquote>
+<h2 id="2、常用术语名称"><a href="#2、常用术语名称" class="headerlink" title="2、常用术语名称"></a>2、常用术语名称</h2><ul>
+<li><strong>节点的度：</strong>一个节点含有的子树的个数称为该节点的度</li>
+<li><strong>树的度：</strong>一棵树中，最大的节点的度</li>
+<li><strong>叶子节点或终节点：</strong>度为零的节点</li>
+<li><strong>父节点：</strong>若一个节点含有子节点，则这个节点就称为该子节点的父节点</li>
+<li><strong>节点的层次：</strong>从根节点开始定义起，根为第一层，根的子节点为第二层，以此类推······</li>
+<li><strong>树的高度或深度：</strong>树中节点的最大层次</li>
+</ul>
+<h2 id="3、树的分类"><a href="#3、树的分类" class="headerlink" title="3、树的分类"></a>3、树的分类</h2><ul>
+<li><p><strong>无序树：</strong>树中任意节点的子节点之间没有顺序关系，也叫做自由树</p>
+</li>
+<li><p><strong>有序树：</strong>树中任意节点的子节点之间有顺序关系</p>
+<ul>
+<li><p><strong>二叉树：</strong>每个节点最多含有两个子树的树</p>
+<ul>
+<li><p><strong>完全二叉树：</strong>对于一颗二叉树，假设其深度为d，除了第d层外，其他各层的节点数目均已经达到最大值，且第d层所有节点从左向右连续的紧密排列；<strong>==满二叉树==</strong>的定义是所有叶节点都在最底层的完全二叉树; </p>
+</li>
+<li><p><strong>平衡二叉树&lt;AVL树&gt;：</strong>当且仅当任何节点的两棵子树得到高度差不超过2的二叉树</p>
+</li>
+<li><p><strong>排序二叉树（二叉查找树，binary search tree）：</strong>也称为二叉搜索树、有序二叉树</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>![20190330](C:/Users/DELL/Desktop/markdown%E5%AD%A6%E4%B9%A0%E6%96%87%E6%A1%A3/20190330.jpg)
+
+​      
+</code></pre><ul>
+<li><p><strong>霍夫曼树：</strong>用于信息编码，待权路径最短的二叉树称为哈夫曼树或者是最优二叉树</p>
+</li>
+<li><p><strong>B树：</strong>一种对读写操作进行优化的自平衡的二叉查找树，能够爆出数据有序，拥有多余两个子树；</p>
+</li>
+</ul>
+<hr>
+<p><strong>树的应用场景</strong></p>
+<blockquote>
+<p>1、xml、html等标签的关系</p>
+<p>2、路由协议运用了树的算法</p>
+<p>3、mysql数据库索引</p>
+<p>4、文件系统的目录结构</p>
+<p>5、AI算法，机器学习中的 decision tree等</p>
+</blockquote>
+<h1 id="三、二叉树"><a href="#三、二叉树" class="headerlink" title="三、二叉树"></a><strong>三、二叉树</strong></h1><h2 id="1、性质"><a href="#1、性质" class="headerlink" title="1、性质"></a>1、性质</h2><ul>
+<li>在二叉树的第i层最多有2 ^i-1^ 个节点</li>
+<li>深度为k的二叉树最多有(2 ^k^ -1)个节点</li>
+<li>对于任意一颗二叉树，如果叶子节点数为N ~0~ ，而度数为2的节点的总数为N ~2~ ，则有N ~0~ = N ~2~ + 1；</li>
+</ul>
+<h2 id="2、实现-1"><a href="#2、实现-1" class="headerlink" title="2、实现"></a>2、实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">'''构造节点'''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        <span class="string">'''构造左右孩子'''</span></span><br><span class="line">        self.elem = item</span><br><span class="line">        self.lchild = <span class="literal">None</span></span><br><span class="line">        self.rchild = <span class="literal">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">'''二叉树'''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.root = <span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        node = Node(item)</span><br><span class="line">        queue = [self.root]</span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.root = node</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 判断队列是否为空</span></span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            <span class="comment"># 取出当前节点</span></span><br><span class="line">            cur_node = queue.pop()</span><br><span class="line">            <span class="comment"># 判断当前节点的左右子树是否为空</span></span><br><span class="line">            <span class="keyword">if</span> cur_node.lchild <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                cur_node.lchild = node</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                queue.append(cur_node.lchild)</span><br><span class="line">            <span class="keyword">if</span> cur_node.right <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                cur_node.rchild = node</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                queue.append(cur_node.right)</span><br></pre></td></tr></table></figure>
+<h1 id="四、广度遍历"><a href="#四、广度遍历" class="headerlink" title="四、广度遍历"></a><strong>四、广度遍历</strong></h1><h2 id="1、思想-1"><a href="#1、思想-1" class="headerlink" title="1、思想"></a>1、思想</h2><p><strong>这种遍历方法就是按照路径长度由远及近地访问节点，也即是说按照二叉树的层次遍历访问层中的每一个节点；==这种遍历无法使用递归==；在这种宽度优先遍历中，只规定了逐层访问，并没有规同一层的节点访问顺序，但从算法的角度上，必须规定一个顺序，常见的是在每一层里都从左往右逐个访问；==实现这一算法是用队列作为缓存;==</strong></p>
+<h2 id="2、实现-2"><a href="#2、实现-2" class="headerlink" title="2、实现"></a>2、实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">'''构造节点'''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        <span class="string">'''构造左右孩子'''</span></span><br><span class="line">        self.elem = item</span><br><span class="line">        self.lchild = <span class="literal">None</span></span><br><span class="line">        self.rchild = <span class="literal">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">'''二叉树'''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.root = <span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        node = Node(item)</span><br><span class="line">        queue = [self.root]</span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.root = node</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 判断队列是否为空</span></span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            <span class="comment"># 取出当前节点</span></span><br><span class="line">            cur_node = queue.pop(<span class="number">0</span>)</span><br><span class="line">            <span class="comment"># 判断当前节点的左右子树是否为空</span></span><br><span class="line">            <span class="keyword">if</span> cur_node.lchild <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                cur_node.lchild = node</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                queue.append(cur_node.lchild)</span><br><span class="line">            <span class="keyword">if</span> cur_node.right <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                cur_node.rchild = node</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                queue.append(cur_node.right)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">breath_travel</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''广度优先遍历'''</span></span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        queue = [self.root]</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            cur_node = queue.pop(<span class="number">0</span>)</span><br><span class="line">            print(cur_node.elem)</span><br><span class="line">            <span class="keyword">if</span> cur_node.lchild <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                queue.append(cur_node.lchild)</span><br><span class="line">            <span class="keyword">if</span> cur_node.rchild <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                queue.append.rchild(cur_node.rchild)</span><br></pre></td></tr></table></figure>
+<h1 id="五、深度优先遍历"><a href="#五、深度优先遍历" class="headerlink" title="五、深度优先遍历"></a><strong>五、深度优先遍历</strong></h1><h2 id="1、思想-2"><a href="#1、思想-2" class="headerlink" title="1、思想"></a>1、思想</h2><p><strong>深度优先遍历不同于广度优先遍历，其遍历有三种不同的方式:</strong></p>
+<p><strong><font color="#5345AB">先序遍历[^脚注1]</font>，<font color="#7F1BC2">中序遍历[^脚注2]</font>，<font color="#9C20D7">后序遍历[^脚注3]</font></strong></p>
+<h2 id="2、实现-3"><a href="#2、实现-3" class="headerlink" title="2、实现"></a>2、实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">'''构造节点'''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        <span class="string">'''构造左右孩子'''</span></span><br><span class="line">        self.elem = item</span><br><span class="line">        self.lchild = <span class="literal">None</span></span><br><span class="line">        self.rchild = <span class="literal">None</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Tree</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="string">'''二叉树'''</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.root = <span class="literal">None</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(self,item)</span>:</span></span><br><span class="line">        node = Node(item)</span><br><span class="line">        queue = [self.root]</span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            self.root = node</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="comment"># 判断队列是否为空</span></span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            <span class="comment"># 取出当前节点</span></span><br><span class="line">            cur_node = queue.pop(<span class="number">0</span>)</span><br><span class="line">            <span class="comment"># 判断当前节点的左右子树是否为空</span></span><br><span class="line">            <span class="keyword">if</span> cur_node.lchild <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                cur_node.lchild = node</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                queue.append(cur_node.lchild)</span><br><span class="line">            <span class="keyword">if</span> cur_node.right <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">                cur_node.rchild = node</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                queue.append(cur_node.right)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">breath_travel</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="string">'''广度优先遍历'''</span></span><br><span class="line">        <span class="keyword">if</span> self.root <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        queue = [self.root]</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            cur_node = queue.pop(<span class="number">0</span>)</span><br><span class="line">            print(cur_node.elem)</span><br><span class="line">            <span class="keyword">if</span> cur_node.lchild <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                queue.append(cur_node.lchild)</span><br><span class="line">            <span class="keyword">if</span> cur_node.rchild <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">                queue.append.rchild(cur_node.rchild)</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">preorder</span><span class="params">(self,node)</span>:</span></span><br><span class="line">        <span class="string">'''先序遍历'''</span></span><br><span class="line">        <span class="comment"># 判断节点是否为空</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        print(node.elem)  <span class="comment"># 打印根节点</span></span><br><span class="line">        self.preorder(node.lchild)  <span class="comment"># 递归打印左子树</span></span><br><span class="line">        self.preorder(node.rchild)  <span class="comment"># 递归打印右子树</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inorder</span><span class="params">(self,node)</span>:</span></span><br><span class="line">        <span class="string">'''中序遍历'''</span></span><br><span class="line">        <span class="comment"># 判断节点是否为空</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.inorder(node.lchild)  <span class="comment"># 递归打印左子树</span></span><br><span class="line">        print(node.elem)  <span class="comment"># 打印根节点</span></span><br><span class="line">        self.inorder(node.rchild)  <span class="comment"># 递归打印右子树     </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">postorder</span><span class="params">(self,node)</span>:</span></span><br><span class="line">        <span class="string">'''后序遍历'''</span></span><br><span class="line">        <span class="comment"># 判断节点是否为空</span></span><br><span class="line">        <span class="keyword">if</span> node <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        self.postorder(node.lchild)  <span class="comment"># 递归打印左子树</span></span><br><span class="line">        self.postorder(node.rchild)  <span class="comment"># 递归打印右子树</span></span><br><span class="line">        print(node.elem)  <span class="comment"># 打印根节点</span></span><br></pre></td></tr></table></figure>
+<h1 id="六、哈夫曼树"><a href="#六、哈夫曼树" class="headerlink" title="六、哈夫曼树"></a><strong>六、哈夫曼树</strong></h1><h2 id="1、思想-3"><a href="#1、思想-3" class="headerlink" title="1、思想"></a>1、思想</h2><blockquote>
+<p>设有实数集<br>$$<br>W = {w_0,w_1,w_2,\cdots,w_{m-1}}<br>$$<br>T是一颗扩充二叉树，其 m 个外部节点分别为以 w ~i~ 为权，而且T的带权外部路径长度 <strong>WPL</strong>在所有这样的扩充二叉树中达到最小，则称 T 为数据集 W 的 <strong><font color="#7F1BC2">最优二叉树</font></strong>或者是<strong><font color="#7F1BC2">哈夫曼树</font></strong></p>
+<font face="宋体" color="#7F1BC2"><a href="https://baike.baidu.com/item/%E5%93%88%E5%A4%AB%E6%9B%BC%E6%A0%91" target="_blank" rel="noopener">Click Here and Learn More</a></font>
+</blockquote>
+<h2 id="2、实现-4"><a href="#2、实现-4" class="headerlink" title="2、实现"></a>2、实现</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BinTNode</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,item,leftchild=None,</span></span></span><br><span class="line"><span class="function"><span class="params">                 rightchild=None)</span>:</span></span><br><span class="line">        self.elem = item</span><br><span class="line">        self.leftchild = leftchild</span><br><span class="line">        self.rightchild = rightchild</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HTNode</span><span class="params">(BinTNode)</span>:</span>  <span class="comment"># 这里继承了BinTNode类，定义了一个专门为构建哈夫曼树的节点类，特点就是增加了一个小于的比较操作</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__lt__</span><span class="params">(self,othernodes)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.elem &lt; othernode.elem</span><br><span class="line">    <span class="comment"># 这里定义了一个专门为哈夫曼算法服务的优先队列类，其中增加了一个检查队列中元素个数的操作</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">HuffmanPrioQ</span><span class="params">(PrioQueue)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">number</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> len(self._elems)</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">HuffmanTree</span><span class="params">(weights)</span>:</span></span><br><span class="line">    tree = HuffmanPrioQ()</span><br><span class="line">    <span class="keyword">for</span> w <span class="keyword">in</span> weights:</span><br><span class="line">        tree.enqueue(HTNode(w))</span><br><span class="line">    <span class="keyword">while</span> tree.number() &gt; <span class="number">1</span>:</span><br><span class="line">        t1 = tree.dequeue()</span><br><span class="line">        t2 = tree.dequeue()</span><br><span class="line">        x = t1.elem + t2.elem</span><br><span class="line">        tree.enqueue(HTNode(x,t1,t2))</span><br><span class="line">    <span class="keyword">return</span> tree.dequeue</span><br></pre></td></tr></table></figure>
+<p><strong>算法复杂度：</strong></p>
+<p>第一个循环构造了m颗二叉树，并把他们加入大序列中，按照上面的写法则时间复杂度为<strong>O(m log m)</strong>，因为加入一个元素需要O(log m)次筛选</p>
+<p>第二个循环需要m-1次，每次减少一颗树。其中构造一颗新树的时间与m是无关的，是O(1)复杂度的操作。每次迭代需要把一颗新的树加入到优先队列，需要O(log m)复杂度的时间，整个循环就是O(m log m)时间；</p>
+<h2 id="3、树、森林、二叉树的关系"><a href="#3、树、森林、二叉树的关系" class="headerlink" title="3、树、森林、二叉树的关系"></a>3、树、森林、二叉树的关系</h2><p><strong>实际上是一种一一对应的关系，可以把任何一个（有序）树林映射到一颗二叉树上，而其逆映射把这颗二叉树映射回原来的树林，映射关系如下：</strong></p>
+<ul>
+<li>顺序连接同一节点的各个子节点（它们原来在原树林里的兄弟节点），作为这些节点的右分支的边（也就是说，将树/森林中下一兄弟最为二叉树的右分支）</li>
+<li>保留每个节点到其第一个子节点的连接作为该节点的左分支，并删去这个节点到它节点的其他子节点的连接（即是说原森林里第一个子节点作为二叉树里的左分支）</li>
+</ul>
+<p>[^脚注1]: 先序遍历方式：根 —&gt;左—&gt;右<br>[^脚注2]: 中序遍历方式：左 —&gt;根—&gt;右</p>
+<p>[^脚注3]: 后序遍历方式：左 —&gt;右—&gt;根</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-06-14T15:37:49.227Z" itemprop="dateUpdated">2019-06-14 23:37:49</time>
+</span><br>
+
+
+        
+        <br><br><b><center>版权声明</center></b><br><strong>作者：</strong> Albert <br> <strong>来源：</strong> <a href="https://albert-5.cn">Albert小破站</a> <br><strong>本文地址</strong>：<a href="/2019/03/20/查找算法/" target="_blank" rel="external">https://albert-5.cn/2019/03/20/查找算法/</a>，转载请务必注明<font color="indigo"><strong>作者</strong>和<strong>来源</strong></font>
+        
+    </div>
+    
+    <footer>
+        <a href="https://albert-5.cn">
+            <img src="/img/avatar.jpg" alt="albert">
+            albert
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数和森林/">数和森林</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/查找算法/">查找算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/03/20/查找算法/&title=《查找算法》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/03/20/查找算法/&title=《查找算法》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/03/20/查找算法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《查找算法》 — Albert&url=https://albert-5.cn/2019/03/20/查找算法/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/03/20/查找算法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/03/25/栈和队列/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">栈和队列</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/03/02/英语学习/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">英语学习</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+	
+
+
+	
+
+
+	
+
+
+	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+    </section>
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+		console.log("Valine done!")
+		 
+    </script>
+    <!-- Valine Comments end -->
+
+
+	
+
+
+	
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>albert &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/03/20/查找算法/&title=《查找算法》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/03/20/查找算法/&title=《查找算法》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/03/20/查找算法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《查找算法》 — Albert&url=https://albert-5.cn/2019/03/20/查找算法/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/03/20/查找算法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3azW4CMQxFYd7/padSVyw603PtFDXOyQoNEPiysPyT1wuv63u9v35/cvecfOt5h8VLhgwZ2zKux3X3mdoO/Jj4zjJkyDiHwYNsGjTTJwQvQ4YMGTwIPu+TPpEhQ4aMVQyyKQnQJMjKkCFDRqcEJWUt+S4hLa7FZciQsSGjNhj4zOs/n2/IkCHj3zOucPF0kCeC6TDgh31kyJAxmrGqKb92YMmja1wTy5AhY0MGH0muCrJ8DMAbdjJkyDiBwX+SV5F88JmG19uAK0OGjAMYaRCMfywcf5LDlSFDxmmM2hiyFi55Aw6NTmXIkDGakSaFaft+bTMuaLrJkCFjEIMnc/1rW7VhADpiGTJkjGbwgpaMM1HBCYpYjpchQ8Y5DN4s6xe6tQYfSjFlyJBxJCNN6fojzLQZ9+qchwwZMjZkpK954li70tHKbWXIkDGagSYJpRsOtc+0bo7IkCFjEIO32NLAyocH6YBBhgwZZzLSrdOCdtWRFStyGTJkbMvgF7ZqI0meINaukcmQIeNkRjpEJDwe1nk4liFDxgkMvni7rQ9LB5wyZMiYzbjCVStu+623X45ShgwZoxmrAm46hkxL39ZflyFDxghGJ8jWTigNyvHwUoYMGUMZtSCYppV8hBkPPmXIkCEjDLK8PUfeRf9BhgwZMhoB9LncrV34WBBwZciQsSGjX8T2B5k8cZQhQ8ZpjFqDrHZtIk37+gckQ4aMzRlfw5H1Gyls47MAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+ <!-- 添加百度统计js -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4099fc41b7fab35703d6ee8152506fa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)哦吼!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<!-- 插入音乐插件js文件 -->
+<script src="//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    <!-- 爱心点击特效 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+    
+    <!-- 社会主义核心价值观点击特效 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#C20f0b"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
+    </script>
+    
+
+    <script src="//code.tidio.co/dhfi5clsw9dl27z5yr9nyrnwtuqc4zhv.js"></script>
+    
+    <!-- weather -->
+ <!--    <script type="text/javascript">WIDGET = {FID: 'rNrYhPQIei'}</script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+ -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"position":"left","width":150,"height":300,"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"mobile":{"show":false}});</script></body>
+</html>

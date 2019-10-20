@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="sHO_73a3zHA-ndhyNC1D2d7DNrGbbCjApnFHsV56H8o">
+    
+    
+    
+    
+    <title>模拟退火算法 | Albert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#C20f0b">
+    
+    
+    <meta name="keywords" content="算法,python,模拟退火">
+    <meta name="description" content="模拟退火算法 模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。 假设现在有这么一个函数：$$f(x) = x^3-72x^2+4x+5$$现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到">
+<meta name="keywords" content="算法,python,模拟退火">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模拟退火算法">
+<meta property="og:url" content="https://albert-5.cn/2019/05/23/模拟退火算法/index.html">
+<meta property="og:site_name" content="Albert">
+<meta property="og:description" content="模拟退火算法 模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。 假设现在有这么一个函数：$$f(x) = x^3-72x^2+4x+5$$现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/05/23/5ce6be9b1a85441627.png">
+<meta property="og:updated_time" content="2019-05-24T11:56:46.207Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模拟退火算法">
+<meta name="twitter:description" content="模拟退火算法 模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。 假设现在有这么一个函数：$$f(x) = x^3-72x^2+4x+5$$现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到">
+<meta name="twitter:image" content="https://i.loli.net/2019/05/23/5ce6be9b1a85441627.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Albert" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<!-- 导入音乐插件js -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">albert</h5>
+          <a href="mailto:981287080@qq.com" title="981287080@qq.com" class="mail">981287080@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/Albert-5" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://www.weibo.com/5973922558/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Music" target="_blank">
+                <i class="icon icon-lg icon-music"></i>
+                Music
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/desktop">
+                <i class="icon icon-lg icon-desktop"></i>
+                Desktop
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/picture">
+                <i class="icon icon-lg icon-camera"></i>
+                Camera
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://twitter.com/Starky35793281" target="_blank">
+                <i class="icon icon-lg icon-twitter"></i>
+                Twitter
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                About me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">模拟退火算法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">模拟退火算法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-23T15:51:26.000Z" itemprop="datePublished" class="page-time">
+  2019-05-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/智能算法/">智能算法</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+    
+</header>
+
+<div class="container body-wrap">
+    
+
+<article id="post-模拟退火算法" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">模拟退火算法</h1>
+        <div class="post-meta">
+			
+
+          
+
+            <time class="post-time" title="2019-05-23 23:51:26" datetime="2019-05-23T15:51:26.000Z" itemprop="datePublished">2019-05-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/智能算法/">智能算法</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p> <strong>模拟退火算法</strong></p>
+<p>模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。</p>
+<p>假设现在有这么一个函数：<br>$$<br>f(x) = x^3-72x^2+4x+5<br>$$<br>现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到小数后8位，则要算10000000000次，即便使用计算机依然是一个庞大的运算过程。而优化问题中很多都类似于问题，无法用穷举法解出答案，我们叫这类问题为NP难问题（可查看维基百科：<a href="https://en.wikipedia.org/wiki/NP-hardness" target="_blank" rel="noopener">NP-hard</a>），于是，有人提出了<a href="https://zh.wikipedia.org/wiki/%E7%88%AC%E5%B1%B1%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">爬山法</a></p>
+<p>也可以参考下<a href="https://blog.csdn.net/lvhao92/article/details/50826709" target="_blank" rel="noopener">争取几句话描述一下爬山法，模拟退火，遗传算法</a>他的博客文章博客文章</p>
+<blockquote>
+<p>但是这个方法的缺点在于最优解的产生依赖于最初值的选取，无法解决非凸函数，即容易收敛于局部最优解；同时，也无法解决有平台的函数的问题</p>
+</blockquote>
+<p>于是，Kirkpatrick等提出了模拟退火算法，它是一种<strong>启发式搜索算法，即按照预定的控制策略进行搜索，在搜索过程中获取的中间信息将用来改进控制策略</strong></p>
+<p><strong>1. 模拟退火算法的原理</strong></p>
+<p><strong>1.1 概念</strong></p>
+<p>模拟退火算法的思想借鉴于固体的退火原理，当固体的温度很高的时候，内能比较大，固体的内部粒子处于快速无序运动，当温度慢慢降低的过程中，固体的内能减小，粒子的慢慢趋于有序，最终，当固体处于常温时，内能达到最小，此时，粒子最为稳定。模拟退火算法便是基于这样的原理设计而成。</p>
+<p>模拟退火算法从某一高温出发，在高温状态下计算初始解，然后以预设的邻域函数产生一个扰动量，从而得到新的状态，即模拟粒子的无序运动，比较新旧状态下的能量，即目标函数的解。如果新状态的能量小于旧状态，则状态发生转化；如果新状态的能量大于旧状态，则以一定的概率准则发生转化。当状态稳定后，便可以看作达到了当前状态的最优解，便可以开始降温，在下一个温度继续迭代，最终达到低温的稳定状态，便得到了模拟退火算法产生的结果。</p>
+<p><strong>1.2 状态空间与邻域函数</strong></p>
+<p>状态空间也称为搜索空间，它由经过编码的可行解的集合所组成。而邻域函数应尽可能满足产生的候选解遍布全部状态空间。其通常由产生候选解的方式和候选解产生的概率分布组成。候选解一般按照某一概率密度函数对解空间进行随机采样获得，而概率分布可以为均匀分布、正态分布、指数分布等。</p>
+<p><strong>1.3 状态转移概率（Metropolis准则）</strong></p>
+<p>状态转移概率是指从一个状态转换成另一个状态的概率，模拟退火算法中一般采用Metropolis准则，具体如下：<br>$$<br>P = \begin{cases}<br>1 &amp; E(x_{new})&lt;E(x_{old}) \<br>exp(-E(x_{new})&lt;E(x_{old})\over{T} &amp; E(x_{new})\geq E(x_{old})<br>\end{cases}<br>$$<br>其与当前温度参数T有关，随温度的下降而减小。 </p>
+<p><strong>1.4 冷却进度表</strong></p>
+<p>冷却进度表是指从某一高温状态T向低温状态冷却时的降温函数,设时刻的温度为T(t)，则经典模拟退火算法的降温方式为：<br>$$<br>T(t)={T_0\over{lg(t+1)}}<br>$$<br>快速模拟退火算法的降温方式为：<br>$$<br>T(t) = {T_0\over{t+1}}<br>$$<br>另外还有其他的降温函数，其实只是收敛的速度不同罢了。</p>
+<p><strong>1.5 初始温度</strong></p>
+<p>一般来说，初始温度越大，获得高质量解的几率越大，但是花费的时间也会随之增加，因此，初温的确定应该同时考虑计算效率与优化质量，常用的方法包括：</p>
+<p>(1)均匀抽样一组状态，以各状态目标值的方差为初温。</p>
+<p>(2)随机产生一组状态，确定亮亮状态间的最大目标值差，然后根据差值，利用一定的函数确定初温，如：<br>$$<br>T_0 = -{\Delta_{max}\over P_r}<br>$$<br>其中Pr为初始接受概率。</p>
+<p>(3)根据经验公式给出</p>
+<p><strong>1.6 循环终止准则</strong></p>
+<p>内循环终止准则：</p>
+<p>（1）检验目标函数的均值是否稳定</p>
+<p>（2）连续若干步的目标值变化较小</p>
+<p>（3）按一定的步数进行抽样</p>
+<p>外循环终止准则</p>
+<p>（1）设置终止温度</p>
+<p>（2）设置外循环迭代次数</p>
+<p>（3）算法搜索到的最优值连续若干步保持不变</p>
+<p>（4）检验系统熵是否稳定</p>
+<p><strong>Python实现过程：</strong></p>
+<p>下面便通过python求解开头提到的问题，首先定义函数，然后通过pyplot看看函数在[0,100]上的大致图像：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> division</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="comment">#define aim function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">aimFunction</span><span class="params">(x)</span>:</span></span><br><span class="line">    y=x**<span class="number">3</span><span class="number">-60</span>*x**<span class="number">2</span><span class="number">-4</span>*x+<span class="number">6</span></span><br><span class="line">    <span class="keyword">return</span> y</span><br><span class="line">x=[i/<span class="number">10</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line">y=[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>)]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1000</span>):</span><br><span class="line">    y[i]=aimFunction(x[i])</span><br><span class="line"></span><br><span class="line">plt.plot(x,y)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/05/23/5ce6be9b1a85441627.png" alt="img" title>
+                </div>
+                <div class="image-caption">img</div>
+            </figure>
+<p>可以看到最小值大概在48左右，通过求导计算得到最小值为48.45。</p>
+<p>接下来便构造SA模型：</p>
+<p>定义初温、低温阈值并通过随机得到初始x，同时定义时刻t。通过均匀分布构造邻域函数，同时设定内循环次数为50次，降温函数使用<br>$$<br>T(t) = {T_0\over{t+1}}<br>$$<br>代码实现如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">T=<span class="number">1000</span> <span class="comment">#initiate temperature</span></span><br><span class="line">Tmin=<span class="number">10</span> <span class="comment">#minimum value of terperature</span></span><br><span class="line">x=np.random.uniform(low=<span class="number">0</span>,high=<span class="number">100</span>)<span class="comment">#initiate x</span></span><br><span class="line">k=<span class="number">50</span> <span class="comment">#times of internal circulation </span></span><br><span class="line">y=<span class="number">0</span> <span class="comment">#initiate result</span></span><br><span class="line">t=<span class="number">0</span> <span class="comment">#time</span></span><br><span class="line"><span class="keyword">while</span> T&gt;=Tmin:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(k):</span><br><span class="line">        <span class="comment">#calculate y</span></span><br><span class="line">        y=aimFunction(x)</span><br><span class="line">        <span class="comment">#generate a new x in the neighboorhood of x by transform function</span></span><br><span class="line">        xNew=x+np.random.uniform(low=<span class="number">-0.055</span>,high=<span class="number">0.055</span>)*T</span><br><span class="line">        <span class="keyword">if</span> (<span class="number">0</span>&lt;=xNew <span class="keyword">and</span> xNew&lt;=<span class="number">100</span>):</span><br><span class="line">            yNew=aimFunction(xNew)</span><br><span class="line">            <span class="keyword">if</span> yNew-y&lt;<span class="number">0</span>:</span><br><span class="line">                x=xNew</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="comment">#metropolis principle</span></span><br><span class="line">                p=math.exp(-(yNew-y)/T)</span><br><span class="line">                r=np.random.uniform(low=<span class="number">0</span>,high=<span class="number">1</span>)</span><br><span class="line">                <span class="keyword">if</span> r&lt;p:</span><br><span class="line">                    x=xNew</span><br><span class="line">    t+=<span class="number">1</span></span><br><span class="line">    print(t)</span><br><span class="line">    T=<span class="number">1000</span>/(<span class="number">1</span>+t)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">print</span> (x)</span><br><span class="line">print(aimFunction(x))</span><br></pre></td></tr></table></figure>
+<p>经过循环输出x与y，结果如下：</p>
+<p>​            48.45411386249023    -55082.24210065413</p>
+<p>可以看到SA算法很好的逼近了最优解。</p>
+<p><strong>参考文章</strong></p>
+<p><a href="https://www.imooc.com/article/30160" target="_blank" rel="noopener">模拟退火算法与python实现</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-05-24T11:56:46.207Z" itemprop="dateUpdated">2019-05-24 19:56:46</time>
+</span><br>
+
+
+        
+        <br><br><b><center>版权声明</center></b><br><strong>作者：</strong> Albert <br> <strong>来源：</strong> <a href="https://albert-5.cn">Albert小破站</a> <br><strong>本文地址</strong>：<a href="/2019/05/23/模拟退火算法/" target="_blank" rel="external">https://albert-5.cn/2019/05/23/模拟退火算法/</a>，转载请务必注明<font color="indigo"><strong>作者</strong>和<strong>来源</strong></font>
+        
+    </div>
+    
+    <footer>
+        <a href="https://albert-5.cn">
+            <img src="/img/avatar.jpg" alt="albert">
+            albert
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/模拟退火/">模拟退火</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/05/23/模拟退火算法/&title=《模拟退火算法》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/05/23/模拟退火算法/&title=《模拟退火算法》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/05/23/模拟退火算法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《模拟退火算法》 — Albert&url=https://albert-5.cn/2019/05/23/模拟退火算法/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/05/23/模拟退火算法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/31/Typora语法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Typora语法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/16/Leetcode/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Leetcode</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+	
+
+
+	
+
+
+	
+
+
+	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+    </section>
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+		console.log("Valine done!")
+		 
+    </script>
+    <!-- Valine Comments end -->
+
+
+	
+
+
+	
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>albert &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/05/23/模拟退火算法/&title=《模拟退火算法》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/05/23/模拟退火算法/&title=《模拟退火算法》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/05/23/模拟退火算法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《模拟退火算法》 — Albert&url=https://albert-5.cn/2019/05/23/模拟退火算法/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/05/23/模拟退火算法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aS27jMBAFwNz/0g4wqwCB5feacjAmSysjdiSWFo3+fX3F1+Pf1f7+53/9/vz7ns/+ftuFgYHxsYzH5fWMcf3L/D4J/vqeGBgY5zCug+z1A5Jw+eIQQZh+cWYMDAyMII2bAZIkEgMDA2Ml4K4H6CTRxMDAwMiL2LasbUNtwruhFsfAwPhARjsY+MvPb5xvYGBgfAjjUV6zJn7+++GpMDAwtmYk5ehshWI2vJwVzxgYGHsz1htksyI2P3T0ojEwMLZmrCxDJG2y9v7t6ljUO8TAwPhwxqw1365EtEsbdWMOAwPjGEZbZLZtspVVsBfpIwYGxtaMF1/Eh54ll3eRMDAwMFYOvbIuVtfiGBgYhzHy47aB+K4FNQwMjNMY682v2Stohw15xYqBgbETo22ZtUlenibm48yo0YaBgbERIyka27CbB9Y8iEdDUwwMjMMYSQheKWLb+0fBGgMDY2vGrDRNgmPeelv5PQYGxjmMNjjmTbHi8UkKmKSzGBgYGzGShKw9UB5Sk4C+NNXEwMDYiJG3z9qVi/Yp7XMxMDBOYOSPnLXS7hpkRkkqBgbGpozZIkU7JGhHnvW3GBgYWzPeUScOE7ubVjowMDB2ZeRHadPBGWz41jEwMA5g5EXjbAnj3kD8dJCJgYFxPKNtybUNu1l5jIGBgXFXuz9f6bgOrE9fEwYGxgGM2SHaEWZeKtcVKwYGxtaMWbN+vcRtB59vGWFiYGD874xvMCIuGwyszAsAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+ <!-- 添加百度统计js -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4099fc41b7fab35703d6ee8152506fa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)哦吼!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<!-- 插入音乐插件js文件 -->
+<script src="//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    <!-- 爱心点击特效 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+    
+    <!-- 社会主义核心价值观点击特效 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#C20f0b"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
+    </script>
+    
+
+    <script src="//code.tidio.co/dhfi5clsw9dl27z5yr9nyrnwtuqc4zhv.js"></script>
+    
+    <!-- weather -->
+ <!--    <script type="text/javascript">WIDGET = {FID: 'rNrYhPQIei'}</script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+ -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"position":"left","width":150,"height":300,"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"mobile":{"show":false}});</script></body>
+</html>
