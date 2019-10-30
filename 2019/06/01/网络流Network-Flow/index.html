@@ -189,7 +189,7 @@ ga('send', 'pageview');
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -309,7 +309,7 @@ ga('send', 'pageview');
 <h2 id="Trial-1-Dynamic-programming"><a href="#Trial-1-Dynamic-programming" class="headerlink" title="Trial 1: Dynamic programming"></a>Trial 1: Dynamic programming</h2><p>既然是数学规划，首先想到的是能不能使用动态规划。</p>
 <p>现实情况是，目前还没有解决最大流问题的动态规划算法。</p>
 <h2 id="Trial-2-Iteration"><a href="#Trial-2-Iteration" class="headerlink" title="Trial 2: Iteration"></a>Trial 2: Iteration</h2><p>想到的另外一种方法是迭代法，伪代码表示如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = x0;</span><br><span class="line">while true do</span><br><span class="line">    x = improve(x);</span><br><span class="line">    if stopping(x) then</span><br><span class="line">        break</span><br><span class="line">    end if</span><br><span class="line">end while</span><br><span class="line">return x</span><br></pre></td></tr></table></figure>
+<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">x = x0;</span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span> <span class="keyword">do</span></span><br><span class="line">    x = improve(x);</span><br><span class="line">    <span class="keyword">if</span> stopping(x) <span class="keyword">then</span></span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">while</span></span><br><span class="line"><span class="keyword">return</span> x</span><br></pre></td></tr></table></figure>
 <p>主要是思想是从某个流开始，不断的改进这个流，直到到达我们想要的最大流。</p>
 <p>不得不说，这想法太粗略了。一些问题没有解决，比如，如何选择开始的流，如何改进，何时停止算法。</p>
 <p>为了解决这些问题，我们需要继续补充一些基础知识。这样才能干掉这个问题。</p>
@@ -392,11 +392,11 @@ ga('send', 'pageview');
 </ol>
 <p>可以看到，最关键问题是如何寻找增广路径，而Ford-Fulkerson方法的效率正取决于此。如果选择方法不好，就有可能每次增加的流非常少，而算法运行时间非常长，甚至无法终止。</p>
 <p>但是，Ford-Fulkerson并没有告诉我们如何寻找增广路径。所以，它是个方法，而不是算法，伪代码如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> initialize f(e) = 0 for all e</span><br><span class="line">while there is a s-t path in residual graph Gf do</span><br><span class="line">    arbitrarily choose an s-t path P in Gf</span><br><span class="line">    f = augment(P, f)</span><br><span class="line">end while</span><br><span class="line">augment(P, f)</span><br><span class="line">    let b = bottleneck(P)</span><br><span class="line">    for each edge e = (u, v) ∈ P do</span><br><span class="line">        if (u, v) is a forward edge then</span><br><span class="line">            increase f(u, v) by b</span><br><span class="line">        else</span><br><span class="line">            decrease f(u, v) by b</span><br><span class="line">        end if</span><br><span class="line">    end for</span><br></pre></td></tr></table></figure>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"> initialize f(e) = <span class="number">0</span> <span class="keyword">for</span> all e</span><br><span class="line"><span class="keyword">while</span> there <span class="keyword">is</span> a s-t path <span class="keyword">in</span> residual graph Gf <span class="keyword">do</span></span><br><span class="line">    arbitrarily choose an s-t path P <span class="keyword">in</span> Gf</span><br><span class="line">    f = augment(P, f)</span><br><span class="line"><span class="keyword">end</span> <span class="keyword">while</span></span><br><span class="line">augment(P, f)</span><br><span class="line">    let b = bottleneck(P)</span><br><span class="line">    <span class="keyword">for</span> <span class="keyword">each</span> edge e = (u, v) ∈ P <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">if</span> (u, v) <span class="keyword">is</span> a <span class="keyword">forward</span> edge <span class="keyword">then</span></span><br><span class="line">            increase f(u, v) <span class="keyword">by</span> b</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            decrease f(u, v) <span class="keyword">by</span> b</span><br><span class="line">        <span class="keyword">end</span> <span class="keyword">if</span></span><br><span class="line">    <span class="keyword">end</span> <span class="keyword">for</span></span><br></pre></td></tr></table></figure>
 <p>其中，<code>augment</code>是一个改变当前流的函数，即使用找到的增广路径P来压入流，增大当前的流f。而<code>bottleneck</code>从当前的增广路径P中找到瓶颈边（残留网络中，路径上流量最小的边），把这个流量压入。</p>
 <p>正是因为在选择增广路径时是<code>arbitrarily</code>，所以Ford-Fulkerson方法有多种实现。</p>
 <h2 id="Scaling-technique"><a href="#Scaling-technique" class="headerlink" title="Scaling technique"></a>Scaling technique</h2><p>第一种是scaling的方法，通过伪代码更好解释。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">initialize f(e) = 0 for all e</span><br><span class="line">let △ = C</span><br><span class="line">while △ ≥ 1 do</span><br><span class="line">    while there is a s-t path in Gf(△) do</span><br><span class="line">        choose a s-t path</span><br><span class="line">        f&apos; = augment(P, f)</span><br><span class="line">        f = f&apos;</span><br><span class="line">   end while</span><br><span class="line">   △ = △ / 2</span><br></pre></td></tr></table></figure>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">initialize f(e) = <span class="number">0</span> <span class="keyword">for</span> all e</span><br><span class="line"><span class="keyword">let</span> △ = C</span><br><span class="line"><span class="keyword">while</span> △ ≥ <span class="number">1</span> <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">while</span> there <span class="keyword">is</span> a s-t path <span class="keyword">in</span> Gf(△) <span class="keyword">do</span></span><br><span class="line">        choose a s-t path</span><br><span class="line">        f<span class="comment">' = augment(P, f)</span></span><br><span class="line">        f = f<span class="comment">'</span></span><br><span class="line">   <span class="keyword">end</span> <span class="keyword">while</span></span><br><span class="line">   △ = △ / <span class="number">2</span></span><br></pre></td></tr></table></figure>
 <p>可以看到，通过定义一个△来调节增广路径的选择顺序。C是一个定义的常熟。如果残留网络中的边（流量值）小于C，则“删除”该边，在新的网络中选择增广路径。如果这样的网络中找不到增广路径（也就是说，所有的边都不符合△的限制），则把△缩放为原来的一半，继续寻找增广路径。直到△不满足大于等于1时，算法结束。</p>
 <p>例子来自卜老师的课件，△初始化为96。第一次的时候，残留网络的所有边被“删除”（标记为蓝色），因为都小于96。然后△调整为96/2=48，这样就获得了一条增广路径，并压入流。直到找不到增广路径，算法结束，如下图。</p>
 <figure class="image-bubble">
@@ -408,7 +408,7 @@ ga('send', 'pageview');
             </figure>
 <p>可以看到，scaling方法是通过加一个△（阈值）来选择增广路径的。通过这个阈值，可以尽可能的一次压入多一些的流。我们的目标是迭代的次数少且每次压入的流要多。</p>
 <h2 id="Edmonds-Karp"><a href="#Edmonds-Karp" class="headerlink" title="Edmonds-Karp"></a>Edmonds-Karp</h2><p>Edmonds-Karp算法是使用BFS（广度优先搜索）的方式，选择最近的路径作为增广路径，伪代码如下。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">initialize f(e) = 0 for all e</span><br><span class="line">while there is a s-t path in Gf do</span><br><span class="line">    choose a shortest s-t path in Gf using BFS</span><br><span class="line">    f&apos; = augment(P, f)</span><br><span class="line">    f = f&apos;</span><br><span class="line">end while</span><br></pre></td></tr></table></figure>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">initialize f(e) = <span class="number">0</span> <span class="keyword">for</span> all e</span><br><span class="line"><span class="keyword">while</span> there <span class="keyword">is</span> a s-t path <span class="keyword">in</span> Gf <span class="keyword">do</span></span><br><span class="line">    choose a shortest s-t path <span class="keyword">in</span> Gf <span class="keyword">using</span> BFS</span><br><span class="line">    f<span class="comment">' = augment(P, f)</span></span><br><span class="line">    f = f<span class="comment">'</span></span><br><span class="line"><span class="keyword">end</span> <span class="keyword">while</span></span><br></pre></td></tr></table></figure>
 <h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>走了好久终于等到现在…</p>
 <p>总结来说，前面一直在铺垫，积累些基础知识，为了得到最大流最小割定理，然后证明Ford-Fulkerson方法能够获得最大流。</p>
 <p>但是，这终归是个方法。方法没有告诉我们哪一种寻找增广路径的算法是最好的。于是就有人搞了各种算法，进行了各种测试，性能也就各不相同了，如下图。</p>
@@ -430,7 +430,7 @@ ga('send', 'pageview');
 <li><a href="http://chhaj5236.blog.163.com/blog/static/112881081200982835124243/" target="_blank" rel="noopener">http://chhaj5236.blog.163.com/blog/static/112881081200982835124243/</a></li>
 <li><a href="http://xpgc.vicp.net/course/ada4ia/TechDoc/ch09/ia-09-maxflow.pdf" target="_blank" rel="noopener">http://xpgc.vicp.net/course/ada4ia/TechDoc/ch09/ia-09-maxflow.pdf</a></li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-- EOF --</span><br></pre></td></tr></table></figure>
+<figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">-</span><span class="literal">-</span> <span class="comment">EOF</span> <span class="literal">-</span><span class="literal">-</span></span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -439,7 +439,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-06-01T04:45:35.097Z" itemprop="dateUpdated">2019-06-01 12:45:35</time>
+    Last updated: <time datetime="2019-06-01T04:45:35.097Z" itemprop="dateUpdated">2019-06-01 12:45:35</time>
 </span><br>
 
 
@@ -638,7 +638,7 @@ ga('send', 'pageview');
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

@@ -40,7 +40,7 @@ ga('send', 'pageview');
 <meta property="og:site_name" content="Albert">
 <meta property="og:description" content="列表分为有序列表ol、无序列表ul以及自定义列表dl 有序列表ol  有序列表是一列项目，列表项目使用数字进行标记。有序列表始于====标签，每个列表项始于====   有序列表有==type==和==start==  语法格式 1234&amp;lt;ol type=value1 start=value2&amp;gt;  &amp;lt;li&amp;gt;  &amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt; 注：value1表">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-10-30T14:04:36.796Z">
+<meta property="og:updated_time" content="2019-10-30T14:11:06.809Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML后期">
 <meta name="twitter:description" content="列表分为有序列表ol、无序列表ul以及自定义列表dl 有序列表ol  有序列表是一列项目，列表项目使用数字进行标记。有序列表始于====标签，每个列表项始于====   有序列表有==type==和==start==  语法格式 1234&amp;lt;ol type=value1 start=value2&amp;gt;  &amp;lt;li&amp;gt;  &amp;lt;/li&amp;gt;&amp;lt;/ol&amp;gt; 注：value1表">
@@ -177,7 +177,7 @@ ga('send', 'pageview');
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -300,12 +300,12 @@ ga('send', 'pageview');
 <p><strong>使用<code>div</code>元素布局</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">'utf-8'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  </span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'header'</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>博客<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><code>注：上述是div部分</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  #header&#123;</span></span><br><span class="line"><span class="undefined">    background-color:black;</span></span><br><span class="line"><span class="undefined">    color:red;</span></span><br><span class="line"><span class="undefined">    text-align:center;</span></span><br><span class="line"><span class="undefined">    padding:25px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-id">#header</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">background-color</span><span class="selector-pseudo">:black</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">color</span><span class="selector-pseudo">:red</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">text-align</span><span class="selector-pseudo">:center</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">padding</span><span class="selector-pseudo">:25px</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><code>注：以上是css部分</code></p>
 <p><strong>使用<code>table</code>元素布局</strong></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">table</span> <span class="attr">class</span>=<span class="string">'syl'</span>&gt;</span></span><br><span class="line">    </span><br><span class="line"> <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">td</span>&gt;</span>博客<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    </span><br><span class="line">  <span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><code>注：以上是HTML部分</code></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined">  table.syl&#123;</span></span><br><span class="line"><span class="undefined">    width:100%;</span></span><br><span class="line"><span class="undefined">    border:1px solid #d4d4d4;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined">  table.syl td&#123;</span></span><br><span class="line"><span class="undefined">    padding:10px;</span></span><br><span class="line"><span class="undefined">    width:20px;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">  <span class="selector-tag">table</span><span class="selector-class">.syl</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">width</span><span class="selector-pseudo">:100</span>%;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">border</span><span class="selector-pseudo">:1px</span> <span class="selector-tag">solid</span> <span class="selector-id">#d4d4d4</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="css">  <span class="selector-tag">table</span><span class="selector-class">.syl</span> <span class="selector-tag">td</span>&#123;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">padding</span><span class="selector-pseudo">:10px</span>;</span></span><br><span class="line"><span class="css">    <span class="selector-tag">width</span><span class="selector-pseudo">:20px</span>;</span></span><br><span class="line"><span class="undefined">  &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p><code>注：以上是css部分</code></p>
 <p><strong><code>table</code>元素布局</strong></p>
 <ul>
@@ -348,43 +348,43 @@ ga('send', 'pageview');
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center"><b></b></td>
+<td style="text-align:center">b</td>
 <td style="text-align:center">定义粗体文本</td>
 </tr>
 <tr>
-<td style="text-align:center"><big></big></td>
+<td style="text-align:center">big</td>
 <td style="text-align:center">定义大号字体</td>
 </tr>
 <tr>
-<td style="text-align:center"><em></em></td>
+<td style="text-align:center">em</td>
 <td style="text-align:center">定义着重文字</td>
 </tr>
 <tr>
-<td style="text-align:center"><i></i></td>
+<td style="text-align:center">i</td>
 <td style="text-align:center">定义斜体字</td>
 </tr>
 <tr>
-<td style="text-align:center"><small></small></td>
+<td style="text-align:center">small</td>
 <td style="text-align:center">定义小号字体</td>
 </tr>
 <tr>
-<td style="text-align:center"><strong></strong></td>
+<td style="text-align:center">strong</td>
 <td style="text-align:center">定义加重语气</td>
 </tr>
 <tr>
-<td style="text-align:center"><sub></sub></td>
+<td style="text-align:center">sub</td>
 <td style="text-align:center">定义下标字</td>
 </tr>
 <tr>
-<td style="text-align:center"><sup></sup></td>
+<td style="text-align:center">sup</td>
 <td style="text-align:center">定义上标字</td>
 </tr>
 <tr>
-<td style="text-align:center"><ins></ins></td>
+<td style="text-align:center">ins</td>
 <td style="text-align:center">定义插入字</td>
 </tr>
 <tr>
-<td style="text-align:center"><del></del></td>
+<td style="text-align:center">del</td>
 <td style="text-align:center">定义删除字</td>
 </tr>
 </tbody>
@@ -416,7 +416,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-10-30T14:04:36.796Z" itemprop="dateUpdated">2019-10-30 22:04:36</time>
+    Last updated: <time datetime="2019-10-30T14:11:06.809Z" itemprop="dateUpdated">2019-10-30 22:11:06</time>
 </span><br>
 
 
@@ -608,7 +608,7 @@ ga('send', 'pageview');
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

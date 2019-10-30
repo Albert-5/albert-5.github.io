@@ -177,7 +177,7 @@ ga('send', 'pageview');
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -266,7 +266,7 @@ ga('send', 'pageview');
 <p><strong>拓展</strong></p>
 <p><code>关于find_all()和find()方法的介绍</code></p>
 <p><code>find()</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find(name, attrs, recursive, text, **wargs)　　　　# recursive 递归的，循环的</span><br></pre></td></tr></table></figure>
+<figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">find</span>(<span class="built_in">name</span>, attrs, recursive, <span class="built_in">text</span>, **wargs)　　　　<span class="meta"># recursive 递归的，循环的</span></span><br></pre></td></tr></table></figure>
 <p>这些参数相当于过滤器一样可以进行筛选处理。不同的参数过滤可以应用到以下情况：</p>
 <ul>
 <li>查找标签，基于name参数</li>
@@ -301,9 +301,9 @@ ga('send', 'pageview');
 <p>基于css类的查找：</p>
 <p>class是python的保留关键字，所以无法使用class这个关键字。</p>
 <p>第一种方法：在attrs属性用字典进行传递参数</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">css_class = soup.find(attrs=&#123;&apos;class&apos;:&apos;primaryconsumers&apos;&#125;)</span><br><span class="line">print(css_class)</span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">css_class = soup.find(attrs=&#123;<span class="string">'class'</span>:<span class="string">'primaryconsumers'</span>&#125;)</span><br><span class="line"><span class="function"><span class="title">print</span><span class="params">(css_class)</span></span></span><br></pre></td></tr></table></figure>
 <p>第二种方法：BeautifulSoup中的特别关键字参数class_。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">css_class = soup.find(class_ = &apos;primaryconsumers&apos;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">css<span class="number">_</span><span class="keyword">class</span> = soup.find(<span class="keyword">class</span><span class="number">_</span> = <span class="string">'primaryconsumers'</span>)</span><br></pre></td></tr></table></figure>
 <p>基于定义的函数进行查找：</p>
 <p>可以传递函数到find()来基于函数定义的条件查找。函数必须返回True或False。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">is_secondary_consumers</span><span class="params">(tag)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> tag.has_attr(<span class="string">'id'</span>) <span class="keyword">and</span> tag.get(<span class="string">'id'</span>) == <span class="string">'secondaryconsumers'</span></span><br><span class="line">secondary_consumer = soup.find(is_secondary_consumers)</span><br><span class="line">print(secondary_consumer.li.div.string)</span><br></pre></td></tr></table></figure>
@@ -311,7 +311,7 @@ ga('send', 'pageview');
 <p>将方法进行组合后进行查找：</p>
 <p>可以用其中任何方法进行组合进行查找，比如同时基于标签名和id号。</p>
 <p><code>find_all()函数</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find_all(name, attrs, recursive, text, limit, **kwargs)</span><br></pre></td></tr></table></figure>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find_all(<span class="name">name</span>, attrs, recursive, text, limit, **kwargs)</span><br></pre></td></tr></table></figure>
 <p><strong>limit</strong>参数可以限制得到的结果的数目。</p>
 <p>参照前面的邮件地址例子，得到所有邮件地址：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">email_ids = soup.find_all(text=emailid_regexp)</span><br><span class="line">print(email_ids)</span><br></pre></td></tr></table></figure>
@@ -366,7 +366,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-08-01T09:34:11.547Z" itemprop="dateUpdated">2019-08-01 17:34:11</time>
+    Last updated: <time datetime="2019-08-01T09:34:11.547Z" itemprop="dateUpdated">2019-08-01 17:34:11</time>
 </span><br>
 
 
@@ -565,7 +565,7 @@ ga('send', 'pageview');
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
