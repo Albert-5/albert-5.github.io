@@ -40,7 +40,7 @@ ga('send', 'pageview');
 <meta property="og:site_name" content="Albert">
 <meta property="og:description" content="多媒体与嵌入    图片 在HTML中，图象由&amp;lt;img&amp;gt;标签定义。语法为： 12&amp;gt; &amp;lt;img src=&apos;url&apos; alt=&apos;&apos;/&amp;gt;&amp;gt;  &amp;lt;img&amp;gt;是空标签，它只包含属性，没有闭合标签。要在页面上显示图像，需要使用源属性src。src的值是图像文件的URL，也就是引用该图像的文件的绝对路径或者是相对路径。alt规定图像的替代文本即当图片未成功显示的时候">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-11-01T15:22:25.040Z">
+<meta property="og:updated_time" content="2019-11-01T15:49:41.911Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html之多媒体嵌入">
 <meta name="twitter:description" content="多媒体与嵌入    图片 在HTML中，图象由&amp;lt;img&amp;gt;标签定义。语法为： 12&amp;gt; &amp;lt;img src=&apos;url&apos; alt=&apos;&apos;/&amp;gt;&amp;gt;  &amp;lt;img&amp;gt;是空标签，它只包含属性，没有闭合标签。要在页面上显示图像，需要使用源属性src。src的值是图像文件的URL，也就是引用该图像的文件的绝对路径或者是相对路径。alt规定图像的替代文本即当图片未成功显示的时候">
@@ -177,7 +177,7 @@ ga('send', 'pageview');
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -413,17 +413,17 @@ ga('send', 'pageview');
 <tr>
 <td><strong>seamless</strong></td>
 <td>seamless</td>
-<td>规定<iframe>看上去像是包含文档的一部分</iframe></td>
+<td>规定<code>&lt;iframe&gt;</code>看上去像是包含文档的一部分</td>
 </tr>
 <tr>
 <td><strong>src</strong></td>
 <td>url</td>
-<td>规定iframe中显示的文档的url</td>
+<td>规定<code>iframe</code>中显示的文档的url</td>
 </tr>
 <tr>
 <td><strong>srcdoc</strong></td>
 <td>html_code</td>
-<td>规定<iframe>中显示的页面的HTML内容</iframe></td>
+<td>规定<code>&lt;iframe&gt;</code>中显示的页面的HTML内容</td>
 </tr>
 <tr>
 <td><strong>width</strong></td>
@@ -435,9 +435,11 @@ ga('send', 'pageview');
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!</span> <span class="attr">DOCTYPE</span> <span class="attr">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">'en'</span>&gt;</span> </span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">chaeset</span>=<span class="string">'utf-8'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">iframe</span> <span class="attr">src</span>=<span class="string">'https://albert-5.cn'</span> <span class="attr">width</span>=<span class="string">'400px'</span> <span class="attr">height</span>=<span class="string">'400px'</span> <span class="attr">frameborder</span>=<span class="string">'0'</span> <span class="attr">marginheight</span>=<span class="string">'50px'</span> <span class="attr">marginwidth</span>=<span class="string">'50px'</span> <span class="attr">scrolling</span>=<span class="string">'yes'</span> <span class="attr">name</span>=<span class="string">'text'</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <center>效果展示如下</center>
 
-<pre><code>&lt;iframe src=&apos;https://albert-5.cn&apos; width=&apos;400px&apos; height=&apos;400px&apos; frameborder=&apos;0&apos; marginheight=&apos;50px&apos; marginwidth=&apos;50px&apos; scrolling=&apos;yes&apos; name=&apos;text&apos;&gt;
-&lt;/iframe&gt;
-</code></pre>
+<iframe src="https://albert-5.cn" width="400px" height="400px" frameborder="0" marginheight="50px" marginwidth="50px" scrolling="yes" name="text"><br></iframe>
+
+
+
+
         </div>
 
         <blockquote class="post-copyright">
@@ -445,7 +447,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-11-01T15:22:25.040Z" itemprop="dateUpdated">2019-11-01 23:22:25</time>
+    最終更新：<time datetime="2019-11-01T15:49:41.911Z" itemprop="dateUpdated">2019-11-01 23:49:41</time>
 </span><br>
 
 
@@ -637,7 +639,7 @@ ga('send', 'pageview');
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
