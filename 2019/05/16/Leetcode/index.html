@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="sHO_73a3zHA-ndhyNC1D2d7DNrGbbCjApnFHsV56H8o">
+    
+    
+    
+    
+    <title>Leetcode | Albert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#C20f0b">
+    
+    
+    <meta name="keywords" content="LeetCode,算法,两数之和,回文数">
+    <meta name="description" content="领扣–引领新时尚 1. 两数之和问题给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 1234给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返">
+<meta name="keywords" content="LeetCode,算法,两数之和,回文数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Leetcode">
+<meta property="og:url" content="https://albert-5.cn/2019/05/16/Leetcode/index.html">
+<meta property="og:site_name" content="Albert">
+<meta property="og:description" content="领扣–引领新时尚 1. 两数之和问题给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 1234给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-10-20T12:11:40.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Leetcode">
+<meta name="twitter:description" content="领扣–引领新时尚 1. 两数之和问题给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。 示例: 1234给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返">
+    
+        <link rel="alternate" type="application/atom+xml" title="Albert" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<!-- 导入音乐插件js -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">albert</h5>
+          <a href="mailto:981287080@qq.com" title="981287080@qq.com" class="mail">981287080@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Music" target="_blank">
+                <i class="icon icon-lg icon-music"></i>
+                Music
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books">
+                <i class="icon icon-lg icon-book"></i>
+                Books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/movies">
+                <i class="icon icon-lg icon-film"></i>
+                Movies
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/desktop">
+                <i class="icon icon-lg icon-desktop"></i>
+                Desktop
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/picture">
+                <i class="icon icon-lg icon-camera"></i>
+                Camera
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                About me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Leetcode</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Leetcode</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-16T08:29:30.000Z" itemprop="datePublished" class="page-time">
+  2019-05-16
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+    
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-两数之和问题"><span class="post-toc-number">1.</span> <span class="post-toc-text">1. 两数之和问题</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-回文数问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">2. 回文数问题</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Leetcode" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Leetcode</h1>
+        <div class="post-meta">
+			
+
+          
+            <i class="fa fa-thumb-tack"></i>
+            <span><icon class="icon icon-thumb-tack icon-pr"></icon><font color="#7D26CD">置顶</font></span>
+            <span class="post-meta-divider">|</span>
+            
+
+            <time class="post-time" title="2019-05-16 16:29:30" datetime="2019-05-16T08:29:30.000Z" itemprop="datePublished">2019-05-16</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><strong><font color="indigo" font-size="5">领扣–引领新时尚</font></strong></p>
+<h4 id="1-两数之和问题"><a href="#1-两数之和问题" class="headerlink" title="1. 两数之和问题"></a>1. 两数之和问题</h4><p>给定一个整数数组 <code>nums</code> 和一个目标值 <code>target</code>，请你在该数组中找出和为目标值的那 <strong>两个</strong> 整数，并返回他们的数组下标。</p>
+<p>你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。</p>
+<p><strong>示例:</strong></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">给定 nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>], target = <span class="number">9</span></span><br><span class="line"></span><br><span class="line">因为 nums[<span class="number">0</span>] + nums[<span class="number">1</span>] = <span class="number">2</span> + <span class="number">7</span> = <span class="number">9</span></span><br><span class="line">所以返回 [<span class="number">0</span>, <span class="number">1</span>]</span><br></pre></td></tr></table></figure>
+<p>解法1–暴力解法</p>
+<p>思路：</p>
+<blockquote>
+<p>给定一个数组和一个特定的目标值，对每一个数进行遍历，然后利用两层循环遍历的值进行if条件判断，如果相等，则返回下标；否则返回None.</p>
+</blockquote>
+<p>具体实现：</p>
+<blockquote>
+<p>class Solution:<br>def twoSum(self, nums,target):<br>       for i in range(len(nums)):<br>           for j in range(i+1, len(nums)):<br>               if nums[i]+nums[j] == target:<br>                   return [i, j]<br>               else:<br>                   continue</p>
+<p>nums = [2,7,11,15]<br>target = 9<br>solution = Solution()<br>print(solution.twoSum(nums,target))</p>
+</blockquote>
+<p>缺点：过于暴力，两层循环使得时间代价过高。</p>
+<p>时间复杂度：O(n^2^)</p>
+<p>解法2–较优化算法</p>
+<p>思路：</p>
+<blockquote>
+<p>相比于暴力解法，此法优化了双层循环</p>
+<p>一次循环遍历，然后用目标值减去数组中的每一个值，然后判断减去得到的值是否在数组中，进而再判断小标问题；</p>
+</blockquote>
+<p>具体实现：</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">&gt;    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(nums)):</span><br><span class="line">&gt;        a = target - nums[i]</span><br><span class="line">&gt;        <span class="keyword">if</span> a <span class="keyword">in</span> nums:</span><br><span class="line">&gt;            b = nums.index(a)</span><br><span class="line">&gt;            <span class="keyword">if</span> b != i:</span><br><span class="line">&gt;                <span class="keyword">return</span> [i, b]</span><br><span class="line">&gt; </span><br><span class="line">&gt; nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>]</span><br><span class="line">&gt; target = <span class="number">9</span></span><br><span class="line">&gt; solution = Solution()</span><br><span class="line">&gt; print(solution.twoSum(nums, target))</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>解法3–优化算法 &lt;来源于网络，怪自己 :sweat:···&gt;</p>
+<p>思路：</p>
+<blockquote>
+<p>优解:创建一个字典，通过循环把 target - nums[x]作为键，x作为值存入字典，边存边检查当前正在处理的nums[x]是否存在于字典中，存在：返回字典中nums[x]的值，和当前正在使用的x的值。</p>
+</blockquote>
+<p>具体实现：</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></span><br><span class="line">&gt;    dic = &#123;&#125;</span><br><span class="line">&gt;    <span class="keyword">for</span> x <span class="keyword">in</span> range(len(nums)):</span><br><span class="line">&gt;         <span class="keyword">if</span> target - nums[x] <span class="keyword">in</span> dic:</span><br><span class="line">&gt;            result = [dic[target - nums[x]], x]</span><br><span class="line">&gt;            <span class="keyword">return</span> result</span><br><span class="line">&gt;         dic[nums[x]] = x</span><br><span class="line">&gt;        </span><br><span class="line">&gt; nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>]</span><br><span class="line">&gt; target = <span class="number">9</span></span><br><span class="line">&gt; solution = Solution()</span><br><span class="line">&gt; print(solution.twoSum(nums, target))</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h4 id="2-回文数问题"><a href="#2-回文数问题" class="headerlink" title="2. 回文数问题"></a>2. 回文数问题</h4><p>判断一个整数是否是回文数。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。</p>
+<p><strong>示例 1:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">输入: 121</span></span><br><span class="line"><span class="section">输出: true</span></span><br></pre></td></tr></table></figure>
+<p><strong>示例 2:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">输入: -121</span></span><br><span class="line"><span class="section">输出: false</span></span><br><span class="line"><span class="section">解释: 从左向右读, 为 -121 。 从右向左读, 为 121- 。因此它不是一个回文数。</span></span><br></pre></td></tr></table></figure>
+<p><strong>示例 3:</strong></p>
+<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">输入: 10</span></span><br><span class="line"><span class="section">输出: false</span></span><br><span class="line"><span class="section">解释: 从右向左读, 为 01 。因此它不是一个回文数。</span></span><br></pre></td></tr></table></figure>
+<p>解法1–较优化解法</p>
+<p>思路：</p>
+<blockquote>
+<p>将所给数字转化为<strong>字符串</strong>，因为回文数是具有对称性的，所以比较字符串的第一位和最后一位、第一次位和末尾次位 ······<font color="indigo">但是由于一位数以及负数和末尾为0的数的特殊性，应该加以判断。</font></p>
+<p>由于对称性，所以考虑字符长度，奇偶数：通过模2判断只需要判断一般就可以了。</p>
+</blockquote>
+<p>实现：</p>
+<blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></span><br><span class="line">&gt; </span><br><span class="line">&gt;     <span class="function"><span class="keyword">def</span> <span class="title">isPalindrome</span><span class="params">(self, x)</span>:</span></span><br><span class="line">&gt;         n = str(x)</span><br><span class="line">&gt;         print(n)</span><br><span class="line">&gt;         m = len(n)</span><br><span class="line">&gt;         count = <span class="number">0</span></span><br><span class="line">&gt;         <span class="keyword">if</span> m == <span class="number">1</span>:</span><br><span class="line">&gt;             <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">&gt;         <span class="keyword">elif</span> n[<span class="number">0</span>] == <span class="string">"-"</span> <span class="keyword">or</span> n[m<span class="number">-1</span>] == <span class="string">'0'</span>:</span><br><span class="line">&gt;             <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">&gt;         <span class="keyword">elif</span> m % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">&gt;             <span class="keyword">for</span> i <span class="keyword">in</span> range(int(m/<span class="number">2</span>)):</span><br><span class="line">&gt;                 <span class="keyword">if</span> n[i] == n[m<span class="number">-1</span>-i]:</span><br><span class="line">&gt;                     count += <span class="number">1</span></span><br><span class="line">&gt;                 <span class="keyword">else</span>:</span><br><span class="line">&gt;                     <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">&gt;         <span class="keyword">else</span>:</span><br><span class="line">&gt;             <span class="keyword">for</span> i <span class="keyword">in</span> range(int((m+<span class="number">1</span>)/<span class="number">2</span>)):</span><br><span class="line">&gt;                 <span class="keyword">if</span> n[i] == n[m<span class="number">-1</span>-i]:</span><br><span class="line">&gt;                     count += <span class="number">1</span></span><br><span class="line">&gt;                 <span class="keyword">else</span>:</span><br><span class="line">&gt;                     <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">&gt;         <span class="keyword">if</span> count == int(m/<span class="number">2</span>) <span class="keyword">or</span> count == int((m+<span class="number">1</span>)/<span class="number">2</span>):</span><br><span class="line">&gt;             <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">&gt; </span><br><span class="line">&gt; </span><br><span class="line">&gt; X = <span class="number">0</span></span><br><span class="line">&gt; solution = Solution()</span><br><span class="line">&gt; print(solution.isPalindrome(X))</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>时间复杂度为 O(n)</p>
+<p>执行代码，运行时间108 ms</p>
+<div><strong>🚩推荐阅读</strong>（由<a href="https://github.com/huiwang/hexo-recommended-posts">hexo文章推荐插件</a>驱动）<ul><li><a href="https://albert-5.cn/2019/05/23/模拟退火算法/">模拟退火算法</a></li><li><a href="chunlife.top/2019/05/26/检查回文数/">检查回文数</a></li><li><a href="www.chunlife.top/2019/05/26/检查回文数/">检查回文数</a></li></ul></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-10-20T12:11:40.107Z" itemprop="dateUpdated">2019-10-20 20:11:40</time>
+</span><br>
+
+
+        
+        <br><br><b><center>版权声明</center></b><br><strong>作者：</strong> Albert <br> <strong>来源：</strong> <a href="https://albert-5.cn">Albert小破站</a> <br><strong>本文地址</strong>：<a href="/2019/05/16/Leetcode/" target="_blank" rel="external">https://albert-5.cn/2019/05/16/Leetcode/</a>，转载请务必注明<font color="indigo"><strong>作者</strong>和<strong>来源</strong></font>
+        
+    </div>
+    
+    <footer>
+        <a href="https://albert-5.cn">
+            <img src="/img/avatar.jpg" alt="albert">
+            albert
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LeetCode/">LeetCode</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/两数之和/">两数之和</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/回文数/">回文数</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/算法/">算法</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/05/16/Leetcode/&title=《Leetcode》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/05/16/Leetcode/&title=《Leetcode》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/05/16/Leetcode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Leetcode》 — Albert&url=https://albert-5.cn/2019/05/16/Leetcode/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/05/16/Leetcode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/05/23/模拟退火算法/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">模拟退火算法</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/06/sublime配置有关问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">sublime配置有关问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+	
+
+
+	
+
+
+	
+
+
+	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+    </section>
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+		console.log("Valine done!")
+		 
+    </script>
+    <!-- Valine Comments end -->
+
+
+	
+
+
+	
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span><a href="https://github.com/Albert-5" target="_blank" class="Github" title="Github"><i class="icon icon-lg icon-github"></i></a></span>
+            <span><a href="https://weibo.com/5973922558/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" class="weibo" title="weibo"><i class="icon icon-lg icon-weibo"></i></a></span>
+            <span><a href="https://twitter.com/Starky35793281" target="_blank" class="twitter" title="twitter"><i class="icon icon-lg icon-twitter"></i></a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+        <!-- <p>
+            <span><a href="https://github.com/Albert-5" target="_blank" class="Github" title="Github"><i class="fab fa-github"></i></a></span>
+        </p> -->
+    </div>
+
+    <div class="bottom">
+        <p><span>albert &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/05/16/Leetcode/&title=《Leetcode》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/05/16/Leetcode/&title=《Leetcode》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/05/16/Leetcode/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Leetcode》 — Albert&url=https://albert-5.cn/2019/05/16/Leetcode/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/05/16/Leetcode/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABwUlEQVR42u3aQY7DMAgF0N7/0p1tpVGSj7FRKz2vRmkmec4CAeb1itf7Y/2/cnU9v7J54eLitrnv23V/z+ev98/PN3l1Dy4u7jw3eU0S2pLX5xvGxcX9RW6SjSTPxMXF/XXu/f1XqUlSDuHi4n4bN09BkmKm00zZVqvh4uI2uHmX8tzfR/q7uLi4S9x3ceXPqYaz6O24uLgj3GqDIyls1gJifriLi4s7yV0rdfqBr/ppcHFxZ7j5QUjn/jwILjZHcHFxt3JbpUh8JNPZPC4u7jw3TyzuGxyd49i8pYKLi3uau1aoJMTqlejD4eLiDnI7h6l52ZOnUw+BDBcX9zC384hqYrQrUOLi4p7mJoMRayMUSfFTHt3AxcUd4VbHp5IgVS11Fkc0cHFxD3PXiJ3GaLXQumyO4OLijnCroao6TpEnUg+1Gi4u7iC3P2ZRHcMqD4Th4uIe5naGsaqb7PwXLi7uJDdfeVJSbaDk5RMuLu4kt3ookqc4Sbqz+UwYFxd3K3ft9dWgtrlWw8XF/TJup6zK26+4uLi/wq1eqTZeH+7ExcUd5CbFT7KBzhho9LFwcXFHuOVQ0kiA1lowuLi4g9w/Tbgp+ET86k0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+ <!-- 添加百度统计js -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4099fc41b7fab35703d6ee8152506fa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)哦吼!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<!-- 插入音乐插件js文件 -->
+<script src="//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    <!-- 爱心点击特效 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+    
+    <!-- 社会主义核心价值观点击特效 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#C20f0b"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
+    </script>
+    
+
+    <script src="//code.tidio.co/dhfi5clsw9dl27z5yr9nyrnwtuqc4zhv.js"></script>
+    
+    <!-- weather -->
+ <!--    <script type="text/javascript">WIDGET = {FID: 'rNrYhPQIei'}</script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+ -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"position":"left","width":150,"height":300,"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"mobile":{"show":false}});</script></body>
+</html>
