@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="sHO_73a3zHA-ndhyNC1D2d7DNrGbbCjApnFHsV56H8o">
+    
+    
+    
+    
+    <title>html表单 | Albert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#C20f0b">
+    
+    
+    <meta name="keywords" content="前端,html,表单">
+    <meta name="description" content="HTML表单HTML表单概述  表单在网页中主要负责数据收集功能。一个表单有三个基本组成部分：  表单标签：这里面包含了处理表单元素所用CGI程序的URL以及数据提交到服务器的方法 表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。 表单按钮：包括提交按钮、复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他">
+<meta name="keywords" content="前端,html,表单">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html表单">
+<meta property="og:url" content="https://albert-5.cn/2019/11/04/html表单/index.html">
+<meta property="og:site_name" content="Albert">
+<meta property="og:description" content="HTML表单HTML表单概述  表单在网页中主要负责数据收集功能。一个表单有三个基本组成部分：  表单标签：这里面包含了处理表单元素所用CGI程序的URL以及数据提交到服务器的方法 表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。 表单按钮：包括提交按钮、复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-03T23:49:31.639Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html表单">
+<meta name="twitter:description" content="HTML表单HTML表单概述  表单在网页中主要负责数据收集功能。一个表单有三个基本组成部分：  表单标签：这里面包含了处理表单元素所用CGI程序的URL以及数据提交到服务器的方法 表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。 表单按钮：包括提交按钮、复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他">
+    
+        <link rel="alternate" type="application/atom+xml" title="Albert" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<!-- 导入音乐插件js -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">albert</h5>
+          <a href="mailto:981287080@qq.com" title="981287080@qq.com" class="mail">981287080@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Music" target="_blank">
+                <i class="icon icon-lg icon-music"></i>
+                Music
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books">
+                <i class="icon icon-lg icon-book"></i>
+                Books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/movies">
+                <i class="icon icon-lg icon-film"></i>
+                Movies
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/desktop">
+                <i class="icon icon-lg icon-desktop"></i>
+                Desktop
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/picture">
+                <i class="icon icon-lg icon-camera"></i>
+                Camera
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                About me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">html表单</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">html表单</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-03T23:48:29.000Z" itemprop="datePublished" class="page-time">
+  2019-11-04
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/html/">html</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+    
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTML表单"><span class="post-toc-number">1.</span> <span class="post-toc-text">HTML表单</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-html表单" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">html表单</h1>
+        <div class="post-meta">
+			
+
+          
+
+            <time class="post-time" title="2019-11-04 07:48:29" datetime="2019-11-03T23:48:29.000Z" itemprop="datePublished">2019-11-04</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/html/">html</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h3 id="HTML表单"><a href="#HTML表单" class="headerlink" title="HTML表单"></a>HTML表单</h3><p><strong>HTML表单概述</strong></p>
+<blockquote>
+<p>表单在网页中主要负责数据收集功能。一个表单有三个基本组成部分：</p>
+<ul>
+<li><strong>表单标签</strong>：这里面包含了处理表单元素所用CGI程序的URL以及数据提交到服务器的方法</li>
+<li><strong>表单域</strong>：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。</li>
+<li><strong>表单按钮</strong>：包括提交按钮、复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他定义了处理脚本的处理工作</li>
+</ul>
+</blockquote>
+<p><code>注：定义来源于百科</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">name</span>=<span class="string">'form_name'</span> <span class="attr">method</span>=<span class="string">'get/post'</span> <span class="attr">action</span>=<span class="string">'url'</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>name:</strong> 定义表单的名字</li>
+<li><strong>method:</strong> 定义表单结果从浏览器传送到服务器的方式，默认参数为：<code>get</code>。<code>post</code> 安全性高，因此常用作输入密码，而<code>get</code>安全性较低，一般用于查询数据</li>
+<li><strong>action:</strong> 用来指定表单处理程序的位置（服务器脚本处理程序）</li>
+</ul>
+<p><strong>发送表单数据</strong></p>
+<p><code>action属性</code></p>
+<blockquote>
+<p>定义了发送数据要去的地址，它的值是必须是一个有效的URL，可以是相对URL，也可以是绝对URL。如果灭有提供此属性或者<code>action=“#”</code>，则数据将被发送到包含表单的页面的URL</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">'https://albert-5.cn'</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--数据发送到一个绝对URL--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">'/somewhere_else'</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--数据发送到一个相对URL--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">'#'</span>&gt;</span><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!--数据发送到表单出现的相同页面上--&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>method属性</code></p>
+<blockquote>
+<p>定义如何发送数据，HTML表单数据可以通过许多不同的数据传输，其中最常见的是<code>GET</code>和<code>POST</code>方法</p>
+</blockquote>
+<p><code>get</code>方法</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">'https://albert-5.cn'</span> <span class="attr">method</span>=<span class="string">'get'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'say'</span>&gt;</span>what do you want to say?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">'say'</span> <span class="attr">id</span>=<span class="string">'say'</span> <span class="attr">value</span>=<span class="string">'hello'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'to'</span>&gt;</span>Where do you want to go?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">'to'</span> <span class="attr">id</span>=<span class="string">'to'</span> <span class="attr">value</span>=<span class="string">'China'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span>&gt;</span></span><br><span class="line">      发送数据</span><br><span class="line">    <span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>注：例子所示数据被附加到URL 作为一系列的名称/值对。在 URL web 地址结束之后，我们包括一个问号(?)，后面是名称/值对，每一个都由一个与符号(&amp;)分隔开。</code></p>
+<p><code>post方法</code></p>
+<blockquote>
+<p>使用 post 方法。首先，浏览器将与 action 属性中指定的表单处理服务器建立联系，一旦建立连接之后，浏览器就会按分段传输的方法将数据发送给服务器。在服务器端，一旦 post 样式的应用程序开始执行时，就应该从一个标志位置读取参数，而一旦读到参数，在应用程序能够使用这些表单值以前，必须对这些参数进行解码。用户特定的服务器会明确指定应用程序应该如何接受这些参数。</p>
+</blockquote>
+<p><code>注：使用 get 请求用户将在他们的 URL 栏中看到数据，但是使用 post 请求用户将不会看到。因此一般 get 用于查询数据， post 用于传输密码等。</code></p>
+<p><strong>表单验证</strong></p>
+<blockquote>
+<p>表单验证帮助我们确保用户以正确格式填写表单数据，确保提交的数据能使我们的应用程序正常工作。生活中我们经常会注册账号，而在注册时，你是否也遇到过诸如：“该行不能为空”，“请输入正确的电话号码”，“请输入正确的邮箱号码”，“确认密码不一致，请重新输入”之类的提示，这些就属于我们的表单验证。</p>
+</blockquote>
+<p><code>使用内置表单数据验证</code></p>
+<p><strong>HTML5</strong>一个特别有用的新功能就是在不使用一行脚本代码的情况下，即对用户的输入进行数据校验，这都是通过表单元素的校验属性实现的。</p>
+<ul>
+<li><p><code>requireed属性</code></p>
+<p>输入值不能为空，如果输入值为空，将会提示错误消息</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'place'</span>&gt;</span>Where do you want to go?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">id</span>=<span class="string">'place'</span> <span class="attr">name</span>=<span class="string">'place'</span> <span class="attr">required</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">button</span>&gt;</span>Submit<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>强制条目的长度</code></p>
+<p>所有文本框的<code>（&lt;input&gt; 或者 &lt;textarea&gt;）可以强制使用minlength和maxlength属性，如果值小于该字段 minlength 的值或大于 maxlength 值则无效</code></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'number'</span>&gt;</span>Which number would you like?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'number'</span> <span class="attr">id</span>=<span class="string">'number'</span> <span class="attr">name</span>=<span class="string">'number'</span> <span class="attr">value</span>=<span class="string">'1'</span> <span class="attr">min</span>=<span class="string">'1'</span> <span class="attr">max</span>=<span class="string">'10'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    Submit</span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<center><strong> 第一个表单</strong></center>
+
+
+
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  姓名：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">name</span>=<span class="string">'YourName'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  专业：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">name</span>=<span class="string">'YourFro'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<form><br>  姓名：<br><br>  <input type="text" name="YourName"><br>  <br><br>  专业：<br><br>  <input type="text" name="YourFro"><br></form>
+
+
+
+<p><strong>构建HTML表单</strong></p>
+<p><code>fieldset和legend元素</code></p>
+<blockquote>
+<p><code>&lt;fieldset&gt;</code>元素组合表单中的相关数据，<code>&lt;legend&gt;</code>元素为<code>&lt;fieldset&gt;</code>元素定义标题</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">legend</span>&gt;</span></span><br><span class="line">      标题</span><br><span class="line">    <span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">    姓名：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">name</span>=<span class="string">'Yourname'</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    年级：<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">name</span>=<span class="string">'YourNJ'</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<form><br>  <fieldset><br>    <legend><br>      标题<br>    </legend><br>    姓名：<br><br>    <input type="text" name="Yourname"><br><br>    年级：<br><br>    <input type="text" name="YourNJ"><br>  </fieldset><br></form>
+
+<p><code>label元素</code></p>
+<blockquote>
+<p><code>input</code>元素定义标注，当选择该标签是，浏览器会自动将焦点转到和标签相关的表单控件上，<code>&lt;label&gt;</code>标签的<code>for</code>属性应当与相关元素的<code>id</code>属性相同，使得<code>&lt;label&gt;</code>标签与<code>&lt;input&gt;</code>正确相关联。</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'male'</span>&gt;</span>男<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'radio'</span> <span class="attr">name</span>=<span class="string">'sex'</span> <span class="attr">id</span>=<span class="string">'male'</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">'female'</span>&gt;</span>女<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'radio'</span> <span class="attr">name</span>=<span class="string">'sex'</span> <span class="attr">id</span>=<span class="string">'female'</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<form><br>  <label for="male">男</label><br>  <input type="radio" name="sex" id="male"><br>  <br><br>  <label for="female">女</label><br>  <input type="radio" name="sex" id="female"><br></form>
+
+<p><code>原生表单组件</code></p>
+<blockquote>
+<p>原生表单组件主要包含文本输入框、单行文本框、e-mail输入框、密码输入框、搜索框、电话号码输入框、URL输入框、多行文本框、下拉组件、可勾选组件、按钮</p>
+</blockquote>
+<p><code>文本输入框input</code></p>
+<p><code>注：HTML文本框只是个纯文本输入控件，这就意味着不能用它来进行富文本编辑（如加粗、斜体等）</code></p>
+<p><strong>文本域的通用规范</strong></p>
+<ul>
+<li>可以被标记<code>readonly</code>（用户不能修改输入值）甚至是<code>disabled</code>（输入值永远不会与表单数据的其余部分一起发送）</li>
+<li>可以有个<code>placeholder</code>这是文本输入框中出现的文本，用来简略描述输入框的目的</li>
+<li>都受<code>size</code>（输入框的物理尺寸）和<code>length</code>（文本框可以输入的最大字符数）约束</li>
+</ul>
+<p><code>单行文本框</code></p>
+<blockquote>
+<p>单行文本框是用<code>type</code>属性值为<code>text</code>的<code>&lt;input&gt;</code>元素创建的，此外如果你指定给<code>type</code>属性的值不被浏览器支持（比如<code>type=&#39;date&#39;</code>）也会使用<code>text</code>作为它的值</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'text'</span> <span class="attr">id</span>=<span class="string">'text'</span> <span class="attr">name</span>=<span class="string">'text'</span> <span class="attr">value</span>=<span class="string">'I am a text'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>e-mail输入框</code></p>
+<blockquote>
+<p>该输入框设置<code>type</code>为<strong>e-mail</strong></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'email'</span> <span class="attr">id</span>=<span class="string">'email'</span> <span class="attr">name</span>=<span class="string">'email'</span> <span class="attr">multiple</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>注：用户需要输入一个有效的 e-mail 地址；其他任何输入都会导致输入框报错。而通过设置 multiple 属性，这种输入框也可以让用户输入多个 e-mail 地址(多个 e-mail 地址之间用逗号隔开)。</code></p>
+<p><code>密码输入框</code></p>
+<blockquote>
+<p>输入框设置为<code>type</code>为<code>password</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'password'</span> <span class="attr">id</span>=<span class="string">'pwd'</span> <span class="attr">name</span>=<span class="string">'pwd'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>搜索框</code></p>
+<blockquote>
+<p>输入框设置<code>type</code>为<code>search</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'search'</span> <span class="attr">id</span>=<span class="string">'search'</span> <span class="attr">name</span>=<span class="string">'search'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>电话号码输入框</code></p>
+<blockquote>
+<p>输入框设置<code>type</code>为<code>tel</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'tel'</span> <span class="attr">id</span>=<span class="string">'tel'</span> <span class="attr">name</span>=<span class="string">'tel'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>URL输入框</code></p>
+<blockquote>
+<p>设置<code>type</code>值为<code>url</code></p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">'url'</span> <span class="attr">id</span>=<span class="string">'url'</span> <span class="attr">name</span>=<span class="string">'url'</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>注：它为字段添加了特殊的验证约束，如果输入值是个不符合格式的 url，浏览器就会报告错误。符合 url 格式并不意味着它引用了一个实际存在的位置。</code></p>
+<p><code>多行文本框</code></p>
+<blockquote>
+<p>使用<code>&lt;textarea&gt;</code>元素</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">clos</span>=<span class="string">'每行中的字符数'</span> <span class="attr">rows</span>=<span class="string">'显示的行数'</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>下拉组件</code></p>
+<p>HTML 有两种下拉组件：选择框和自动补全组件。这两者的交互方式是一样的，一旦控件被激活，浏览器会展示列表的值让用户从中选择，这个值列表会覆盖在页面内容之上。</p>
+<p>选择框语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项1<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项2<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>选项3<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">       ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;select&gt;</code>和<code>&lt;option&gt;</code>标记的常用属性：</p>
+<p>自动补全组件：</p>
+<blockquote>
+<p>使用<code>&lt;datalist&gt;</code>元素来为表单小部件提供建议的、自动完成的值，并使用一些<code>&lt;option&gt;</code>子元素来指定要显示的值。然后使用 <code>list</code> 属性将数据列表绑定到一个文本域(通常是一个<code>&lt;input&gt;</code>元素)。</p>
+<p>一旦数据列表与表单小部件相关联，它的选项用于自动完成用户输入的文本。通常，这是作为一个下拉框向用户展示的，在输入框中输入可能匹配的内容。</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"myColor"</span>&gt;</span>What's your favorite color?<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"myColor"</span> <span class="attr">id</span>=<span class="string">"myColor"</span> <span class="attr">list</span>=<span class="string">"mySuggestion"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">datalist</span> <span class="attr">id</span>=<span class="string">"mySuggestion"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>black<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>blue<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>green<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>red<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>black<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">option</span>&gt;</span>yellow<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">datalist</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>可勾选组件</code></p>
+<blockquote>
+<p>可勾选组件指的是通过点击能够改变其状态的组件。有两种可勾选组件：复选框和单选框，它们都可以通过 checked 属性来指示该组件是否默认被勾选。</p>
+<p>值得注意的是，对大多数表单组件而言，表单提交后所有具有 name 属性的组件都会被提交，即使它们没有获值。但对于可勾选组件，它们的值却只有在它们被勾选之后才会提交，换而言之：如果没有勾选，则不会提交任何东西。</p>
+</blockquote>
+<p>复选框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>单选框</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">checked</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>几个单选按钮可以连接在一起,只需要把它们的 <code>name</code> 值设置为相同的。同一组中只有一个按钮可以同时被选。如果没有选中任何一个，那么整个单选按钮池就被认为处于未知状态，且不会随表单提交。</p>
+</blockquote>
+<p>例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">fieldset</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">legend</span>&gt;</span>What is your favorite color?<span class="tag">&lt;/<span class="name">legend</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"red"</span>&gt;</span>red<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">checked</span> <span class="attr">id</span>=<span class="string">"red"</span> <span class="attr">name</span>=<span class="string">"color"</span> <span class="attr">value</span>=<span class="string">"red"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"yellow"</span>&gt;</span>yellow<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"yellow"</span> <span class="attr">name</span>=<span class="string">"color"</span> <span class="attr">value</span>=<span class="string">"yellow"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"blue"</span>&gt;</span>blue<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"radio"</span> <span class="attr">id</span>=<span class="string">"blue"</span> <span class="attr">name</span>=<span class="string">"color"</span> <span class="attr">value</span>=<span class="string">"blue"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">fieldset</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><code>按钮</code></p>
+<blockquote>
+<p>HTML 表单中，有三种按钮：提交按钮，重置按钮,匿名按钮。我们可以使用 <code>&lt;button&gt;</code>元素或者<code>&lt;input&gt;</code>元素来创建一个按钮。<code>type</code> 属性的值指定显示什么类型的按钮。</p>
+</blockquote>
+<p>提交按钮（submit）</p>
+<blockquote>
+<p>用于发送表单数据给服务器。</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"submit"</span>&gt;</span></span><br><span class="line">    This a submit button</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--or--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"This is a submit button"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>重置按钮（reset）</p>
+<blockquote>
+<p>用于重置所有表单组件为默认值。</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"reset"</span>&gt;</span></span><br><span class="line">    This a reset button</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--or--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"reset"</span> <span class="attr">value</span>=<span class="string">"This is a reset button"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>匿名按钮（button）</p>
+<blockquote>
+<p>没有自动生效的按钮，但是可以使用 JavaScript 代码进行定制。如果你省略了 type 属性，那么这就是默认值。</p>
+</blockquote>
+<p>语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">button</span> <span class="attr">type</span>=<span class="string">"button"</span>&gt;</span></span><br><span class="line">    This a anonymous button</span><br><span class="line"><span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--or--&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">value</span>=<span class="string">"This is a anonymous button"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>不管使用的是<code>&lt;button&gt;</code>元素还是<code>&lt;input&gt;</code>元素，按钮的行为都是一样的。它们的不同点在于：</p>
+<ul>
+<li>从前面的例子中也可以看出<code>&lt;button&gt;</code>元素允许你使用 HTML 内容作为其标记内容，但<code>&lt;input&gt;</code>元素只接受纯文本内容。</li>
+<li>使用<code>&lt;button&gt;</code>元素，可以有一个不同于按钮标签的值(通过将其设置为 value 属性)。（但是在 IE 8之前的版本中是不行的）</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-11-03T23:49:31.639Z" itemprop="dateUpdated">2019-11-04 07:49:31</time>
+</span><br>
+
+
+        
+        <br><br><b><center>版权声明</center></b><br><strong>作者：</strong> Albert <br> <strong>来源：</strong> <a href="https://albert-5.cn">Albert小破站</a> <br><strong>本文地址</strong>：<a href="/2019/11/04/html表单/" target="_blank" rel="external">https://albert-5.cn/2019/11/04/html表单/</a>，转载请务必注明<font color="indigo"><strong>作者</strong>和<strong>来源</strong></font>
+        
+    </div>
+    
+    <footer>
+        <a href="https://albert-5.cn">
+            <img src="/img/avatar.jpg" alt="albert">
+            albert
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表单/">表单</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/11/04/html表单/&title=《html表单》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/11/04/html表单/&title=《html表单》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/11/04/html表单/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《html表单》 — Albert&url=https://albert-5.cn/2019/11/04/html表单/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/11/04/html表单/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/01/html之多媒体嵌入/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">html之多媒体嵌入</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+	
+
+
+	
+
+
+	
+
+
+	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+    </section>
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+		console.log("Valine done!")
+		 
+    </script>
+    <!-- Valine Comments end -->
+
+
+	
+
+
+	
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span><a href="https://github.com/Albert-5" target="_blank" class="Github" title="Github"><i class="icon icon-lg icon-github"></i></a></span>
+            <span><a href="https://weibo.com/5973922558/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" class="weibo" title="weibo"><i class="icon icon-lg icon-weibo"></i></a></span>
+            <span><a href="https://twitter.com/Starky35793281" target="_blank" class="twitter" title="twitter"><i class="icon icon-lg icon-twitter"></i></a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+        <!-- <p>
+            <span><a href="https://github.com/Albert-5" target="_blank" class="Github" title="Github"><i class="fab fa-github"></i></a></span>
+        </p> -->
+    </div>
+
+    <div class="bottom">
+        <p><span>albert &copy; 2018 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/11/04/html表单/&title=《html表单》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/11/04/html表单/&title=《html表单》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/11/04/html表单/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《html表单》 — Albert&url=https://albert-5.cn/2019/11/04/html表单/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/11/04/html表单/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvUlEQVR42u3aO27DMBAFQN//0g6QKkAg+72lySjAsHJBU0MVC+3n8YjX83v9/D1bv0947Fi4uLjL3PwByQXyPfkrwMXF/StuHrxeP+Dqv1cvKDfg4uLek9sGtWQnLi7uf+e2D5u9Dlxc3Ptw80JGHqqSz6ONuRouLu4Cd1Yw/ezv7fVdXFzcD3Ul8pJHEs4+8HRcXNwj3KTMkYezNgXKk6viIFxc3GVum+q0ISnZn5yGi4t7ktt+jrSXXBnquhTi4uJu5j5Ha/1Ks5EOXFzck9z8E2QWntqCyKUEFxf3ILcNLlGKMmrVvDkNFxf3ILctWOwohi5VdnFxcTdwX6NnDdRZefTN9XBxcW/Dbbuc7YhG0dDFxcU9zp0lNrMg1U6I4OLinuTmg1n1oTG3HvnCxcXdzM0LFnnhoy2kFsEOFxf3ILcNOiuN1ZUWCy4u7knuykjWerGjaNPi4uIe4bYBZV+xY9h2xcXF3cZNglfbiG0vVpyPi4t7kNsGr/wjqU2B3uzBxcW9GTe/RltMKdq3uLi4N+bmQxt5aIsSJ1xc3IPcJPmZtUnWg+AwV8PFxV3gtgXT9eGMdicuLu5B7hflVGzDY8wygAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+ <!-- 添加百度统计js -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4099fc41b7fab35703d6ee8152506fa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)哦吼!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<!-- 插入音乐插件js文件 -->
+<script src="//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    <!-- 爱心点击特效 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+    
+    <!-- 社会主义核心价值观点击特效 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#C20f0b"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
+    </script>
+    
+
+    <script src="//code.tidio.co/dhfi5clsw9dl27z5yr9nyrnwtuqc4zhv.js"></script>
+    
+    <!-- weather -->
+ <!--    <script type="text/javascript">WIDGET = {FID: 'rNrYhPQIei'}</script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+ -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"position":"left","width":150,"height":300,"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"mobile":{"show":false}});</script></body>
+</html>
