@@ -25,16 +25,17 @@ ga('send', 'pageview');
     
     
     
-    <title>No title | Albert</title>
+    <title>Django后传 | Albert</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#C20f0b">
     
     
-    <meta name="keywords" content>
+    <meta name="keywords" content="Django">
     <meta name="description" content="说明：文章中写的{百分号 百分号}具体指代                                                                                                           由于渲染模板的问题，导致指令混淆，特在此说明！  Django 管理网站创建超级用户Django允许创建具备所有权限的用户–超级用户，权限决定">
+<meta name="keywords" content="Django">
 <meta property="og:type" content="article">
-<meta property="og:title" content="No title">
+<meta property="og:title" content="Django后传">
 <meta property="og:url" content="https://albert-5.cn/2019/11/16/Django后传/index.html">
 <meta property="og:site_name" content="Albert">
 <meta property="og:description" content="说明：文章中写的{百分号 百分号}具体指代                                                                                                           由于渲染模板的问题，导致指令混淆，特在此说明！  Django 管理网站创建超级用户Django允许创建具备所有权限的用户–超级用户，权限决定">
@@ -42,9 +43,9 @@ ga('send', 'pageview');
 <meta property="og:image" content="https://i.loli.net/2019/11/16/iSMrOaJNwvqKBoV.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/16/eKRD2Bx65IcXA37.png">
 <meta property="og:image" content="https://i.loli.net/2019/11/16/e5ym86sQiqrYCGP.png">
-<meta property="og:updated_time" content="2019-11-16T14:24:33.959Z">
+<meta property="og:updated_time" content="2019-11-16T14:36:31.422Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="No title">
+<meta name="twitter:title" content="Django后传">
 <meta name="twitter:description" content="说明：文章中写的{百分号 百分号}具体指代                                                                                                           由于渲染模板的问题，导致指令混淆，特在此说明！  Django 管理网站创建超级用户Django允许创建具备所有权限的用户–超级用户，权限决定">
 <meta name="twitter:image" content="https://i.loli.net/2019/11/16/iSMrOaJNwvqKBoV.png">
     
@@ -167,7 +168,7 @@ ga('send', 'pageview');
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">No title</div>
+        <div class="flex-col header-title ellipsis">Django后传</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -189,13 +190,15 @@ ga('send', 'pageview');
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">No title</h1>
+        <h1 class="title">Django后传</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-11-16T13:26:36.621Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-11-16T10:45:28.000Z" itemprop="datePublished" class="page-time">
   2019-11-16
 </time>
 
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/django/">django</a></li></ul>
 
             
         </h5>
@@ -219,15 +222,17 @@ ga('send', 'pageview');
 <article id="post-Django后传" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">No title</h1>
+        <h1 class="post-card-title">Django后传</h1>
         <div class="post-meta">
 			
 
           
 
-            <time class="post-time" title="2019-11-16 21:26:36" datetime="2019-11-16T13:26:36.621Z" itemprop="datePublished">2019-11-16</time>
+            <time class="post-time" title="2019-11-16 18:45:28" datetime="2019-11-16T10:45:28.000Z" itemprop="datePublished">2019-11-16</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/django/">django</a></li></ul>
+
 
 
             
@@ -335,7 +340,7 @@ ga('send', 'pageview');
 <p><code>注：继承了base.html页面；同时显示当前的主题存储在中，那为什么可以使用topic？因为它包含在字典context中，之后遍历即可；每个项目列表项会列出两项信息：时间戳和完整地文本。为列出时间戳，显示了属性date_added的值；在Django中，|表示模板过滤器--对模板变量的值进行修改的函数。过滤器date:&#39;M d,Y H:i&#39;以这样的格式显示时间戳：January 1,2019 11:11，而后是显示text的值，而不仅仅显示entry的前50个字符；过滤器linebreaks将包含换行符的长条目转换为浏览器能够理解的格式，以免显示为一个不间断的文本块。</code></p>
 <h3 id="将显示所有主题的页面中的每个主题都设置链接"><a href="#将显示所有主题的页面中的每个主题都设置链接" class="headerlink" title="将显示所有主题的页面中的每个主题都设置链接"></a>将显示所有主题的页面中的每个主题都设置链接</h3><p>修改<code>topics.html</code></p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#123;% draw %&#125; <span class="comment">&lt;!--注意--&gt;</span></span><br><span class="line">&#123;% extends "learning_logs/base.html" %&#125;</span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>Topics<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">    &#123;% for topic in topics %&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">li</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;% url 'learning_logs:topic' topic.id %&#125;"</span>&gt;</span>&#123;  topic &#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span> # 修改，此处为俩大括号</span><br><span class="line">    &#123;% empty %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">li</span>&gt;</span>No topics have been added yet.<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">    &#123;% endfor %&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br><span class="line">&#123;% endraw %&#125; <span class="comment">&lt;!--注意--&gt;</span></span><br></pre></td></tr></table></figure>
-
+<div><strong>🚩推荐阅读</strong><ul><li><a href="https://albert-5.cn/2019/11/16/Django迁移模型时报错/">Django迁移模型时报错</a></li><li><a href="https://albert-5.cn/2019/11/16/Django2-0异常/">Django2.0错误</a></li><li><a href="http://www.borgor.cn/2019-07-10/54af093c.html">在Django中使用migrate初始化数据库数据</a></li><li><a href="http://www.borgor.cn/2019-06-11/168aa3b1.html">使用Django+Vue.js快速构建项目</a></li></ul></div>
         </div>
 
         <blockquote class="post-copyright">
@@ -343,7 +348,7 @@ ga('send', 'pageview');
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-11-16T14:24:33.959Z" itemprop="dateUpdated">2019-11-16 22:24:33</time>
+    Last updated: <time datetime="2019-11-16T14:36:31.422Z" itemprop="dateUpdated">2019-11-16 22:36:31</time>
 </span><br>
 
 
@@ -369,6 +374,8 @@ ga('send', 'pageview');
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -377,7 +384,7 @@ ga('send', 'pageview');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/11/16/Django后传/&title=《No title》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/11/16/Django后传/&title=《Django后传》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -387,7 +394,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/11/16/Django后传/&title=《No title》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/11/16/Django后传/&title=《Django后传》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -397,7 +404,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — Albert&url=https://albert-5.cn/2019/11/16/Django后传/&via=https://albert-5.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Django后传》 — Albert&url=https://albert-5.cn/2019/11/16/Django后传/&via=https://albert-5.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -425,18 +432,18 @@ ga('send', 'pageview');
 <nav class="post-nav flex-row flex-justify-between">
   
     <div class="waves-block waves-effect prev">
-      <a href="/2019/11/16/有关hexo-g的报错解决方法/" id="post-prev" class="post-nav-link">
+      <a href="/2019/11/16/Django2-0异常/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">有关hexo-g的报错解决方法</h4>
+        <h4 class="title">Django2.0错误</h4>
       </a>
     </div>
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/11/16/Django前传/" id="post-next" class="post-nav-link">
+      <a href="/2019/11/16/Django迁移模型时报错/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Django前传</h4>
+        <h4 class="title">Django迁移模型时报错</h4>
       </a>
     </div>
   
@@ -570,7 +577,7 @@ ga('send', 'pageview');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/11/16/Django后传/&title=《No title》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/11/16/Django后传/&title=《Django后传》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -580,7 +587,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/11/16/Django后传/&title=《No title》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/11/16/Django后传/&title=《Django后传》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -590,7 +597,7 @@ ga('send', 'pageview');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《No title》 — Albert&url=https://albert-5.cn/2019/11/16/Django后传/&via=https://albert-5.cn" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Django后传》 — Albert&url=https://albert-5.cn/2019/11/16/Django后传/&via=https://albert-5.cn" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
