@@ -262,6 +262,117 @@ ga('send', 'pageview');
     
         <li class="post-list-item fade">
             
+<article id="post-django开发实践版本问题导致错误" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+
+
+        
+
+        <time class="post-time" title="2019-11-17 23:45:46" datetime="2019-11-17T15:45:46.000Z" itemprop="datePublished">2019-11-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li></ul>
+
+
+
+ 
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/17/django开发实践版本问题导致错误/">django开发实践版本问题导致错误</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Django开发实践版本问题导致错误在使用Django提供的默认登录视图来实现登录界面功能时出现报错：
+代码为：
+12from django.contrib.auth import loginurl(r'^login/$',login,&#123;'template_name'='users/login.html'&#125;,name='login')
+报错信息为：
+1TypeError:...
+    
+
+        <a href="/2019/11/17/django开发实践版本问题导致错误/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/错误/">错误</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            
+<article id="post-Djanfo续传" class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+
+
+        
+
+        <time class="post-time" title="2019-11-17 23:45:37" datetime="2019-11-17T15:45:37.000Z" itemprop="datePublished">2019-11-17</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Django/">Django</a></li></ul>
+
+
+
+ 
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2019/11/17/Djanfo续传/">Djanfo续传</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        用户账户
+用户表单添加主题创建基于表单的页面的方法几乎与前面创建网页一样：定义一个url，编写一个视图函数并编写一个模板。
+用于添加主题的表单用户输入信息，我们需要验证，确认提供的信息是正确的类型，然后再对有效的信息进行处理，并将其存储到数据库的地方。
+在Django中创建表单最简单的方式是使用ModelForm，会自动创建表单。创建一个forms.py，将其存储到models.py所在目录...
+    
+
+        <a href="/2019/11/17/Djanfo续传/" class="post-more waves-effect waves-button">
+            Continue reading...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/开发/">开发</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            
 <article id="post-图书信息查询课程设计" class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -671,123 +782,6 @@ Django 管理网站创建超级用户Django允许创建具备所有权限的用�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Django/">Django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            
-<article id="post-导出mysql数据的编码问题" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-
-
-        
-
-        <time class="post-time" title="2019-11-14 10:11:02" datetime="2019-11-14T02:11:02.000Z" itemprop="datePublished">2019-11-14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/疑难杂症/">疑难杂症</a></li></ul>
-
-
-
- 
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/14/导出mysql数据的编码问题/">导出mysql数据的编码问题</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Python导出Mysql数据时中文显示异常的问题​    最近利用Python+Mysql搞课程设计，但是从Mysql导出数据时遇到了编码问题，中文字体无法显示，替代的反而是一个个的问好
-
-​    其实解决的方法也很简单：
-
-首先在.py的文件的开头添加上编码设置来说明文件的编码
-1# encoding='utf8'
-
-然后，在连接数据的连接参数上加上字符集说明查询的结果的编码，这个不加...
-    
-
-        <a href="/2019/11/14/导出mysql数据的编码问题/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            
-<article id="post-html表单" class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-
-
-        
-
-        <time class="post-time" title="2019-11-04 07:48:29" datetime="2019-11-03T23:48:29.000Z" itemprop="datePublished">2019-11-04</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/html/">html</a></li></ul>
-
-
-
- 
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2019/11/04/html表单/">html表单</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        HTML表单HTML表单概述
-
-表单在网页中主要负责数据收集功能。一个表单有三个基本组成部分：
-
-表单标签：这里面包含了处理表单元素所用CGI程序的URL以及数据提交到服务器的方法
-表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。
-表单按钮：包括提交按钮、复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控...
-    
-
-        <a href="/2019/11/04/html表单/" class="post-more waves-effect waves-button">
-            Continue reading...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端/">前端</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/表单/">表单</a></li></ul>
 
     </div>
     
