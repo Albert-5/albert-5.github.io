@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="sHO_73a3zHA-ndhyNC1D2d7DNrGbbCjApnFHsV56H8o">
+    
+    
+    
+    
+    <title>Wechat爬取好友信息 | Albert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#C20f0b">
+    
+    
+    <meta name="keywords" content="爬虫,微信">
+    <meta name="description" content="微信好友 一览无余【itchat】一个微信的开源API，微信是一种常用的社交网络应用程序。 通过python中的聊天访问个人微信账户，然后通过微信机器人进行处理个人所有基本信息。 安装itchat模块1pip install itchat 简单使用123import itchatitchat.auto_login()itchat.send(&apos;Hello, filehelper&apos;, toUserNa">
+<meta name="keywords" content="爬虫,微信">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Wechat爬取好友信息">
+<meta property="og:url" content="https://albert-5.cn/2019/06/12/Wechat爬取好友信息/index.html">
+<meta property="og:site_name" content="Albert">
+<meta property="og:description" content="微信好友 一览无余【itchat】一个微信的开源API，微信是一种常用的社交网络应用程序。 通过python中的聊天访问个人微信账户，然后通过微信机器人进行处理个人所有基本信息。 安装itchat模块1pip install itchat 简单使用123import itchatitchat.auto_login()itchat.send(&apos;Hello, filehelper&apos;, toUserNa">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://i.loli.net/2019/06/12/5d010091e02f920002.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/12/5d00ff1a51a3891536.png">
+<meta property="og:image" content="https://i.loli.net/2019/06/14/5d028204f24df25475.png">
+<meta property="og:updated_time" content="2019-06-13T17:13:01.126Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Wechat爬取好友信息">
+<meta name="twitter:description" content="微信好友 一览无余【itchat】一个微信的开源API，微信是一种常用的社交网络应用程序。 通过python中的聊天访问个人微信账户，然后通过微信机器人进行处理个人所有基本信息。 安装itchat模块1pip install itchat 简单使用123import itchatitchat.auto_login()itchat.send(&apos;Hello, filehelper&apos;, toUserNa">
+<meta name="twitter:image" content="https://i.loli.net/2019/06/12/5d010091e02f920002.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="Albert" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<!-- 导入音乐插件js -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">albert</h5>
+          <a href="mailto:981287080@qq.com" title="981287080@qq.com" class="mail">981287080@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Music" target="_blank">
+                <i class="icon icon-lg icon-music"></i>
+                Music
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books">
+                <i class="icon icon-lg icon-book"></i>
+                Books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/movies">
+                <i class="icon icon-lg icon-film"></i>
+                Movies
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/desktop">
+                <i class="icon icon-lg icon-desktop"></i>
+                Desktop
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/picture">
+                <i class="icon icon-lg icon-camera"></i>
+                Camera
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                About me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Wechat爬取好友信息</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Wechat爬取好友信息</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-06-12T13:49:31.000Z" itemprop="datePublished" class="page-time">
+  2019-06-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Wechat爬虫/">Wechat爬虫</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+    
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#微信好友-一览无余"><span class="post-toc-number">1.</span> <span class="post-toc-text">微信好友 一览无余</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装itchat模块"><span class="post-toc-number">1.0.1.</span> <span class="post-toc-text">安装itchat模块</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#简单使用"><span class="post-toc-number">1.0.2.</span> <span class="post-toc-text">简单使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开始操作"><span class="post-toc-number">1.0.3.</span> <span class="post-toc-text">开始操作</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Wechat爬取好友信息" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Wechat爬取好友信息</h1>
+        <div class="post-meta">
+			
+
+          
+
+            <time class="post-time" title="2019-06-12 21:49:31" datetime="2019-06-12T13:49:31.000Z" itemprop="datePublished">2019-06-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Wechat爬虫/">Wechat爬虫</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="微信好友-一览无余"><a href="#微信好友-一览无余" class="headerlink" title="微信好友 一览无余"></a><strong>微信好友 一览无余</strong></h1><p>【itchat】一个微信的开源<strong>API</strong>，微信是一种常用的社交网络应用程序。</p>
+<p>通过python中的聊天访问个人微信账户，然后通过微信机器人进行处理个人所有基本信息。</p>
+<h3 id="安装itchat模块"><a href="#安装itchat模块" class="headerlink" title="安装itchat模块"></a>安装itchat模块</h3><figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install itchat</span><br></pre></td></tr></table></figure>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itchat</span><br><span class="line">itchat.auto_login()</span><br><span class="line">itchat.send(<span class="string">'Hello, filehelper'</span>, toUserName=<span class="string">'filehelper'</span>)</span><br></pre></td></tr></table></figure>
+<p>详情见<a href="https://pypi.org/project/itchat/" target="_blank">itchat官方网站</a></p>
+<p><strong>主要用到的方法有：</strong></p>
+<ul>
+<li><code>itchat.login()</code>微信扫码登录</li>
+<li><code>itchat.get_friends()</code>返回完整的列表好友，每个好友为一个字典，其中第一项为自己的账号基本信息，带入参数<code>update=True</code>，将更新好友列表并返回，具体使用<code>itchat.get_friends(update=True)</code></li>
+</ul>
+<blockquote>
+<p>技巧：使用<code>itchat.login()</code>进行登录微信会有一个问题，就是每运行一次就会生成一个二维码，叮··· 扫描登录，是不是过于麻烦了？ 直接采用<code>itchat.auto_login()</code>，在一定时间内，可以不用扫码登录，只需要在手机移动端确定登录就行了，毕竟是在模拟网页登录</p>
+</blockquote>
+<h3 id="开始操作"><a href="#开始操作" class="headerlink" title="开始操作"></a>开始操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入所需要的库</span></span><br><span class="line"><span class="keyword">import</span> itchat</span><br><span class="line"><span class="keyword">import</span> csv</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 启用热键扫码登录微信</span></span><br><span class="line">itchat.auto_login(hotReload=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># 抓取好友信息</span></span><br><span class="line">friends = itchat.get_friends(update=<span class="literal">True</span>)[<span class="number">0</span>:]</span><br></pre></td></tr></table></figure>
+<p>这时，好友信息已经在存储在<strong>friends</strong>里面了。</p>
+<p><strong>定义函数抓取个字段信息get_var(var)</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_var</span><span class="params">(var)</span>:</span></span><br><span class="line">    variable = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> friends:</span><br><span class="line">        value = i[var]</span><br><span class="line">        variable.append(value)</span><br><span class="line">    <span class="keyword">return</span> variable</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 调用函数得到各个变量,存在csv文件中</span></span><br><span class="line">NickName = get_var(<span class="string">'NickName'</span>)</span><br><span class="line">Sex = get_var(<span class="string">'Sex'</span>)</span><br><span class="line">Province = get_var(<span class="string">'Province'</span>)</span><br><span class="line">City = get_var(<span class="string">'City'</span>)</span><br><span class="line">Signature = get_var(<span class="string">'Signature'</span>)</span><br><span class="line">Username = get_var(<span class="string">'UserName'</span>)</span><br><span class="line">ContactFlag = get_var(<span class="string">'ContactFlag'</span>)</span><br><span class="line">SnsFlag = get_var(<span class="string">'SnsFlag'</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>定义函数parse_friends()</strong>，将得到的好友数据存储在txt文本中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 收集并保存好友信息数据</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">parse_friends</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment"># 设置需要爬取的信息字段,使用字典形式,参考官网以及个人需求设置字段信息</span></span><br><span class="line">    result = &#123;<span class="string">'NickName'</span>: NickName, <span class="string">'Sex'</span>: Sex, <span class="string">'Province'</span>: Province, <span class="string">'City'</span>: City, <span class="string">'UserName'</span>: Username,</span><br><span class="line">            <span class="string">'ContactFlag'</span>: ContactFlag, <span class="string">'SnsFlag'</span>: SnsFlag, <span class="string">'Signature'</span>: Signature, &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> friends:</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">'myfriends.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> fh:</span><br><span class="line">            fh.write(<span class="string">'-------------------------\n'</span>)</span><br><span class="line">        <span class="keyword">for</span> r <span class="keyword">in</span> result:</span><br><span class="line">            <span class="keyword">with</span> open(<span class="string">'myfriends.txt'</span>, <span class="string">'a'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> fh:</span><br><span class="line">                fh.write(str(r) + <span class="string">":"</span> + str(user.get(r))+<span class="string">"\n"</span>)</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"分析完毕！"</span>)</span><br></pre></td></tr></table></figure>
+<center>设置最后打印标识，提醒已完成信息存储；<br><br><center>同时当前文件夹中出现一个文件<code>myfriends.txt</code></center>
+
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/12/5d010091e02f920002.png" alt="信息文件" title>
+                </div>
+                <div class="image-caption">信息文件</div>
+            </figure>
+<hr>
+<p><strong>定义函数male_female()</strong>统计男女以及其他人数和比例</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/12/5d00ff1a51a3891536.png" alt="统计" title>
+                </div>
+                <div class="image-caption">统计</div>
+            </figure>
+<p><strong>然后利用pandas</strong>模块将文件信息保存在<a href="https://baike.baidu.com/item/CSV/10739" target="_blank" rel="noopener">csv文件</a>中</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">data = &#123;<span class="string">'NickName'</span>: NickName, <span class="string">'Sex'</span>: Sex, <span class="string">'Province'</span>: Province, <span class="string">'City'</span>: City, <span class="string">'UserName'</span>: Username, <span class="string">'ContactFlag'</span>: ContactFlag, <span class="string">'SnsFlag'</span>:SnsFlag, <span class="string">'Signature'</span>:Signature, &#125;</span><br><span class="line">frame = DataFrame(data)</span><br><span class="line">frame.to_csv(<span class="string">'data2.csv'</span>, index=<span class="literal">True</span>, encoding=<span class="string">'utf-8'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'data2.csv'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> myfile:</span><br><span class="line">    reader = csv.reader(myfile)</span><br><span class="line">    <span class="keyword">for</span> row <span class="keyword">in</span> reader:</span><br><span class="line">         print(row)</span><br></pre></td></tr></table></figure>
+<center>便于后续采用pandas中的 <strong>value_counts</strong> 进行计数可视化处理</center>
+
+<hr>
+<p><strong>简单可视化操作</strong></p>
+<p><strong>采用pyecharts中的Pie绘制饼图</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入模块</span></span><br><span class="line"><span class="keyword">from</span> pyecharts.charts <span class="keyword">import</span> Pie</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">configure(output_image=<span class="literal">True</span>)</span><br><span class="line">pie = Pie(<span class="string">"性别比例"</span>, background_color=<span class="string">'white'</span>, title_text_size=<span class="number">25</span>)</span><br><span class="line">attr = [<span class="string">'male'</span>, <span class="string">'female'</span>, <span class="string">'other'</span>]</span><br><span class="line">v1 = [<span class="number">57.14</span>, <span class="number">27.04</span>, <span class="number">15.82</span>]  <span class="comment"># 好友男女百分比</span></span><br><span class="line">pie.add(<span class="string">''</span>, attr, v1, is_label_show=<span class="literal">True</span>)</span><br><span class="line">pie.render() <span class="comment"># render渲染，默认在当前文件夹中的render.html</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>再使用pyecharts时，可能会出现一些错误，比如不存在Pie或者无法导入Pie等</p>
+<p>看了一些博客之后，我采用的方法是降级，即降低库的版本，可能是与python版本有冲突</p>
+</blockquote>
+<p><strong>效果</strong></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://i.loli.net/2019/06/14/5d028204f24df25475.png" alt="比例.png" title>
+                </div>
+                <div class="image-caption">比例.png</div>
+            </figure>
+<center>或许这就是你Single的原因吧 –苦笑–<br></center>
+
+
+
+</center><div><strong>🚩推荐阅读</strong><ul><li><a href="https://albert-5.cn/2019/08/01/豆瓣电影top250/">豆瓣电影top250</a></li><li><a href="https://heyizhang.github.io/2019/09/15/python/spider_basic/">爬虫基础</a></li><li><a href="https://lianzhaowen.github.io/p/3761743480.html">爬问财的方法</a></li></ul></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-06-13T17:13:01.126Z" itemprop="dateUpdated">2019-06-14 01:13:01</time>
+</span><br>
+
+
+        
+        <br><br><b><center>版权声明</center></b><br><strong>作者：</strong> Albert <br> <strong>来源：</strong> <a href="https://albert-5.cn">Albert小破站</a> <br><strong>本文地址</strong>：<a href="/2019/06/12/Wechat爬取好友信息/" target="_blank" rel="external">https://albert-5.cn/2019/06/12/Wechat爬取好友信息/</a>，转载请务必注明<font color="indigo"><strong>作者</strong>和<strong>来源</strong></font>
+        
+    </div>
+    
+    <footer>
+        <a href="https://albert-5.cn">
+            <img src="/img/avatar.jpg" alt="albert">
+            albert
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微信/">微信</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/&title=《Wechat爬取好友信息》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/&title=《Wechat爬取好友信息》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Wechat爬取好友信息》 — Albert&url=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/06/14/Waring/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Waring</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/02/算法导论复习/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">算法导论复习</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+	
+
+
+	
+
+
+	
+
+
+	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+    </section>
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+		console.log("Valine done!")
+		 
+    </script>
+    <!-- Valine Comments end -->
+
+
+	
+
+
+	
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span><a href="https://github.com/Albert-5" target="_blank" class="Github" title="Github"><i class="icon icon-lg icon-github"></i></a></span>
+            <span><a href="https://weibo.com/5973922558/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" class="weibo" title="weibo"><i class="icon icon-lg icon-weibo"></i></a></span>
+            <span><a href="https://twitter.com/Starky35793281" target="_blank" class="twitter" title="twitter"><i class="icon icon-lg icon-twitter"></i></a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+        <!-- <p>
+            <span><a href="https://github.com/Albert-5" target="_blank" class="Github" title="Github"><i class="fab fa-github"></i></a></span>
+        </p> -->
+    </div>
+
+    <div class="bottom">
+        <p><span>albert &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/&title=《Wechat爬取好友信息》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/&title=《Wechat爬取好友信息》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Wechat爬取好友信息》 — Albert&url=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/06/12/Wechat爬取好友信息/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3au3aDQAwFQP//T5M2DfhKgsJitvJxDOxQbPT6fOJ1BCv5/f+/Xj/l88TCwMD4WUayuetvkgcn7LPPyYvDwMB4A+Pswde3zq/KD9b8DhgYGBg5o7qtPHDEwMDA6DGuv8l510EkBgYGRi+JreKvf5mEjI/k4hgYGD/ImByCT39+pL+BgYHxU4yjuKrtzF6DobwrDAyM1Yz8gMsT1Ou73RX2YWBgvI3RK3hVt5UMauSvJgofMTAwFjGqN5psIhm/yJPb0/8bGBgYixj5xTmj2vKchIkYGBhvYPQGLKpluDwlzsEYGBjvYeQb7Q1k5K8jKaJF7x4DA2MdI09Q7yqoTYY8vhzNGBgYL2PkgWAe6uWNyaRV+aUTi4GBsZRRTSMnR22S7uYBJQYGxm5GUvCqlsbuvarZg8XAwFjEyBsD1YZBLz2eJLQYGBi7GXc1FJNQMtl6s0iHgYGxlDFPIydF/14L4XTYAgMDYymjdxAnLczJcdwLLjEwMHYzeuJqu7EaFJaDSwwMjFcy8nGH3rhGfhA3Z0YwMDDWMaoDFr3EcpIGl2dGMDAwVjCO4qpurnpVfpR/qRpiYGAsYtzV5szHNeZ3wMDAeCcjOS6TtHZePrutj4GBgbGU0Ts68w1Vy3nV3WJgYGD0BikmVcA8lMTAwMDIxyPmxbLquMZpJxYDA2MpI0liew/upcTVoBMDA2M3Y5Q6tspkeXJbbRVgYGCsY/wByq7bGeygZX8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+ <!-- 添加百度统计js -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4099fc41b7fab35703d6ee8152506fa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)哦吼!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<!-- 插入音乐插件js文件 -->
+<script src="//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    <!-- 爱心点击特效 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+    
+    <!-- 社会主义核心价值观点击特效 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#C20f0b"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
+    </script>
+    
+
+    <script src="//code.tidio.co/dhfi5clsw9dl27z5yr9nyrnwtuqc4zhv.js"></script>
+    
+    <!-- weather -->
+ <!--    <script type="text/javascript">WIDGET = {FID: 'rNrYhPQIei'}</script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+ -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"position":"left","width":150,"height":300,"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"mobile":{"show":false}});</script></body>
+</html>

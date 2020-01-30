@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+<!-- Google Analytics -->
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '[object Object]', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<!-- End Google Analytics -->
+
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    <meta name="google-site-verification" content="sHO_73a3zHA-ndhyNC1D2d7DNrGbbCjApnFHsV56H8o">
+    
+    
+    
+    
+    <title>Django续续传-用户账号 | Albert</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#C20f0b">
+    
+    
+    <meta name="keywords" content="django,网站实例用户篇">
+    <meta name="description" content="注销页面 为注销链接添加一个url模式，编写一个视图函数，并在base.html中添加一个注销链接  注销url.py 修改的是users/urls.py 1234567891011&quot;&quot;&quot;为应用程序users定义url模式&quot;&quot;&quot;from django.conf.urls import urlfrom django.contrib.auth.views import LoginViewfrom .">
+<meta name="keywords" content="django,网站实例用户篇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django续续传-用户账号">
+<meta property="og:url" content="https://albert-5.cn/2019/11/18/Django续续传-用户账号/index.html">
+<meta property="og:site_name" content="Albert">
+<meta property="og:description" content="注销页面 为注销链接添加一个url模式，编写一个视图函数，并在base.html中添加一个注销链接  注销url.py 修改的是users/urls.py 1234567891011&quot;&quot;&quot;为应用程序users定义url模式&quot;&quot;&quot;from django.conf.urls import urlfrom django.contrib.auth.views import LoginViewfrom .">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-11-18T14:58:22.911Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django续续传-用户账号">
+<meta name="twitter:description" content="注销页面 为注销链接添加一个url模式，编写一个视图函数，并在base.html中添加一个注销链接  注销url.py 修改的是users/urls.py 1234567891011&quot;&quot;&quot;为应用程序users定义url模式&quot;&quot;&quot;from django.conf.urls import urlfrom django.contrib.auth.views import LoginViewfrom .">
+    
+        <link rel="alternate" type="application/atom+xml" title="Albert" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+<!-- 导入音乐插件js -->
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+</head>
+
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">albert</h5>
+          <a href="mailto:981287080@qq.com" title="981287080@qq.com" class="mail">981287080@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                Home
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/Music" target="_blank">
+                <i class="icon icon-lg icon-music"></i>
+                Music
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/books">
+                <i class="icon icon-lg icon-book"></i>
+                Books
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/movies">
+                <i class="icon icon-lg icon-film"></i>
+                Movies
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/desktop">
+                <i class="icon icon-lg icon-desktop"></i>
+                Desktop
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/picture">
+                <i class="icon icon-lg icon-camera"></i>
+                Camera
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-link"></i>
+                About me
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Django续续传-用户账号</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Django续续传-用户账号</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-11-18T14:55:26.000Z" itemprop="datePublished" class="page-time">
+  2019-11-18
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/django/">django</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+    
+</header>
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注销页面"><span class="post-toc-number">1.</span> <span class="post-toc-text">注销页面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链接到注销视图"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">链接到注销视图</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#注册页面"><span class="post-toc-number">2.</span> <span class="post-toc-text">注册页面</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注册页面的url模式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">注册页面的url模式</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#视图函数register"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">视图函数register()</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#注册模板"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">注册模板</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#链接到注册页面"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">链接到注册页面</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#让用户拥有自己的数据"><span class="post-toc-number">3.</span> <span class="post-toc-text">让用户拥有自己的数据</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用-login-required限制访问"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">使用@login_required限制访问</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#全面限制对项目的访问"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">全面限制对项目的访问</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将数据关联到用户"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">将数据关联到用户</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#保护页面edit-entry"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">保护页面edit_entry</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#将新主题关联到用户"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">将新主题关联到用户</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Django续续传-用户账号" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Django续续传-用户账号</h1>
+        <div class="post-meta">
+			
+
+          
+
+            <time class="post-time" title="2019-11-18 22:55:26" datetime="2019-11-18T14:55:26.000Z" itemprop="datePublished">2019-11-18</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/django/">django</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="注销页面"><a href="#注销页面" class="headerlink" title="注销页面"></a>注销页面</h2><blockquote>
+<p>为注销链接添加一个url模式，编写一个视图函数，并在base.html中添加一个注销链接</p>
+</blockquote>
+<p><strong>注销url.py</strong></p>
+<p>修改的是<code>users/urls.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""为应用程序users定义url模式"""</span></span><br><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.views <span class="keyword">import</span> LoginView</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment"># login</span></span><br><span class="line">    url(<span class="string">r'^login/$'</span>,LoginView.as_view(template_name=<span class="string">'users/login.html'</span>),name=<span class="string">'login'</span>),</span><br><span class="line">    url(<span class="string">r'^logout/$'</span>,views.logout_view,name=<span class="string">'logout'</span>),  <span class="comment"># 新增</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>视图函数logout_view</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render</span><br><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> logout</span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout_view</span><span class="params">(request)</span>:</span></span><br><span class="line">    logout(request)</span><br><span class="line">    <span class="keyword">return</span> HttpResponseRedirect(reverse(<span class="string">'learning_logs:index'</span>))</span><br></pre></td></tr></table></figure>
+<h3 id="链接到注销视图"><a href="#链接到注销视图" class="headerlink" title="链接到注销视图"></a>链接到注销视图</h3><p>在<code>base.html</code>中添加这个链接，放在标签<code>{百分号 if user.is_authenticated 百分号}</code>中，使得仅当用户登录后才能看到：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;% draw %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;% url 'learning_logs:index' %&#125;"</span>&gt;</span>Learning Log<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -  <span class="comment">&lt;!--创建一个包含项目名的段落，也是一个到主页的链接--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;% url 'learning_logs:topics' %&#125;"</span>&gt;</span>Topics<span class="tag">&lt;/<span class="name">a</span>&gt;</span> -</span><br><span class="line"></span><br><span class="line">    &#123;% if user.is_authenticated %&#125;</span><br><span class="line">        Hello,&#123;&#123; user.username &#125;&#125;.</span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;% url 'users:logout' %&#125;"</span>&gt;</span>Log out<span class="tag">&lt;/<span class="name">a</span>&gt;</span>         # new</span><br><span class="line">    &#123;% else %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;% url 'users:login' %&#125;"</span>&gt;</span>log in<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">&#123;% block content %&#125;&#123;% endblock content %&#125;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="注册页面"><a href="#注册页面" class="headerlink" title="注册页面"></a>注册页面</h2><p>使用<code>Django</code>提供的表单<code>UserCreationForm</code>，但编写自己的模板和视图</p>
+<h3 id="注册页面的url模式"><a href="#注册页面的url模式" class="headerlink" title="注册页面的url模式"></a>注册页面的url模式</h3><blockquote>
+<p>包含在了users/urls.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"""为应用程序users定义url模式"""</span></span><br><span class="line"><span class="keyword">from</span> django.conf.urls <span class="keyword">import</span> url</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.views <span class="keyword">import</span> LoginView</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> . <span class="keyword">import</span> views</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    <span class="comment"># login</span></span><br><span class="line">    url(<span class="string">r'^login/$'</span>,LoginView.as_view(template_name=<span class="string">'users/login.html'</span>),name=<span class="string">'login'</span>),</span><br><span class="line">    url(<span class="string">r'^logout/$'</span>,views.logout_view,name=<span class="string">'logout'</span>),</span><br><span class="line">    url(<span class="string">r'^register/$'</span>,views.register,name=<span class="string">'register'</span>),   <span class="comment"># new</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h3 id="视图函数register"><a href="#视图函数register" class="headerlink" title="视图函数register()"></a>视图函数<code>register()</code></h3><p>在注册页面首次被请求时，视图函数<code>register()</code>需要显示一个空的注册表单，并在用户提交填写好的注册表单时对其进行处理</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib.auth <span class="keyword">import</span> login,logout,authenticate  <span class="comment"># new</span></span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.forms <span class="keyword">import</span> UserCreationForm   <span class="comment"># new</span></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">logout_view</span><span class="params">(request)</span>:</span></span><br><span class="line">    logout(request)</span><br><span class="line">    <span class="keyword">return</span> HttpResponseRedirect(reverse(<span class="string">'learning_logs:index'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义注册视图函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">register</span><span class="params">(request)</span>:</span>                               <span class="comment"># new</span></span><br><span class="line">    <span class="keyword">if</span> request.method != <span class="string">'POST'</span>:</span><br><span class="line">        <span class="comment"># 显示为空的注册单</span></span><br><span class="line">        form = UserCreationForm()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        form = UserCreationForm(data=request.POST)</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            new_user =form.save()</span><br><span class="line">            <span class="comment"># 让用户自动登录，在重定向到主页</span></span><br><span class="line">            authenticated_user = authenticate(username=new_user.username,password=request.POST[<span class="string">'password1'</span>])</span><br><span class="line">            login(request,authenticated_user)</span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(reverse(<span class="string">'learning_logs:index'</span>))</span><br><span class="line">        </span><br><span class="line">    context = &#123;<span class="string">'form'</span>:form&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'users/register.html'</span>,context)</span><br></pre></td></tr></table></figure>
+<h3 id="注册模板"><a href="#注册模板" class="headerlink" title="注册模板"></a>注册模板</h3><p>注册页面的模板和登录页面的模板类似，<code>register.html</code>保存在登录页面所在目录中</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;% draw %&#125;</span><br><span class="line">&#123;% extends 'learning_logs/base.html' %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">"post"</span> <span class="attr">action</span>=<span class="string">"&#123;% url 'users:register' %&#125;"</span>&gt;</span></span><br><span class="line">        &#123;% csrf_token %&#125;</span><br><span class="line">        &#123;&#123; form.as_p &#125;&#125;</span><br><span class="line">        <span class="tag">&lt;<span class="name">button</span> <span class="attr">name</span>=<span class="string">"submit"</span>&gt;</span>register<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"next"</span> <span class="attr">value</span>=<span class="string">"&#123;% url 'learning_logs:index' %&#125;"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">&#123;% endblock content %&#125;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+<p><code>注：使用了方法as_p，使得表单中正确显示所有字段，包括错误消息</code></p>
+<h3 id="链接到注册页面"><a href="#链接到注册页面" class="headerlink" title="链接到注册页面"></a>链接到注册页面</h3><p><strong>base.html</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;% draw %&#125;</span><br><span class="line">&lt;p&gt;</span><br><span class="line">    &lt;a href="&#123;% url 'learning_logs:index' %&#125;"&gt;Learning Log&lt;/a&gt; -  &lt;!--创建一个包含项目名的段落，也是一个到主页的链接--&gt;</span><br><span class="line">    &lt;a href="&#123;% url 'learning_logs:topics' %&#125;"&gt;Topics&lt;/a&gt; -</span><br><span class="line"></span><br><span class="line">    &#123;% <span class="keyword">if</span> user.is_authenticated %&#125;</span><br><span class="line">        Hello,&#123;&#123; user.username &#125;&#125;.</span><br><span class="line">        &lt;a href="&#123;% url 'users:logout' %&#125;"&gt;Log out&lt;/a&gt;</span><br><span class="line">    &#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">        &lt;a href="&#123;% url 'users:login' %&#125;"&gt;log in&lt;/a&gt;</span><br><span class="line">        &lt;a href="&#123;% url 'users:register'%&#125;"&gt;register&lt;/a&gt;      # new</span><br><span class="line">    &#123;% endif %&#125;</span><br><span class="line">&lt;/p&gt;</span><br><span class="line">&#123;% block content %&#125;&#123;% endblock content %&#125;</span><br><span class="line">&#123;% endraw %&#125;</span><br></pre></td></tr></table></figure>
+<p><code>注：已经登录的用户看到的是注销链接和问候语，没有登录的则显示登录和注册</code></p>
+<h2 id="让用户拥有自己的数据"><a href="#让用户拥有自己的数据" class="headerlink" title="让用户拥有自己的数据"></a>让用户拥有自己的数据</h2><p>用户能够输入其专用的数据，因此创建一个系统，确定各项数据所属的用户，在限制对页面的访问，让用户只能使用自己的数据</p>
+<h3 id="使用-login-required限制访问"><a href="#使用-login-required限制访问" class="headerlink" title="使用@login_required限制访问"></a>使用<code>@login_required</code>限制访问</h3><p>对于某些页面，只能允许已经登录的用户访问。<code>装饰器（decorator）</code>是放在函数前面定义前面的指令</p>
+<p><strong>限制对topics页面的访问</strong></p>
+<p>每个主题都归特定的用户所有，因此只允许已登录的用户请求topics页面，在<code>learning_logs/views.py</code>中修改</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> TopicForm,EntryForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required    <span class="comment"># new</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="string">"""学习笔记的主页"""</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'learning_logs/index.html'</span>)</span><br><span class="line"><span class="meta">@login_required()                                          # new</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topics</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="string">"""显示所有主题"""</span></span><br><span class="line">    topics = Topic.objects.order_by(<span class="string">'date_added'</span>)</span><br><span class="line">    context = &#123;<span class="string">'topics'</span>:topics&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'learning_logs/topics.html'</span>,context)</span><br></pre></td></tr></table></figure>
+<p><code>注：login_required()的代码检查用户是否已登录，仅当用户登录后时，django才运行topics()的代码，如果没有登录就重定向到登录页面，为了实现重定向，修改settings.py，在其末尾添加一行设置</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">USE_L10N = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">USE_TZ = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Static files (CSS, JavaScript, Images)</span></span><br><span class="line"><span class="comment"># https://docs.djangoproject.com/en/2.2/howto/static-files/</span></span><br><span class="line"></span><br><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的设置</span></span><br><span class="line">LOGIN_URL = <span class="string">'/users/login/'</span>              <span class="comment"># new</span></span><br></pre></td></tr></table></figure>
+<h3 id="全面限制对项目的访问"><a href="#全面限制对项目的访问" class="headerlink" title="全面限制对项目的访问"></a>全面限制对项目的访问</h3><p>将不限制对主页、注册页面和注销页面的访问，并限制对其他所有页面的访问。</p>
+<p>所以在<code>learning_logs/views.py</code>中，对除了<code>index()</code>外的每个视图都应用了装饰器<code>@login_required</code></p>
+<p>==操作方式和上述方式一样，只需要添加一行代码即可==</p>
+<h3 id="将数据关联到用户"><a href="#将数据关联到用户" class="headerlink" title="将数据关联到用户"></a>将数据关联到用户</h3><p><strong>对<code>models.py</code>进行修改</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.models <span class="keyword">import</span> User         <span class="comment"># new</span></span><br><span class="line"><span class="comment"># Create your models here.</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Topic</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    text = models.CharField(blank=<span class="literal">True</span>,max_length=<span class="number">200</span>)</span><br><span class="line">    date_added = models.DateTimeField(auto_now_add=<span class="literal">True</span>)</span><br><span class="line">    owner = models.ForeignKey(User,on_delete=models.CASCADE)    <span class="comment"># new</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.text</span><br></pre></td></tr></table></figure>
+<p><strong>确定有哪些用户</strong></p>
+<p>迁移数据库时，django将对数据库进行修改，使其能够存储主题和用户之间的关联，为了执行迁移，必须知道该将各个即有主题关联到哪个用户。将既有主题都关联到一个用户，如超级用户</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">(venv) D:\资料\learning_log&gt;python manage.py makemigrations learning_logs</span><br><span class="line">System check identified some issues:</span><br><span class="line"></span><br><span class="line">WARNINGS:</span><br><span class="line">?: (2_0.W001) Your URL pattern '^users/' has a route that contains '(?P&lt;', begins with a '^', or ends with a '$'. This was likely an oversight when migrating to django.urls.path().</span><br><span class="line"></span><br><span class="line">You are trying to add a non-nullable field <span class="string">'owner'</span> to topic without a default; we can<span class="string">'t do that (the database needs something to populate existing rows).</span></span><br><span class="line"><span class="string">Please select a fix:</span></span><br><span class="line"><span class="string"> 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)</span></span><br><span class="line"><span class="string"> 2) Quit, and let me add a default in models.py</span></span><br><span class="line"><span class="string">Select an option: 1</span></span><br><span class="line"><span class="string">Please enter the default value now, as valid Python</span></span><br><span class="line"><span class="string">The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now</span></span><br><span class="line"><span class="string">Type '</span>exit<span class="string">' to exit this prompt</span></span><br><span class="line"><span class="string">&gt;&gt;&gt; 1</span></span><br><span class="line"><span class="string">Migrations for '</span>learning_logs<span class="string">':</span></span><br><span class="line"><span class="string">  learning_logs\migrations\0003_auto_20191118_1713.py</span></span><br><span class="line"><span class="string">    - Add field owner to topic</span></span><br><span class="line"><span class="string">    - Alter field text on topic</span></span><br></pre></td></tr></table></figure>
+<p><code>注：首先执行了makemigrations，指出给既有模型Topic添加一个必不可少的字段，没有默认值；</code></p>
+<p><strong>只允许用户访问自己的主题</strong></p>
+<p>在<code>views.py</code>中，对函数<code>topics()</code>进行修改</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="string">"""学习笔记的主页"""</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'learning_logs/index.html'</span>)</span><br><span class="line"><span class="meta">@login_required()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topics</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="string">"""显示所有主题"""</span></span><br><span class="line">    topics = Topic.objects.filter(owner=request.user).order_by(<span class="string">'date_added'</span>)    <span class="comment"># new</span></span><br><span class="line">    topics = Topic.objects.order_by(<span class="string">'date_added'</span>)</span><br><span class="line">    context = &#123;<span class="string">'topics'</span>:topics&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'learning_logs/topics.html'</span>,context)</span><br></pre></td></tr></table></figure>
+<p><code>注：用户登录后，request对象将有一个user属性，这个属性存储了有关用户的信息，Topic.objects.filter(owner=request.user)让Django只能从数据库中获取owner属性为当前用户的Topic对象</code></p>
+<p><strong>保护主题</strong></p>
+<p>也就是现在情况下，每个用户登录时都能看到原先加入的条目信息，而不是专属自己的</p>
+<p>更改<code>views.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponseRedirect,Http404  <span class="comment"># new Http404</span></span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> reverse</span><br><span class="line"><span class="keyword">from</span> .forms <span class="keyword">import</span> TopicForm,EntryForm</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> django.contrib.auth.decorators <span class="keyword">import</span> login_required</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create your views here.</span></span><br><span class="line"><span class="meta">@login_required()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">topic</span><span class="params">(request,topic_id)</span>:</span></span><br><span class="line">    topic = Topic.objects.get(id=topic_id)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 确认请求的主题属于当前用户</span></span><br><span class="line">    <span class="keyword">if</span> topic.owner != request.user:          <span class="comment"># new</span></span><br><span class="line">        <span class="keyword">raise</span> Http404</span><br></pre></td></tr></table></figure>
+<h3 id="保护页面edit-entry"><a href="#保护页面edit-entry" class="headerlink" title="保护页面edit_entry"></a>保护页面edit_entry</h3><p>页面<code>edit_entry</code>的url为<a href="https://localhost:8001/edit_entry/entry_id，其中`entry_id`是一个数字，设置保护页面，禁止用户通过输入类似于其前面的url来访问用户的条目" target="_blank" rel="noopener">https://localhost:8001/edit_entry/entry_id，其中`entry_id`是一个数字，设置保护页面，禁止用户通过输入类似于其前面的url来访问用户的条目</a></p>
+<p><code>views.py</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">login_required()</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit_entry</span><span class="params">(request,entry_id)</span>:</span></span><br><span class="line">    entry = Entry.objects.get(id=entry_id)</span><br><span class="line">    topic = entry.topic</span><br><span class="line">    <span class="keyword">if</span> topic.owner != request.user:          <span class="comment"># new</span></span><br><span class="line">        <span class="keyword">raise</span> Http404</span><br><span class="line">    <span class="keyword">if</span> request.method != <span class="string">'POST'</span>:</span><br><span class="line">        form = EntryForm(instance=entry)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        form = EntryForm(instance=entry,data=request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():</span><br><span class="line">            form.save()</span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(reverse(<span class="string">'learning_logs:topic'</span>,args=[topic.id]))</span><br><span class="line">    context = &#123;<span class="string">'entry'</span>:entry,<span class="string">'topic'</span>:topic,<span class="string">'form'</span>:form&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'learning_logs/edit_entry.html'</span>,context)</span><br></pre></td></tr></table></figure>
+<h3 id="将新主题关联到用户"><a href="#将新主题关联到用户" class="headerlink" title="将新主题关联到用户"></a>将新主题关联到用户</h3><p>修复代码</p>
+<p><strong>views.py</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@login_required()</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">new_topic</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method != <span class="string">'POST'</span>:</span><br><span class="line">        form = TopicForm()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        form = TopicForm(request.POST)</span><br><span class="line">        <span class="keyword">if</span> form.is_valid():                   <span class="comment"># 修改部分</span></span><br><span class="line">            new_topic = form.save(commit=<span class="literal">False</span>)</span><br><span class="line">            new_topic.owner = request.user</span><br><span class="line">            new_topic.save()</span><br><span class="line">            <span class="keyword">return</span> HttpResponseRedirect(reverse(<span class="string">'learning_logs:topics'</span>))</span><br><span class="line">    context = &#123;<span class="string">'form'</span>:form&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'learning_logs/new_topic.html'</span>,context)</span><br></pre></td></tr></table></figure>
+<div><strong>🚩推荐阅读</strong><ul><li><a href="https://albert-5.cn/2019/11/17/django开发实践版本问题导致错误/">django开发实践版本问题导致错误</a></li><li><a href="https://albert-5.cn/2019/11/16/Django后传-1/">Django后传</a></li><li><a href="https://albert-5.cn/2019/11/17/Django续传/">Django续传</a></li></ul></div>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-11-18T14:58:22.911Z" itemprop="dateUpdated">2019-11-18 22:58:22</time>
+</span><br>
+
+
+        
+        <br><br><b><center>版权声明</center></b><br><strong>作者：</strong> Albert <br> <strong>来源：</strong> <a href="https://albert-5.cn">Albert小破站</a> <br><strong>本文地址</strong>：<a href="/2019/11/18/Django续续传-用户账号/" target="_blank" rel="external">https://albert-5.cn/2019/11/18/Django续续传-用户账号/</a>，转载请务必注明<font color="indigo"><strong>作者</strong>和<strong>来源</strong></font>
+        
+    </div>
+    
+    <footer>
+        <a href="https://albert-5.cn">
+            <img src="/img/avatar.jpg" alt="albert">
+            albert
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/django/">django</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网站实例用户篇/">网站实例用户篇</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/11/18/Django续续传-用户账号/&title=《Django续续传-用户账号》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/11/18/Django续续传-用户账号/&title=《Django续续传-用户账号》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/11/18/Django续续传-用户账号/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Django续续传-用户账号》 — Albert&url=https://albert-5.cn/2019/11/18/Django续续传-用户账号/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/11/18/Django续续传-用户账号/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/11/17/django开发实践版本问题导致错误/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">django开发实践版本问题导致错误</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+	
+
+
+	
+
+
+	
+
+
+	
+    <!-- Valine Comments -->
+    <section class="comments" id="comments" style="margin-top:40px;padding:1px 15px 1px 10px;background-color:rgba(255,255,255,0.7);box-shadow: 0px 0px 20px #bbbbbb;border-radius: 5px;">
+    </section>
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'false',
+            verify: 'false' == 'false',
+            appId: "INtYRvGKRn1Ey9323UGJz7gk-gzGzoHsz",
+            appKey: "sruYEhxHh1hJxo04K2Gd8heb",
+            avatar: "monsterid",
+            placeholder: "ヾﾉ≧∀≦)o来啊，快活啊!",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+		console.log("Valine done!")
+		 
+    </script>
+    <!-- Valine Comments end -->
+
+
+	
+
+
+	
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢老板~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span><a href="https://github.com/Albert-5" target="_blank" class="Github" title="Github"><i class="icon icon-lg icon-github"></i></a></span>
+            <span><a href="https://weibo.com/5973922558/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" class="weibo" title="weibo"><i class="icon icon-lg icon-weibo"></i></a></span>
+            <span><a href="https://twitter.com/Starky35793281" target="_blank" class="twitter" title="twitter"><i class="icon icon-lg icon-twitter"></i></a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+        <!-- <p>
+            <span><a href="https://github.com/Albert-5" target="_blank" class="Github" title="Github"><i class="fab fa-github"></i></a></span>
+        </p> -->
+    </div>
+
+    <div class="bottom">
+        <p><span>albert &copy; 2018 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+    
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://albert-5.cn/2019/11/18/Django续续传-用户账号/&title=《Django续续传-用户账号》 — Albert&pic=https://albert-5.cn/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://albert-5.cn/2019/11/18/Django续续传-用户账号/&title=《Django续续传-用户账号》 — Albert&source=欢迎光顾本站~" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://albert-5.cn/2019/11/18/Django续续传-用户账号/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Django续续传-用户账号》 — Albert&url=https://albert-5.cn/2019/11/18/Django续续传-用户账号/&via=https://albert-5.cn" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://albert-5.cn/2019/11/18/Django续续传-用户账号/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACM0lEQVR42u3aQY7jMAwEwPn/p7PAntdON+VZwFLpFCRjSeWDhiL58xOPz99x9f3VuPrL9tnHBgYGxmsZyXRXy9/Pc/8i7uevqRgYGAcw7g/Zq88J4H5D+bpf9oyBgYFxG9jlB277KwYGBsbswL2/miYzJ5dbDAwMjNkltj00Z2Hir9/FMTAwXshoCwP/8/Mv1jcwMDBewviMxiz4e2r1f+wHAwNja0ZyEV0/9/KDO/mmuA1jYGBsxEhaIvJmi3bm9WswBgbG3ox8i0mh8akyQJ1Ww8DAOICRHKPJpMlh3R7BUZiIgYGxNaMN7PKgcL0AkBdWMTAw9masbKiN09rmszyIxMDA2JuRbze/vq6k+9vUHgYGxgmMWXCWlweSZ4vo9eofAwYGxjGMfKL8LG/LALOWDgwMjL0Z+SbWNzQrW9apOgwMjE0ZwxaH+OqbHN9twRIDA+M0Rn6xXCk35g1kbSkCAwPjBMZ6VSFPmc0SbVEYioGBsTWjXbLF5wm7B5J0GBgYmzKSYmTeOjaLTGeHb1GvwMDA2IjRtm3l6ftPMJJw8HInGBgYWzOi1qsy9f9YZbVttsDAwNiO8SlHQp01cLSvoKhLYGBgvJzRXjJnibO8qWIWaGJgYJzAWCkrztop2oJE9CwGBsYBjPa4nF04V0oIX14uBgYGRllWbNu8ktW/gDEwMDBGjVxtWm0WjGJgYJzDmC2ZLNam/ocFAAwMjK0Z60mxWdg3K5fWPSMYGBjvZvwBGh8i4KfqwVwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+ <!-- 添加百度统计js -->
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?4099fc41b7fab35703d6ee8152506fa9";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)哦吼!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+<!-- 插入音乐插件js文件 -->
+<script src="//cdn.jsdelivr.net/npm/meting@1.1.0/dist/Meting.min.js"></script>
+
+
+    <!-- 爱心点击特效 -->
+    <script type="text/javascript" src="/js/click.js"></script>
+    
+    <!-- 社会主义核心价值观点击特效 -->
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        /* 鼠标点击特效 - 7Core.CN */
+        var a_idx = 0;jQuery(document).ready(function($) {$("body").click(function(e) {var a = new Array("富强", "民主", "文明", "和谐", "自由", "平等", "公正" ,"法治", "爱国", "敬业", "诚信", "友善");var $i = $("<span/>").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;var x = e.pageX,y = e.pageY;$i.css({"z-index": 100000000,"top": y - 20,"left": x,"position": "absolute","font-weight": "bold","color": "#C20f0b"});$("body").append($i);$i.animate({"top": y - 180,"opacity": 0},1500,function() {$i.remove();});});});
+    </script>
+    
+
+    <script src="//code.tidio.co/dhfi5clsw9dl27z5yr9nyrnwtuqc4zhv.js"></script>
+    
+    <!-- weather -->
+ <!--    <script type="text/javascript">WIDGET = {FID: 'rNrYhPQIei'}</script>
+    <script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+ -->
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"position":"left","width":150,"height":300,"jsonPath":"/live2dw/assets/assets/shizuku.model.json"},"mobile":{"show":false}});</script></body>
+</html>
