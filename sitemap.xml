@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://albert-5.cn/about/index.html</loc>
+    
+    <lastmod>2021-03-11T14:56:49.872Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://albert-5.cn/desktop/index.html</loc>
     
-    <lastmod>2020-04-12T00:37:25.538Z</lastmod>
+    <lastmod>2021-03-11T14:56:41.346Z</lastmod>
     
   </url>
   
@@ -82,13 +89,6 @@
     <loc>https://albert-5.cn/2019/11/16/Django%E8%BF%81%E7%A7%BB%E6%A8%A1%E5%9E%8B%E6%97%B6%E6%8A%A5%E9%94%99/</loc>
     
     <lastmod>2019-11-16T10:45:04.886Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://albert-5.cn/about/index.html</loc>
-    
-    <lastmod>2019-11-14T12:40:53.733Z</lastmod>
     
   </url>
   
