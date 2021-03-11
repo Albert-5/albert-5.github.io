@@ -242,7 +242,13 @@ ga('send', 'pageview');
 1. 两数之和问题给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
 你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。
 示例:
-1234给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9...
+1234给定 nums = [2, 7, 11, 15], target = 9因为 nums[0] + nums[1] = 2 + 7 = 9所以返回 [0, 1]
+解法1–暴力解法
+思路：
+
+给定一个数组和一个特定的目标值，对每一个数进行遍历，然后利用两层循环遍历的值进行if条件判断，如果相等，则返回下标；否则返回None.
+
+具体实现：...
     
 
         <a href="/2019/05/16/Leetcode/" class="post-more waves-effect waves-button">
@@ -299,7 +305,7 @@ ga('send', 'pageview');
 
 注销url.py
 修改的是users/urls.py
-1234567891011"""为应用程序users定义url模式"""from django.conf.urls import urlfrom django.contrib.auth.views import LoginViewfrom...
+1234567891011"""为应用程序users定义url模式"""from django.conf.urls import urlfrom django.contrib.auth.views import LoginViewfrom . import viewsurlpatterns = [    # login    url(r'^login/$',LoginView.as_view(template_name='users/...
     
 
         <a href="/2019/11/18/Django续续传-用户账号/" class="post-more waves-effect waves-button">
@@ -355,7 +361,8 @@ ga('send', 'pageview');
 代码为：
 12from django.contrib.auth import loginurl(r'^login/$',login,&#123;'template_name'='users/login.html'&#125;,name='login')
 报错信息为：
-1TypeError:...
+1TypeError: login() got an unexpected keyword argument 'template_name’
+这是因为Django版本是1.0的，而我的Django是2.0，所以出现了这个错...
     
 
         <a href="/2019/11/17/django开发实践版本问题导致错误/" class="post-more waves-effect waves-button">
@@ -410,7 +417,9 @@ ga('send', 'pageview');
         用户账户
 用户表单添加主题创建基于表单的页面的方法几乎与前面创建网页一样：定义一个url，编写一个视图函数并编写一个模板。
 用于添加主题的表单用户输入信息，我们需要验证，确认提供的信息是正确的类型，然后再对有效的信息进行处理，并将其存储到数据库的地方。
-在Django中创建表单最简单的方式是使用ModelForm，会自动创建表单。创建一个forms.py，将其存储到models.py所在目录...
+在Django中创建表单最简单的方式是使用ModelForm，会自动创建表单。创建一个forms.py，将其存储到models.py所在目录中
+forms.py
+12345678from django import formsfrom .models import Topicclass TopicForm(forms.ModelForm)...
     
 
         <a href="/2019/11/17/Django续传/" class="post-more waves-effect waves-button">
@@ -479,7 +488,14 @@ ga('send', 'pageview');
 
 功能说明
 
-从键盘输入或者从文件中读取相关数据，创建图书信息表==ISBN，书名...
+从键盘输入或者从文件中读取相关数据，创建图书信息表==ISBN，书名、作者、出版社、出版年月、价格==
+按照书名查询某本书的所有信息
+按照书名删除某本图书的所有信息
+添加新的图书信息
+输出显示所有图书的信息
+菜单功能，模块化设计
+
+🚩推荐阅读sublime配置有关问...
     
 
         <a href="/2019/11/16/图书信息查询课程设计/" class="post-more waves-effect waves-button">
@@ -541,7 +557,11 @@ ga('send', 'pageview');
             
 由于渲染模板的问题，导致指令混淆，特在此说明！
 
-Django 管理网站创建超级用户Django允许创建具备所有权限的用户–超级用户，权...
+Django 管理网站创建超级用户Django允许创建具备所有权限的用户–超级用户，权限决定了用户可以执行的操作。
+为创建超级用户，需要执行下面操作：
+1python manage.py createsuperuser
+注:在创建时，系统会提示输入用户名和秘密
+向管理网站注册模型Dja...
     
 
         <a href="/2019/11/16/Django后传-1/" class="post-more waves-effect waves-button">
@@ -598,7 +618,8 @@ Django 管理网站创建超级用户Django允许创建具备所有权限的用�
 
 问题起因刚开始的报错信息是这样的：
 123INFO  Start processingUnhandled rejection Template render error: (unknown path) [Line 32, Column 52]  tag name expected   # 这才是重点
-...
+后来改正了一下报错信息是这个了：
+12Unhandled rejection Template render error: (unknown path) [Line 32, Column 46]  u...
     
 
         <a href="/2019/11/16/有关hexo-g的报错解决方法/" class="post-more waves-effect waves-button">
@@ -657,7 +678,10 @@ views.py   处理用户发出的请求，从urls.py中对应过来，通过渲�
 
 models.py   与数据库相关，存入或读取数据时用到
 
-forms.py    表单，用户在浏览器上输入数...
+forms.py    表单，用户在浏览器上输入数据提交，对数据的验证工作以及输入框的生成等工作
+templates文件夹    views.py中的函数渲染templates中的HTML模板，得到动态内容的网页，也可以用缓存来提高速度
+
+admin...
     
 
         <a href="/2019/11/16/Django前传/" class="post-more waves-effect waves-button">
@@ -711,7 +735,7 @@ forms.py    表单，用户在浏览器上输入数...
     
         Django2.0异常：Specifying a namespace in include() without providing an app_name is not supported.
 主目录下的urls.py如下：
-1234567from django.contrib import adminfrom django.urls import path,includeurlpattern...
+1234567from django.contrib import adminfrom django.urls import path,includeurlpatterns = [    path(r'admin/', admin.site.urls),    path(r'',include('learning_logs.urls',namespace='learn...
     
 
         <a href="/2019/11/16/Django2-0异常/" class="post-more waves-effect waves-button">
@@ -773,7 +797,11 @@ forms.py    表单，用户在浏览器上输入数...
             
 由于渲染模板的问题，导致指令混淆，特在此说明！
 
-Django 管理网站创建超级用户Django允许创建具备所有权限的用户–超级用户，权...
+Django 管理网站创建超级用户Django允许创建具备所有权限的用户–超级用户，权限决定了用户可以执行的操作。
+为创建超级用户，需要执行下面操作：
+1python manage.py createsuperuser
+注:在创建时，系统会提示输入用户名和秘密
+向管理网站注册模型Dja...
     
 
         <a href="/2019/11/16/Django后传/" class="post-more waves-effect waves-button">

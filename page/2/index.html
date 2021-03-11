@@ -237,7 +237,10 @@ ga('send', 'pageview');
         Django迁移模型时报错：IndentationError: expected an indented block在迁移模型Entry时，运行代码时
 1python manage.py makemigrations learning_logs
 报错！
-经官方文档解释：https://docs.djangoproject.com/en/1.11/ref/models/fields/#fore...
+经官方文档解释：https://docs.djangoproject.com/en/1.11/ref/models/fields/#foreignkey发现`foreignkey`需要增加一个参数`on_delete`，于是将
+1topic = models.ForeignKey(Topic)
+更改为：
+1topic = models.F...
     
 
         <a href="/2019/11/16/Django迁移模型时报错/" class="post-more waves-effect waves-button">
@@ -296,7 +299,8 @@ ga('send', 'pageview');
 首先在.py的文件的开头添加上编码设置来说明文件的编码
 1# encoding='utf8'
 
-然后，在连接数据的连接参数上加上字符集说明查询的结果的编码，这个不加...
+然后，在连接数据的连接参数上加上字符集说明查询的结果的编码，这个不加的话导致的结果就是一系列的问好
+12import pymysqldb = pymysql.connect('localhost','your id','your password','your dat...
     
 
         <a href="/2019/11/14/导出mysql数据的编码问题/" class="post-more waves-effect waves-button">
@@ -354,7 +358,11 @@ ga('send', 'pageview');
 
 表单标签：这里面包含了处理表单元素所用CGI程序的URL以及数据提交到服务器的方法
 表单域：包含了文本框、密码框、隐藏域、多行文本框、复选框、单选框、下拉选择框和文件上传框等。
-表单按钮：包括提交按钮、复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控...
+表单按钮：包括提交按钮、复位按钮和一般按钮；用于将数据传送到服务器上的 CGI 脚本或者取消输入，还可以用表单按钮来控制其他定义了处理脚本的处理工作
+
+
+注：定义来源于百科
+1&lt;form name='form_name' method='get/post' action='url'&gt;&lt;/form&g...
     
 
         <a href="/2019/11/04/html表单/" class="post-more waves-effect waves-button">
@@ -414,7 +422,8 @@ ga('send', 'pageview');
 在HTML中，图象由&lt;img&gt;标签定义。语法为：
 12&gt; &lt;img src='url' alt=''/&gt;&gt;
 
-&lt;img&gt;是空标签，它只包含属性，没有闭合标签。要在页面上显示图像，需要使用源属性src。src的值是图像文件的URL，也就是引用该图像的文件的绝对路径或者是相对路径。alt规定图像的替代文本即当图片未成功显示...
+&lt;img&gt;是空标签，它只包含属性，没有闭合标签。要在页面上显示图像，需要使用源属性src。src的值是图像文件的URL，也就是引用该图像的文件的绝对路径或者是相对路径。alt规定图像的替代文本即当图片未成功显示的时候显示的文本信息。title设置鼠标悬停时显示的内容(一般不用设置)。另外还可以设置width和height的值来设置图片的宽和高。
+1&lt;img src='https://albert-5....
     
 
         <a href="/2019/11/01/html之多媒体嵌入/" class="post-more waves-effect waves-button">
@@ -478,7 +487,11 @@ ga('send', 'pageview');
 
 &lt;tr&gt;标签用于定义每一行
 
-&lt;td&gt;...
+&lt;td&gt;标签
+
+&lt;td&gt;标签用于定义每一列
+
+12345678910&lt;table&gt;  &lt;tr&gt;    &lt;td&gt;第一行第一列&lt;/td&gt;    &lt;...
     
 
         <a href="/2019/11/01/html后期-副/" class="post-more waves-effect waves-button">
@@ -540,7 +553,8 @@ ga('send', 'pageview');
 
 语法格式
 1234&lt;ol type=value1 start=value2&gt;  &lt;li&gt;  &lt;/li&gt;&lt;/ol&gt;
-注：valu...
+注：value1表示有序列表项目符号的类型，value2表示项目开始的数值，其中type属性如下：
+| type类型 |                      描述                      ...
     
 
         <a href="/2019/10/30/html后期/" class="post-more waves-effect waves-button">
@@ -596,7 +610,7 @@ ga('send', 'pageview');
 双标签也称为体标记，是指有开始和结束两个标记符组成的标记
 &lt;标记名&gt; &lt;/标记名&gt;
 常见的双标签有：
-123456789101112131415&lt;html&gt;&lt;/html&gt;&lt;head&gt;&lt;/head&gt;&lt;title&gt;&lt;/title&gt;&lt;body&gt;&lt;/body&gt;&...
+123456789101112131415&lt;html&gt;&lt;/html&gt;&lt;head&gt;&lt;/head&gt;&lt;title&gt;&lt;/title&gt;&lt;body&gt;&lt;/body&gt;&lt;h1&gt;&lt;/h1&gt;&lt;h2&gt;&lt;/h2&gt;&lt;p&gt;&lt;/p&gt;&lt;div&gt;&lt;/div&gt;&lt;span&gt;&lt;/...
     
 
         <a href="/2019/10/30/html前期/" class="post-more waves-effect waves-button">
@@ -711,7 +725,39 @@ E
 E
 
 
-渐变...
+渐变/油漆桶工具
+G
+G
+
+
+减淡/加深/海绵工具
+O
+O
+
+
+钢笔工具
+P
+P
+
+
+文字工具
+T
+T
+
+
+选择工具
+A
+A
+
+
+矩形/椭圆/多边形/直线/自定义形状工具
+U
+U
+
+
+3D对象工具
+K
+K...
     
 
         <a href="/2019/10/01/快捷键/" class="post-more waves-effect waves-button">
@@ -764,7 +810,7 @@ E
 
     
         关于国内访学的思考以及个人发展规划国内访学因为幸运我有机会去了别人家的大学，国内一所985、211以及双一流院校。大二参加了国内的访学项目并在此期间到合作学校进行为期一年的学习，这就意味着，我将离开刚刚熟悉的大学新校园，转而到另一所新大学去学习，一切都需要重新适应和改变，而且将会认识更多的同学，同时还将意味着我能够接受到更多优质的学习资源、遇到更多优秀的同学，努力提升自己成为一个优秀的人。
-...
+去年今日，我正在新的校园里畅游、徘徊，因为我想好好看看她（渴望而不可及的大学）到底是什么样子，和我的这个学校有什么不同吗？到底是什么魔力吸引着无数高考生的目光，使其奋进全力去考？而我到底值不值在这花费...
     
 
         <a href="/2019/09/05/国内访学与发展规划/" class="post-more waves-effect waves-button">
@@ -825,7 +871,11 @@ E
 一般属于一个单位所有，易建立、维护和扩展
 
 另一角度：
-从介质访问方法的角度看，局域网可以...
+从介质访问方法的角度看，局域网可以分为共享介质式局域网与交换式局域网；从使用的传输介质类型的角度，又可以分为有限介质的有限局域网和无线局域网。
+技术发展的三个方向：
+
+提高以太网的数据传输速率
+将一个大型局域网划分成多个用网桥或者路由...
     
 
         <a href="/2019/08/01/网络技术笔记/" class="post-more waves-effect waves-button">

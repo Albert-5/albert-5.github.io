@@ -237,7 +237,7 @@ ga('send', 'pageview');
         豆瓣电影Top 250原理方法使用的模块chardet模块—判断编码
 1Pip install chardet
 使用上述命令安装模块
-123456789101112131415#如果你的python没有安装chardet模块，你需要首先安装一下chardet判断编码的模块哦import chardetimport urllib#先获取网页内容data = urllib.urlopen('ht...
+123456789101112131415#如果你的python没有安装chardet模块，你需要首先安装一下chardet判断编码的模块哦import chardetimport urllib#先获取网页内容data = urllib.urlopen('http://www.pythontab.com').read()#用chardet进行内容分析chardit = chardet.detect(data)  data1 = urllib.urlopen...
     
 
         <a href="/2019/08/01/豆瓣电影top250/" class="post-more waves-effect waves-button">
@@ -296,7 +296,12 @@ ga('send', 'pageview');
 关系函数  $F(e)={u,v}$
 图的表示就有 $ G={V, E, F}$
 欧拉图特点： 线图，连通，无奇度顶点（https://zhidao.baidu.com/question/208310107.html）
-边与边之间有相邻不相邻...
+边与边之间有相邻不相邻关系：共顶点则为相邻关系，反之亦然；
+求欧拉巡回的算法：fleury算法，hierholzer算法
+求最佳巡回算法：edmonds算法
+
+                
+              ...
     
 
         <a href="/2019/07/03/数学建模笔记/" class="post-more waves-effect waves-button">
@@ -364,7 +369,16 @@ ga('send', 'pageview');
 
 种群表达法 – 编码方法
 
-遗传算子 genetic oper...
+遗传算子 genetic operator
+交叉 crossover   变异 mutation  
+交叉率高，解空间大，但计算时间较长
+
+选择策略
+一般为正比选择
+选择种群中适值高的个体，适者生存
+
+停止准则
+一般是指定最大迭代次数...
     
 
         <a href="/2019/06/29/智能优化算法/" class="post-more waves-effect waves-button">
@@ -432,7 +446,13 @@ ga('send', 'pageview');
  形策（一部分应该）
  就业指导
 
-通识选修课程（选修文科类课程最少修读4分）通识选修课程（最...
+通识选修课程（选修文科类课程最少修读4分）通识选修课程（最少修读6学分）大学生英语扩展课程（最少6学分）
+ 英语3  3
+ 英语4  3
+ 高级媒体视听说  3
+ 学术英语阅读与写作 &lt;应该可以用 创意写作 代替&gt;  3
+ 中国文化概况   3
+...
     
 
         <a href="/2019/06/21/课程/" class="post-more waves-effect waves-button">
@@ -490,7 +510,10 @@ ga('send', 'pageview');
 
 虚拟社区（线上游戏、讨论区）中的讨要点卡、高级账号者
 
-理直气壮的向别人索要他人成果                                                   ...
+理直气壮的向别人索要他人成果                                                      
+
+他人发布的消息以及通知等不认真阅读，反复询问者【自己定义】
+​                                                                ...
     
 
         <a href="/2019/06/14/Waring/" class="post-more waves-effect waves-button">
@@ -545,7 +568,12 @@ ga('send', 'pageview');
         微信好友 一览无余【itchat】一个微信的开源API，微信是一种常用的社交网络应用程序。
 通过python中的聊天访问个人微信账户，然后通过微信机器人进行处理个人所有基本信息。
 安装itchat模块1pip install itchat
-简单使用123import itchatitchat.auto_login()itchat.send('Hello, filehelper', toUse...
+简单使用123import itchatitchat.auto_login()itchat.send('Hello, filehelper', toUserName='filehelper')
+详情见itchat官方网站
+主要用到的方法有：
+
+itchat.login()微信扫码登录
+itchat.get_friends()返回完整的列表好友，每个好友...
     
 
         <a href="/2019/06/12/Wechat爬取好友信息/" class="post-more waves-effect waves-button">
@@ -605,7 +633,9 @@ ga('send', 'pageview');
 
 
 –Input: A sequence of n numbers a~1~, a~2~, …, a~n~
-–Output: A permutatio...
+–Output: A permutation   (reordering) a’~1~, a’~2~, …, a’~n~ of the input sequence such that
+
+a’~1~&lt;=a’~2~ &lt;= … &lt...
     
 
         <a href="/2019/06/02/算法导论复习/" class="post-more waves-effect waves-button">
@@ -661,7 +691,12 @@ ga('send', 'pageview');
 内容来源于爱美工的程序员
 
 网络流（Network Flow）网络流和线性规划、动态规划是有关系的。它们都属于数学规划，也就是用数学的方法来帮助决策。（详情参考清华大学《数学规划》）这样来看，就没有神秘可言了。小样，换个马甲我还认识你。所以，网络流也是一个解决极值问题的数学方法。
-要解决问题，总得先有个靠谱的模型吧。动态规划和线性规划里边都有公式啥的。总之，要先形式化（建模），再解决。所以...
+要解决问题，总得先有个靠谱的模型吧。动态规划和线性规划里边都有公式啥的。总之，要先形式化（建模），再解决。所以，就有了流网络。
+流网络（Flow Network）顾名思义，流网络是一种用流构成的网络，如下图。
+
+                
+                    
+           ...
     
 
         <a href="/2019/06/01/网络流Network-Flow/" class="post-more waves-effect waves-button">
@@ -716,7 +751,9 @@ ga('send', 'pageview');
         Typora 语法数学表达式要启用这个功能，首先到Preference-&gt;Editor中启用。然后使用$符号包裹Tex命令，例如：$lim_{x \to \infty} \ exp(-x)=0$将产生如下的数学表达式：
 $\lim_{x \to \infty} \exp(-x)=0$
 下标下标使用~包裹，例如：H~2~O将产生H~2~O, 即水的分子式。
-上标上标使用^包裹，例如：y^...
+上标上标使用^包裹，例如：y^2^=4将产生表达式y^2^ = 4
+插入表情:happy:使用:happy:输入表情:happy:,使用:sad:输入表情:sad:,使用:cry:输入表情:cry:等。以此类推！
+下划线用HTML...
     
 
         <a href="/2019/05/31/Typora语法/" class="post-more waves-effect waves-button">
@@ -770,7 +807,7 @@ $\lim_{x \to \infty} \exp(-x)=0$
     
          模拟退火算法
 模拟退火算法(SimulatedAnnealing)是基于Monte-Carlo迭代求解策略的一种随机寻优算法,主要用于组合优化问题的求解。
-假设现在有这么一个函数：$$f(x) = x^3-72x^2+4x+5$$现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要...
+假设现在有这么一个函数：$$f(x) = x^3-72x^2+4x+5$$现要求其在[0,100]范围内的最小值，如果不求导计算，可能第一反应都是穷举法，把范围内每个值都算一遍再比较大小。如果求的是整数范围，那么要算100遍，但是如果要精确到小数后8位，则要算10000000000次，即便使用计算机依然是一个庞大的运算过程。而优化问题中很多都类似于问题，无法用穷举法解出答案，我们叫这类问题为NP难问题（可查看维基百科：NP-hard...
     
 
         <a href="/2019/05/23/模拟退火算法/" class="post-more waves-effect waves-button">
